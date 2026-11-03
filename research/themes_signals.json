@@ -1,0 +1,288 @@
+{
+ "total": 706,
+ "cost": 0.15316890000000002,
+ "themes": [
+  {
+   "id": "interview_process_design",
+   "name": "Interview process design and fairness",
+   "definition": "Interviewer skill, rubrics, bias, consistency, number of rounds, candidate time budget, sourcing, pipelines, feedback and mutual evaluation.",
+   "n": 83,
+   "pct": 11.8,
+   "examples": [
+    "Judge older candidates on the experience they bring, not on their age.",
+    "Interview topics beyond classic algorithms can measure learning ability, passion, and interest in the company.",
+    "Design-focused and soft-skill interviews predict workplace performance better than esoteric algorithm problems.",
+    "Interviews should reflect real engineering work and discuss the company, not just theory trivia.",
+    "Heavy prep materials help filter candidates who use provided information diligently and efficiently.",
+    "Poster says hiring works well without LeetCode-style grilling; interviewer skill matters a lot."
+   ]
+  },
+  {
+   "id": "reasoning_communication",
+   "name": "Narrating reasoning and thought process",
+   "definition": "Thinking aloud, explaining approach, structuring thoughts and communicating clearly valued over the final answer or raw speed; includes silent candidates being misread.",
+   "n": 72,
+   "pct": 10.2,
+   "examples": [
+    "Gives junior candidates problems they probably can't solve, to see how they reason about them.",
+    "Candidates who can explain their thought process are preferred over slightly stronger coders.",
+    "Interviewers want visible reasoning and willingness to learn; signaling reliance on AI hurts candidates.",
+    "Passing isn't just knowing the material; you must convince the interviewer that you know it.",
+    "Interviewers should watch how candidates think, communicate, and read and edit code, not just puzzle speed.",
+    "Candidates who recognize the problem and propose solutions quickly; hints and sound approach earn positive feedback."
+   ]
+  },
+  {
+   "id": "realistic_work_samples",
+   "name": "Realistic work-sample and take-home design",
+   "definition": "Take-homes, paid trials, real-ticket tasks and job-mirroring exercises; time-box, grading transparency, free-labor concerns, and follow-up discussion of submissions.",
+   "n": 52,
+   "pct": 7.4,
+   "examples": [
+    "Validate interview scores against new hires' real performance; a paid trial work period is the best selector.",
+    "Timeboxed work samples in a familiar setting reveal more than leetcode; coding bars should just require a working solution.",
+    "Poster prefers take-home problems reviewed in person over high-pressure puzzles.",
+    "Proving you can program on real tickets matters more than solving a first-try puzzle.",
+    "Realistic tasks based on the actual codebase expose candidates who rely only on AI.",
+    "Use a small take-home project in git; judge commits, clarifying questions, tests, and readable code over FizzBuzz."
+   ]
+  },
+  {
+   "id": "ai_cheating_detection",
+   "name": "Detecting AI cheating, fraud and fake candidates",
+   "definition": "Spotting real-time AI assistance, scripted answers, fake or inflated resumes, banning AI in tests, and live verification of genuine coding ability.",
+   "n": 46,
+   "pct": 6.5,
+   "examples": [
+    "Limiting AI use in interviews matters because AI assistance hides the skill signal being measured.",
+    "Live coding without AI or a realistic story point shows how someone will actually perform at work.",
+    "Take-homes are weak now because LLMs can complete them; LeetCode says little about senior talent.",
+    "Interviewers can spot AI-read answers; genuine honest reasoning is what they value.",
+    "Some Meta interviewers reportedly treat pasting a problem into ChatGPT and getting the same answer as cheating.",
+    "Strong candidates explain their reasoning, tradeoffs, and own code; memorized answers without understanding get flagged."
+   ]
+  },
+  {
+   "id": "leetcode_critique_prep",
+   "name": "LeetCode/algorithm interviews: critique and preparation",
+   "definition": "Debates on whether algorithm puzzles predict performance, memorization vs reasoning, how to prepare (patterns, volume, mock interviews), optimal-solution expectations and trivia gating.",
+   "n": 45,
+   "pct": 6.4,
+   "examples": [
+    "Candidates who prepare beforehand for leetcode-style interviews are the strong ones; unprepared candidates are not.",
+    "Simple coding checks are fine; hard puzzle questions mostly reward having seen them before.",
+    "Poster claims interviews reward memorized leetcode answers over creative engineering thinking.",
+    "Solid tree skills (traversal, balancing, pruning) would cover much of the leetcode-style material.",
+    "Memorized solutions fail on follow-ups; being able to answer follow-up questions matters most.",
+    "Commenter says interviewers expect known problem-set answers and don't value cleverness."
+   ]
+  },
+  {
+   "id": "basic_coding_fluency",
+   "name": "Basic coding fluency and fundamentals filter",
+   "definition": "Ability to actually write code by hand, language idioms, data structures, CS and core-stack fundamentals; simple screens that most candidates fail.",
+   "n": 45,
+   "pct": 6.4,
+   "examples": [
+    "Candidates with real experience show it when discussing broad general software knowledge.",
+    "Reasonable coding interviews test whether you can write and debug real code, not memorized algorithms.",
+    "Fundamental understanding and practical problems matter more than complex algorithmic puzzles.",
+    "Knowing data structure differences matters; a veteran candidate lacking that basic knowledge was a concern.",
+    "Their company now prioritizes CS and software-engineering fundamentals over coding ability.",
+    "Solving a fresh easy problem you haven't memorized shows whether someone can actually code."
+   ]
+  },
+  {
+   "id": "tradeoffs_design_depth",
+   "name": "Tradeoffs, alternatives and design fundamentals depth",
+   "definition": "Defending and adapting design decisions, discussing alternatives, distributed-systems fundamentals (consistency, idempotency), architecture taste, diagrams, and handling pushback or changing requirements.",
+   "n": 44,
+   "pct": 6.2,
+   "examples": [
+    "Reasoning through constraint changes on problems with no correct answer; memorized solutions don't help.",
+    "Architectural taste is best judged by working with someone over a long period, not in interviews.",
+    "Willingness to hammer out a practical design for a messy existing system, not a memorized greenfield answer.",
+    "Candidates struggle to finish the original implementation before follow-up requirements are added.",
+    "Most candidates fail to explain their own projects and foundational distributed systems concepts.",
+    "Being able to express yourself through diagrams well is a major advantage in system design."
+   ]
+  },
+  {
+   "id": "past_work_ownership",
+   "name": "Depth on own past projects, ownership and incidents",
+   "definition": "Follow-up probing of candidate's real projects, outages/firefighting stories, ownership, scope and impact; exposes padded or rehearsed resumes and bluffing.",
+   "n": 39,
+   "pct": 5.5,
+   "examples": [
+    "A natural discussion of the candidate's interests reveals real expertise better than standard questions.",
+    "Pushing deeper on real past work; candidates who fall back to surface-level answers under probing fail.",
+    "Knowledgeable interviewers probing applicants' own projects in depth reveal real understanding better than leetcode.",
+    "Depth of understanding of one's own past work and thought process reveals more than memorized leetcode skills.",
+    "Interviewer values past ownership, outages, requirement changes and observability over LeetCode performance.",
+    "Ownership and high agency matter more than memorized algorithm knowledge for getting work done."
+   ]
+  },
+  {
+   "id": "soft_skills_team_fit",
+   "name": "Soft skills, team fit and vibe",
+   "definition": "Collaboration, personableness, humility, attitude, culture fit, rapport, and subjective factors in final decisions and behavioral rounds.",
+   "n": 39,
+   "pct": 5.5,
+   "examples": [
+    "Hiring should value real work and team fit over performative games like rehearsed interviews.",
+    "Interviews should weigh soft skills and past experience, not demand flawless technical assessment answers.",
+    "Directors and CTOs wanted someone who could get things done, not whiteboard algorithms; communicating well matters.",
+    "Whether a candidate is pleasant to work with, avoids overengineering, and shows curiosity and problem-solving.",
+    "Poster advises actively joining the team conversation instead of only listening during the manager round.",
+    "Cultural fit and getting to know the candidate as a person carry more weight than technical rounds."
+   ]
+  },
+  {
+   "id": "ai_workflow_skill",
+   "name": "Effective AI tool use and prompting skill",
+   "definition": "Valuing how candidates direct, plan, verify and correct AI agents, embrace modern tooling, and multiply output; includes requirements of recent AI-built shipped work.",
+   "n": 37,
+   "pct": 5.2,
+   "examples": [
+    "Look for breadth of CS knowledge, clear communication, and knowing when to rely on AI tools.",
+    "Candidates must show value beyond operating AI; interviews shouldn't reduce to objective checklists of correct answers.",
+    "Speed, navigating and explaining AI-built code, and revising design on the fly matter more than LeetCode.",
+    "Companies asked about AI and wanted candidates who embrace modern tools and are eager to find better ways to work.",
+    "Process matters: how candidates question, validate and correct AI output, not just final code.",
+    "Candidate is evaluated on how they use the AI coding agent to help solve the problem."
+   ]
+  },
+  {
+   "id": "simple_right_sized_design",
+   "name": "Simple, right-sized system design and scale math",
+   "definition": "Back-of-envelope estimation, recognizing one machine/Postgres/SQLite suffices, avoiding over-engineering, unjustified queues/caches/microservices, scaling only as needed, and YAGNI.",
+   "n": 29,
+   "pct": 4.1,
+   "examples": [
+    "Start from basic requirements and the read path; scale complexity only as requirements demand.",
+    "Rejection cited permissions checks as negative and overly complex dual iptables/nftables support.",
+    "Write a short design doc, build a working core with tests, then add extras later.",
+    "Handling ambiguity and time constraints matters; simple, fast, on-time solutions beat lengthy proposals that ask for more time.",
+    "Pragmatic decisions over overcomplicating or chasing the latest tech; how quickly they find and fix bugs.",
+    "Start with core answers, then add complexity; don't assume caching solves everything."
+   ]
+  },
+  {
+   "id": "honesty_growth_curiosity",
+   "name": "Honesty about gaps, curiosity and drive to learn",
+   "definition": "Admitting not knowing, accepting hints, learning ability, hunger, self-motivation, initiative, and handling mistakes.",
+   "n": 27,
+   "pct": 3.8,
+   "examples": [
+    "Employers value visible interest in computing over credentials; they'd rather train someone curious.",
+    "Candidates who talk through partial knowledge, ask clarifying questions, stay calm, and accept hints.",
+    "Admitting gaps honestly, asking follow-up questions, and structuring thoughts before answering distinguish strong candidates.",
+    "Being able to name real flaws in tech you know signals awareness that things can improve, especially at mid-level.",
+    "Good candidates make good graduates: filter for motivation, self-learning ability, and strong soft skills.",
+    "Honesty about limitations and fast, correct web-based problem solving matter more than memorization."
+   ]
+  },
+  {
+   "id": "debugging_code_review",
+   "name": "Debugging, code review and reading existing code",
+   "definition": "Diagnosing real bugs, reviewing flawed PRs, navigating unfamiliar codebases, troubleshooting process, code quality and maintainability.",
+   "n": 26,
+   "pct": 3.7,
+   "examples": [
+    "Assess code review, quality, security, and system-level judgment rather than pure coding output.",
+    "Prefers evaluating code quality and communication over solving LeetCode problems; watch candidate's process with AI-generated code.",
+    "Watch how they reason through a real bug together; let them search and ask questions.",
+    "Interviewers want to see how candidates adapt or rewrite their code after hints, not whether they already know the trick.",
+    "Interviewers want structured thinking under uncertainty and a diagnose-then-fix debugging process, not perfect answers.",
+    "Recruiter's feedback pointed to debugging and coding guidelines as the areas to improve."
+   ]
+  },
+  {
+   "id": "clarifying_requirements",
+   "name": "Clarifying questions, assumptions and ambiguity handling",
+   "definition": "Asking about requirements, constraints, audience and context before solving; stating assumptions; scoping independently in ambiguous briefs (including cases where too many questions or polish backfires).",
+   "n": 25,
+   "pct": 3.5,
+   "examples": [
+    "Good answers clarify context and existing tooling before choosing an implementation, rather than hand-rolling it.",
+    "Candidates who struggled with ambiguous requirements and an empty AWS account or git repo were weaker picks.",
+    "Ask about requirements, work in your natural style, and favor companies whose process fits your strengths.",
+    "Design interviews should be interactive so the problem can be scoped collaboratively.",
+    "Candidates must ask clarifying questions to surface constraints; interviewers usually won't volunteer them.",
+    "Candidates who ask clarifying questions upfront avoid costly rework and lost offers later."
+   ]
+  },
+  {
+   "id": "ai_understanding_explain",
+   "name": "Understanding and explaining AI-generated code",
+   "definition": "AI use allowed if candidate can explain, modify, extend and debug the output; copy-pasters and prompt-only candidates fail.",
+   "n": 25,
+   "pct": 3.5,
+   "examples": [
+    "Asking candidates to explain their code reveals real understanding versus blindly pasted or AI-generated code.",
+    "If the candidate can explain the why and extend the solution, AI use is acceptable; if not, reject.",
+    "Understanding generated code matters; copy-pasters couldn't debug failing tests or explain architecture.",
+    "Candidates who couldn't code manually also failed to direct the AI; correct terminology matters.",
+    "Candidates who cannot work without AI or explain their tradeoffs stand out as weak.",
+    "Candidates who understand fundamentals and add their own ideas beat AI-generated slop."
+   ]
+  },
+  {
+   "id": "behavioral_storytelling",
+   "name": "Behavioral answers and self-presentation",
+   "definition": "STAR stories, concrete examples, concise intros, role-tied answers, weakness answers, and resume/CV presentation advice.",
+   "n": 25,
+   "pct": 3.5,
+   "examples": [
+    "Candidates should communicate well and explain why they would succeed in this specific role.",
+    "Interview readiness means describing accomplishments and results clearly in STAR format, not whiteboard algorithm drills.",
+    "Discussing one's job and career in depth, convincingly, is a skill as valuable as programming itself.",
+    "Give quantified impact, frame senior stories around leadership and alignment, and rehearse answers out loud under pressure.",
+    "Directive goal-setting, concise real-world examples, and natural conversational flow beat lengthy, bookish answers.",
+    "Crisp intro, side projects, and thoughtful questions about technical challenges stand out."
+   ]
+  },
+  {
+   "id": "verifiable_track_record",
+   "name": "Verifiable public track record and side projects",
+   "definition": "Open-source contributions, GitHub, shipped products, hobby projects, talks, portfolios, and commit history as proof of ability (and skepticism of their value).",
+   "n": 22,
+   "pct": 3.1,
+   "examples": [
+    "Shipping products with real users matters more than fresh leetcode recall, per the commenter.",
+    "Poster argues personal projects prepare candidates better than grinding leetcode for interviews.",
+    "Verifiable significant projects or public open-source contributions, with reviewable code-review conduct, weed out most fakers.",
+    "Wants verifiable proof beyond the CV: major-repo open source work, paying-customer projects, or conference talks.",
+    "Looks for hard-to-fake track record: open source in major repos, revenue-generating side projects, conference talks; at least two.",
+    "Hiring teams value people who get things shipped, wear multiple hats, and have portfolios over leetcode performance."
+   ]
+  },
+  {
+   "id": "role_specific_experience",
+   "name": "Role/stack-specific experience and niche requirements",
+   "definition": "Specific tech, domain, cloud or hardware experience, years of experience, pedigree and niche filters that decided outcomes.",
+   "n": 22,
+   "pct": 3.1,
+   "examples": [
+    "Candidates who daily-drive Linux and have buildroot, gentoo, or yocto experience tend to pass.",
+    "For senior hardware roles, past work matters most; leetcode-style questions are a minor part.",
+    "Relevant experience in cloud, architecture, and communication mattered more than LeetCode grinding for that path.",
+    "Rejection cited lack of high-scale distributed systems experience, not coding ability.",
+    "Hiring managers hinted that cloud platform and Python experience were missing.",
+    "Recruiters rejected him in final rounds citing service-based experience not matching their needs."
+   ]
+  },
+  {
+   "id": "other",
+   "name": "Other",
+   "definition": "Statements that fit no other theme, including unclear, off-topic or anecdotal items.",
+   "n": 3,
+   "pct": 0.4,
+   "examples": [
+    "Backup internet access is a filtering question for remote candidates.",
+    "Success hinged on a lucky insight; companies select for different metrics, so results vary.",
+    "Interviewer never addressed the edge-case question about behavior at the last page."
+   ]
+  }
+ ]
+}

@@ -1,0 +1,116 @@
+{
+ "extracted": 2541,
+ "candidate_reports": 1078,
+ "interviewer_posts": 776,
+ "round_share_candidate": {
+  "leetcode_live": 26.0,
+  "other": 23.7,
+  "system_design": 14.8,
+  "behavioral": 14.7,
+  "verbal_technical": 14.4,
+  "online_assessment": 11.0,
+  "take_home": 11.0,
+  "hiring_manager": 8.1,
+  "practical_build": 2.7,
+  "project_deep_dive": 2.3,
+  "ai_assisted_coding": 2.2,
+  "pair_programming": 2.0,
+  "ai_interviewer": 2.0,
+  "debugging": 1.7,
+  "code_review": 1.0
+ },
+ "follow_up_probing_pct": 7.0,
+ "failure_share": {
+  "process_or_ghosted": 29.7,
+  "couldnt_solve": 24.7,
+  "froze_or_nerves": 13.1,
+  "communication": 10.8,
+  "couldnt_explain_reasoning": 8.3,
+  "ran_out_of_time": 7.5,
+  "accused_or_suspected_of_ai": 3.6,
+  "weak_fundamentals": 2.2
+ },
+ "failures_n": 360,
+ "question_kinds": [
+  [
+   "dsa",
+   324
+  ],
+  [
+   "other",
+   189
+  ],
+  [
+   "system_design",
+   152
+  ],
+  [
+   "behavioral",
+   151
+  ],
+  [
+   "fundamentals",
+   145
+  ],
+  [
+   "domain",
+   56
+  ],
+  [
+   "debug_or_review",
+   50
+  ],
+  [
+   "own_project",
+   47
+  ]
+ ],
+ "questions_n": 1114,
+ "trend": {
+  "2025-H1": {
+   "n": 280,
+   "leetcode_live": 26.1,
+   "take_home": 16.8,
+   "verbal_technical": 12.5,
+   "online_assessment": 10.4,
+   "_follow_up": 6.8,
+   "project_deep_dive": 1.8,
+   "ai_interviewer": 1.1,
+   "ai_assisted_coding": 0.7
+  },
+  "2025-H2": {
+   "n": 271,
+   "leetcode_live": 25.8,
+   "verbal_technical": 15.5,
+   "take_home": 13.3,
+   "online_assessment": 12.2,
+   "_follow_up": 5.2,
+   "ai_interviewer": 3.0,
+   "project_deep_dive": 2.6,
+   "ai_assisted_coding": 0.4
+  },
+  "2026-H1": {
+   "n": 274,
+   "leetcode_live": 22.3,
+   "verbal_technical": 13.1,
+   "take_home": 10.9,
+   "online_assessment": 9.5,
+   "_follow_up": 6.2,
+   "ai_assisted_coding": 4.0,
+   "ai_interviewer": 2.6,
+   "project_deep_dive": 1.5
+  },
+  "2026-H2": {
+   "n": 253,
+   "leetcode_live": 30.0,
+   "verbal_technical": 16.6,
+   "online_assessment": 12.3,
+   "_follow_up": 9.9,
+   "ai_assisted_coding": 4.0,
+   "project_deep_dive": 3.6,
+   "take_home": 2.4,
+   "ai_interviewer": 1.6
+  }
+ },
+ "signals_n": 482
+}

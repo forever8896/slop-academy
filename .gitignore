@@ -1,0 +1,24 @@
+node_modules/
+dist/
+.vercel/
+
+# Your own state when running from a checkout (installed copies use ~/.slop-academy)
+data/
+
+# The old exercise player and its lessons, which point at files on one machine
+sessions/
+generate.mjs
+public/lab.html
+public/app.js
+public/style.css
+
+# The landing page now lives in site/ (public/index.html is the pre-open-source version)
+public/index.html
+
+# Research: scripts, report and aggregated findings are published; the scraped posts,
+# which are other people's writing, are not
+research/raw/
+research/__pycache__/
+research/*.log
+research/*.out
+research/*.done

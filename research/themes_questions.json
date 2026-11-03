@@ -1,0 +1,306 @@
+{
+ "total": 723,
+ "cost": 0.15615053,
+ "themes": [
+  {
+   "id": "algo_coding_leetcode",
+   "name": "LeetCode-style algorithm problems (live/OA/phone)",
+   "definition": "Solving a specific DSA problem (arrays, strings, trees, graphs, DP, heaps, intervals, backtracking, etc.) in a live, phone, whiteboard or timed online-assessment setting, including brute-force-to-optimal progression, hints, twists and complexity follow-ups.",
+   "n": 164,
+   "pct": 22.7,
+   "examples": [
+    "Round 2 main coding problem: got a working solution late after a string indexing bug, missed edge cases",
+    "Round 3 LeetCode-hard style problem with follow-ups; discussed a non-optimal approach after failing to follow hints toward the optimal one",
+    "Fourth question: medium-hard implementation-heavy problem combining a min-heap and a queue; wrote pseudocode with incorrect complexity",
+    "BFS plus backtracking variation solved live with brute force then optimal explanation and coding.",
+    "Solve a multi-part coding problem",
+    "Array problem using heap and hashing, with edge cases"
+   ]
+  },
+  {
+   "id": "cs_fundamentals_trivia",
+   "name": "CS, language and tooling fundamentals/trivia",
+   "definition": "Short knowledge questions: TCP/UDP, HTTP, OS/Linux internals, garbage collection, language-specific facts (Java, Python, JS, .NET, C), event loop, DOM/CSS, security basics, containers, Kubernetes, Terraform, cloud services.",
+   "n": 60,
+   "pct": 8.3,
+   "examples": [
+    "Asked to define Kahn's algorithm, a graph, and a cycle before coding",
+    "Conceptual theory question the candidate had never heard of",
+    "Is string equality comparison constant time, and is character-by-character comparison optimal?",
+    "Best data structure for storing 10 million records in memory",
+    "Explain Docker, SOLID, why Spring is used, and Kubernetes commands",
+    "Rapid-fire backend questions outside the candidate's experience"
+   ]
+  },
+  {
+   "id": "practical_implementation_tasks",
+   "name": "Practical implementation / stateful API-style coding",
+   "definition": "Live-coding of realistic small systems or utilities: in-memory caches, LRU, rate limiter, log parsing, banking/org-hierarchy/song-library function stubs, RPN calculator, parsers, group-by, Set class, locks and thread-safe classes, often with progressive extensions.",
+   "n": 55,
+   "pct": 7.6,
+   "examples": [
+    "Implement a set of method calls using dictionaries and POJO-style classes",
+    "Write an HTTP response and JSON conversion in an editor without autocomplete",
+    "Implement an OOP queue with lookup, choosing data structures for O(1) access.",
+    "Implement a function that installs a package and all its transitive dependencies (npm-style)",
+    "Parse a log file and return events grouped by severity and source",
+    "Asked what 'size' means for a Python structure; answer was length"
+   ]
+  },
+  {
+   "id": "process_meta_questions",
+   "name": "Interview process, prep and meta questions",
+   "definition": "Candidates asking about preparation, formats, fairness of OAs, cheating, salary expectations, recruiter logistics, or venting about processes rather than describing a specific technical question.",
+   "n": 43,
+   "pct": 5.9,
+   "examples": [
+    "Do candidates genuinely clear OAs unaided, or is cheating widespread?",
+    "How to prepare for OAs; what LeetCode/Codeforces level is needed?",
+    "How to manage time across 30-40 OA questions?",
+    "Do companies expect knowledge of Fenwick and segment trees for OAs?",
+    "Does OA cheating meaningfully distort final outcomes for honest candidates?",
+    "Do interviews reliably filter out surface-level candidates?"
+   ]
+  },
+  {
+   "id": "other",
+   "name": "Other",
+   "definition": "Questions or tasks that do not fit any other theme, including vague, unspecified or unusual items.",
+   "n": 43,
+   "pct": 5.9,
+   "examples": [
+    "Solve a second multi-part coding problem and discuss senior SWE scope",
+    "Open-ended, ambiguous question meant to spark discussion (interviewer's own question, topic unspecified)",
+    "Couple of quick initial questions, answered easily",
+    "Live coding challenge expecting answers recalled from memory",
+    "What's your heuristic for a well functioning engineering and product team relationship?",
+    "What do most engineers not understand about the product team?"
+   ]
+  },
+  {
+   "id": "project_resume_deep_dive",
+   "name": "Past project, resume and architecture deep dive",
+   "definition": "Walking through and defending past projects, architecture and design choices, verifying personal contribution, resume-claim probing, and technical talks or presentations about prior work.",
+   "n": 40,
+   "pct": 5.5,
+   "examples": [
+    "Discussion of candidate's startup, tech stack choices, and engineering decisions",
+    "Question about candidate's own project; candidate answered imperfectly",
+    "Discuss own projects for about 30 minutes",
+    "In-depth questions on the resume's tech stack and how it works",
+    "Deep follow-up questions on React and Node after candidate's experience walkthrough",
+    "Questions about Ruby on Rails microservices despite it not being on the resume"
+   ]
+  },
+  {
+   "id": "ai_assisted_interviews",
+   "name": "AI-tool-permitted or AI-focused tasks and policies",
+   "definition": "Tasks where AI coding tools are allowed, required or banned, agentic coding exercises, cheating-detection measures, and questions about how candidates use LLMs or AI in their work.",
+   "n": 38,
+   "pct": 5.3,
+   "examples": [
+    "How can someone clear OAs when others appear to cheat with AI tools?",
+    "OA included a normal coding problem plus an AI-assistant task inside a repo environment",
+    "Live coding question over Zoom; interviewer checks for hidden cheating overlays via screen-share capture settings",
+    "Coding task where AI tools were permitted; candidate used AI and reviewed the generated code",
+    "A harder-than-usual coding challenge given to a senior IC candidate who used an LLM for suggestions",
+    "Live code task where candidate was asked not to use AI to write the solution"
+   ]
+  },
+  {
+   "id": "basic_coding_warmups",
+   "name": "Trivial/basic coding checks",
+   "definition": "Very simple programming tasks such as FizzBuzz, sum of evens, max of array, median/mode, reverse string, invert tree, frequency counts, or basic Python/React snippets meant to confirm baseline coding fluency.",
+   "n": 37,
+   "pct": 5.1,
+   "examples": [
+    "Simple live coding question where the solution needed building a repeated string",
+    "Count distinct numbers in a list or distinct characters in a string, explained over Zoom",
+    "Merge two arrays on paper, asked in a 2008 customer interview",
+    "Coding task without IDE or higher-order functions, using only plain loops, with recursion explained",
+    "Write basic Python code live during the interview",
+    "In a nested loop over an array of arrays, how to break out of both loops without using break?"
+   ]
+  },
+  {
+   "id": "system_design_classic",
+   "name": "Classic system design prompts",
+   "definition": "Named large-scale design questions (URL shortener, YouTube, Twitter, Google Drive/Docs, chat, web crawler, message queue, rate-limited services, pipelines) including requirement gathering, scale estimation and component choices.",
+   "n": 34,
+   "pct": 4.7,
+   "examples": [
+    "Design a system where two incoming queues must be merged, covering functional and non-functional requirements",
+    "Design a system with a SQL vs NoSQL database choice and a project deep dive",
+    "Open-ended system design prompt given in a few lines, expecting candidate to gather requirements and estimate scale",
+    "System design question",
+    "Design a URL shortener",
+    "Discussion of architecture choices (cloud, databases, queues, microservices, CI/CD, APIs, OAuth2) with engineering leads"
+   ]
+  },
+  {
+   "id": "take_home_projects",
+   "name": "Take-home assignments",
+   "definition": "Multi-hour or multi-day build projects done offline (services, apps, scrapers, email clients, data aggregators, ETL, AI features), including associated proposals, time limits, and discussion of submitted solutions.",
+   "n": 32,
+   "pct": 4.4,
+   "examples": [
+    "Technical assessment completed with a recorded Loom walkthrough of the solution",
+    "Take-home: build a small service with an external API integration and tests, optionally with AI session transcript",
+    "Small take-home project meant to take up to one week, posted as a code challenge",
+    "First round covered discussing their take-home assignment and some technical questions",
+    "72-hour take-home coding assignment requiring multithreading knowledge",
+    "Take-home project from past interview cycles"
+   ]
+  },
+  {
+   "id": "ml_from_scratch_and_theory",
+   "name": "ML/data science theory and from-scratch implementations",
+   "definition": "ML fundamentals (loss functions, regularisation, bagging/boosting, overfitting, embeddings, LLM/RAG/agent concepts), implementing K-Means, logistic regression, Naive Bayes, gradient descent in numpy, and metrics/statistics or probability questions.",
+   "n": 25,
+   "pct": 3.5,
+   "examples": [
+    "Implement an LLM-as-a-judge component in a live Coderpad session",
+    "Improve an existing LLM prompt by targeting hard subsets for accuracy",
+    "Non-coding technical interview asking about AI topics, seen in recent interviews",
+    "Design an ML system such as fraud detection or a recommendation pipeline, then justify decisions",
+    "Model has high training accuracy but low validation accuracy; what would you do?",
+    "Implement logistic regression from scratch in NumPy"
+   ]
+  },
+  {
+   "id": "pair_programming_codebase",
+   "name": "Pair programming and working in a real/unfamiliar codebase",
+   "definition": "Collaborative sessions, trial days, adding features or fixing real bugs in an existing repo, extending a just-written solution, and tasks drawn from the company's actual work.",
+   "n": 24,
+   "pct": 3.3,
+   "examples": [
+    "Review an existing codebase with unclear instructions",
+    "Add a basic endpoint to a REST API skeleton written in an unfamiliar legacy framework and deprecated language",
+    "Pair programming assessment",
+    "Which part of the codebase does what?",
+    "Modify a provided code base to add a feature (practical coding interview)",
+    "Live coding session iterating on the take-home solution"
+   ]
+  },
+  {
+   "id": "debugging_code_review",
+   "name": "Debugging and code review exercises",
+   "definition": "Finding and fixing bugs in provided code or repos, making failing tests pass, reviewing flawed code or pull requests, spotting vulnerabilities, edge cases and gaps, and explaining what unfamiliar snippets do.",
+   "n": 23,
+   "pct": 3.2,
+   "examples": [
+    "After fixing a bug during TDD work, explain what the bug was and how it was fixed",
+    "Identify vulnerabilities in a C code snippet",
+    "Fix an overflow check in C code after identifying the overflow",
+    "Live coding and debugging session",
+    "How do you review the code to ensure it is safe to commit?",
+    "Review a piece of code as the first interview round"
+   ]
+  },
+  {
+   "id": "solution_explanation_followups",
+   "name": "Explaining and justifying a just-written solution",
+   "definition": "Asked to explain code line by line, justify choices, discuss time/space complexity, enumerate tests, or answer follow-up questions after solving a problem.",
+   "n": 23,
+   "pct": 3.2,
+   "examples": [
+    "Space complexity discussion for the iterative postorder solution.",
+    "Walk through the iterative solution line by line on an example.",
+    "Interviewer questioned whether an OrderedDict-based approach truly supported FIFO semantics.",
+    "Asked the poster repeatedly what data their priority queue holds",
+    "Asked follow-up questions about the poster's approach after the solution was done",
+    "Asked to stop mid-solution and explain what the code was doing"
+   ]
+  },
+  {
+   "id": "design_probing_adaptive",
+   "name": "Adaptive/open-ended design with shifting constraints",
+   "definition": "Design discussions where the interviewer changes assumptions, challenges choices ('why not X?'), tests whether scale claims are justified, uses brownfield systems, or checks whether the candidate over-engineers when a simple solution (Postgres, single machine) suffices.",
+   "n": 17,
+   "pct": 2.4,
+   "examples": [
+    "Simple system design where interviewers focused on one small part of the diagram",
+    "Follow-up 'why not X?' questions challenging the candidate's system design choices, such as database or cache type",
+    "Design a system assuming millions of events per minute, with extra what-if-X-fails-at-scale layers",
+    "Open-ended systems design conversation with no clean solution, used to see how people think",
+    "Open-ended design problem with no canonical answer; how do changed constraints shift the design?",
+    "Explain why parts passing unit tests can still yield a failing overall design"
+   ]
+  },
+  {
+   "id": "low_level_oop_design",
+   "name": "Low-level / OOP class design",
+   "definition": "Designing classes, entities and relationships for bounded systems such as elevator, parking, booking, car rental, minesweeper, alarm clock, plus OOP principles, SOLID and design patterns.",
+   "n": 17,
+   "pct": 2.4,
+   "examples": [
+    "Design a hotel booking system after a DSA warm-up question.",
+    "Follow-up: design a simpler flight booking system.",
+    "Low-level design of a movie seat-booking system with locking",
+    "Explain what SOLID stands for",
+    "Design an LLD from a short problem statement, extracting requirements and class relationships",
+    "Low-level design exercise: implement a system in 30 minutes while narrating the design"
+   ]
+  },
+  {
+   "id": "open_ended_troubleshooting_cases",
+   "name": "Troubleshooting scenarios and case studies",
+   "definition": "Hypothetical operational or business cases: investigating 100% CPU, slow queries, growing queues, networking issues, unfamiliar systems, client migration cases, product/metrics questions, and ops/support scenarios.",
+   "n": 17,
+   "pct": 2.4,
+   "examples": [
+    "Which is worse: a source IP reaching one destination IP or several?",
+    "Which is worse: a source IP reaching one destination IP or several?",
+    "Queue keeps growing while database is connected at 1% utilization; what do you do?",
+    "How to handle a SQL query that takes 30 seconds to return",
+    "Hypothetical debugging of performance issues in GPU clusters",
+    "Case study interview questions where new information was revealed partway through"
+   ]
+  },
+  {
+   "id": "sql_data_manipulation",
+   "name": "SQL and data manipulation",
+   "definition": "SQL queries, joins, window functions, indexing, plus Pandas/dict-based data wrangling, ETL, and data-modeling exercises.",
+   "n": 11,
+   "pct": 1.5,
+   "examples": [
+    "Solve a SQL coding problem in the sandbox editor",
+    "Mix of complex SQL and Python AI workflows in round three",
+    "Live task: manipulate spreadsheet data using Pandas",
+    "Two general SQL window function questions",
+    "Basic SQL question for senior candidates; many fumbled because they had only used ORMs",
+    "Build an invoice report from a large public dataset, sliced and diced in specific ways"
+   ]
+  },
+  {
+   "id": "distributed_systems_concurrency",
+   "name": "Distributed systems, databases and concurrency concepts",
+   "definition": "Conceptual and scenario questions on CAP, consensus, idempotency, retries, atomicity across DB and queue, locks, race conditions, SQL vs NoSQL, caching and cache invalidation, transactions, threading.",
+   "n": 10,
+   "pct": 1.4,
+   "examples": [
+    "Discuss how to make a system fault tolerant",
+    "Serving one user's cached content to another user via a Redis cache; how would you address it?",
+    "Follow-up: how to handle the rate limiter with concurrent requests in a distributed setting",
+    "Explain foundational distributed systems concepts",
+    "Discussion-based async, networking, and timeout questions instead of inverting linked lists or traversing trees.",
+    "Discuss concurrency and representing mutable money amounts in a distributed system"
+   ]
+  },
+  {
+   "id": "puzzles_brainteasers",
+   "name": "Puzzles, brain teasers and aptitude tests",
+   "definition": "Logic puzzles, riddles, quick mental math, probability brainteasers, family-relationship or compass puzzles, and aptitude filters.",
+   "n": 10,
+   "pct": 1.4,
+   "examples": [
+    "Ten-minute aptitude test with logic puzzles about who is related to whom",
+    "Design a function that reports whether a given call to another function can loop forever",
+    "Follow-up: a function that takes a function and checks whether it halts, given the interviewer's counter-construction",
+    "Solve the Ages of Three Children puzzle from a Word document",
+    "Logic riddle about family relationships between several named people",
+    "Directional reasoning puzzle about compass positions of several points"
+   ]
+  }
+ ]
+}

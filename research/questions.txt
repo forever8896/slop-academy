@@ -1,0 +1,963 @@
+other	Live coding question over Zoom; interviewer checks for hidden cheating overlays via screen-share capture settings
+fundamentals	Best data structure for storing 10 million records in memory
+fundamentals	How to handle a SQL query that takes 30 seconds to return
+fundamentals	Explain what SOLID stands for
+dsa	Live LeetCode easy problem: convert Roman numeral to integer, with screen share
+dsa	Simple live coding question where the solution needed building a repeated string
+dsa	Count distinct numbers in a list or distinct characters in a string, explained over Zoom
+dsa	Live coding problem; solved it but failed to pass all test cases
+system_design	Simple system design where interviewers focused on one small part of the diagram
+system_design	Open-ended system design prompt given in a few lines, expecting candidate to gather requirements and estimate scale
+other	Technical assessment completed with a recorded Loom walkthrough of the solution
+other	Candidate asked how the company is implementing AI; the interviewer deflected into unrelated career talk
+dsa	Follow-up on a coding problem the candidate had only partly solved in the last 10 minutes
+other	Coding task where AI tools were permitted; candidate used AI and reviewed the generated code
+other	Take-home: build a small service with an external API integration and tests, optionally with AI session transcript
+system_design	Follow-up 'why not X?' questions challenging the candidate's system design choices, such as database or cache type
+debug_or_review	After fixing a bug during TDD work, explain what the bug was and how it was fixed
+dsa	Coding problem (n=16) with a naive O(n^3) solution; asked repeatedly to improve speed and quality
+fundamentals	Deep follow-up questions on React and Node after candidate's experience walkthrough
+domain	Questions about Ruby on Rails microservices despite it not being on the resume
+own_project	Walk through a RAG feature, including chunking strategy and overall flow
+dsa	Leetcode-style coding problems in technical rounds
+dsa	Merge two arrays on paper, asked in a 2008 customer interview
+fundamentals	Explain Docker, SOLID, why Spring is used, and Kubernetes commands
+fundamentals	Name design patterns used in past projects
+fundamentals	Rapid-fire backend questions outside the candidate's experience
+dsa	Live coding challenge expecting answers recalled from memory
+dsa	A harder-than-usual coding challenge given to a senior IC candidate who used an LLM for suggestions
+system_design	Design a system assuming millions of events per minute, with extra what-if-X-fails-at-scale layers
+fundamentals	Explain how the DOM works, hoisting, and the difference between display: none and visibility: hidden
+dsa	Coding task without IDE or higher-order functions, using only plain loops, with recursion explained
+dsa	Solve a LeetCode medium dynamic programming problem on a whiteboard
+system_design	System design question
+fundamentals	Follow-up questions about the candidate's solution and reasoning
+dsa	Graph problem requiring a prime sieve to pass efficiency tests in a 120-minute automated assessment
+dsa	Graph problem requiring reversing the graph and traversing all connections with Dijkstra's algorithm
+other	Small take-home project meant to take up to one week, posted as a code challenge
+domain	Non-coding technical interview asking about AI topics, seen in recent interviews
+other	First round covered discussing their take-home assignment and some technical questions
+dsa	Live coding technical interview with peers watching over shoulder while typing code
+other	What's your heuristic for a well functioning engineering and product team relationship?
+other	What do most engineers not understand about the product team?
+other	What's the difference between a good and great engineer?
+other	What's your favorite product?
+other	If you could change any software, what would it be and why?
+dsa	Timed HackerRank assessment with one medium and two easy coding problems
+dsa	HM screen: write functions to handle a data structure in C
+dsa	72-hour take-home coding assignment requiring multithreading knowledge
+dsa	Technical round: C coding question heavy on pointers and data structures
+dsa	Whiteboard leetcode-style string problem; discuss and reach optimal space complexity
+dsa	Two easy leetcode-style coding problems, which the poster had solved before but not recently
+other	Add a basic endpoint to a REST API skeleton written in an unfamiliar legacy framework and deprecated language
+own_project	Take-home project from past interview cycles
+other	Online assessment asking to build a feature, plus IQ, math, and coding tests
+dsa	Asked to write a brute-force solution to a coding problem before optimizing
+dsa	Unspecified on-the-spot technical problems; poster froze on every one
+dsa	Anthropic: LeetCode-style task on CoderPad, implementing an in-memory NoSQL database; platform glitched, no human contact
+dsa	OpenAI: coding task in Python (interviewer required it) with test cases; interviewer seemed disengaged
+dsa	Implement function stubs for a song library: add, remove, play by user, report top songs by user
+dsa	Implement organization hierarchy functions: add employee (optional manager), remove employee with children, report full chart
+dsa	LeetCode 939 Minimum Area Rectangle, which did not match any Top Interview 150 pattern
+dsa	Live code task where candidate was asked not to use AI to write the solution
+domain	Explain in specific detail how you implemented a concurrency control policy at a former employer
+dsa	Solve the Ages of Three Children puzzle from a Word document
+system_design	Design a URL shortener
+other	Build a Spring Boot CRUD API against hidden unit tests, timed, with no IDE or docs
+other	Design and code a class implementing an LRU cache
+other	Design and code a thread-safe singleton class
+dsa	Easy LeetCode-style array problem solved live on Zoom with two interviewers watching
+own_project	React/backend 3-hour online assessment
+dsa	Algorithmic question on a whiteboard, in person
+system_design	Discussion of architecture choices (cloud, databases, queues, microservices, CI/CD, APIs, OAuth2) with engineering leads
+other	Pair programming assessment
+dsa	Algorithm exercise for a compiler parser, explained and coded on a whiteboard
+system_design	One-hour grilling on systems architecture and past design decisions with head of engineering and tech lead
+dsa	Coding questions matching practiced problems; implement brute force and optimal solutions
+system_design	Design an LLD from a short problem statement, extracting requirements and class relationships
+system_design	Design an ML system such as fraud detection or a recommendation pipeline, then justify decisions
+fundamentals	Model has high training accuracy but low validation accuracy; what would you do?
+other	Implement logistic regression from scratch in NumPy
+own_project	Tell me about a model you built, with deep follow-ups
+system_design	Vague system design problems with an unresponsive interviewer felt like an ambush
+dsa	Intersection of two sets, solved in 30 minutes with follow-ups
+dsa	Implement a read-write lock using ReentrantLock and conditions
+dsa	Word Break problem, solved in 25 minutes
+own_project	Present proposed approaches for improving the hiring team's existing work
+dsa	Round 1 coding question: preorder traversal of a binary tree
+dsa	Coding interviews across three days (details not specified)
+other	Interviewer used AI to generate questions with no surrounding context; poster was grilled for an hour
+fundamentals	Authentication-related question from a camera-off interviewer who seemed unsure of the topic himself
+dsa	HackerRank: a map-based problem worth 50 points, then a harder DP problem worth 75 points, in one hour
+system_design	Whiteboard design of a consumer app like a dating, travel, or social media app, clarifying requirements first
+dsa	Two back-to-back LeetCode-style problems with a junior interviewer; ran out of time on the second
+fundamentals	Embedded C question on bit manipulation in the first phone screen
+fundamentals	Embedded C question on flash page-aligned writes in the first phone screen
+dsa	Second phone screen: a heap-based coding problem, solved with a workable approach
+dsa	Second phone screen: a game-related, Meta-tagged coding problem with a non-optimal, buggy first solution
+dsa	Two DSA problems with follow-ups after clarifying questions, coded live and discussed complexity
+system_design	Low-level design exercise: implement a system in 30 minutes while narrating the design
+system_design	Scalability question about the low-level design hypothetical
+dsa	Two coding questions in the second round, with the candidate feeling confident about both
+dsa	Coding round with a follow-up question, which the candidate solved
+dsa	Two coding questions; candidate offered three solutions with time complexity
+dsa	Variation of group anagrams with a follow-up (virtual DSA)
+dsa	Permutation and bitmask problem using set intersection (onsite DSA)
+dsa	DFS backtracking on a grid with follow-up (onsite DSA)
+dsa	Medium string problem in hiring manager round, plus questions about AI usage
+dsa	Medium graph problem similar to Word Ladder
+dsa	Coding question on string parsing and extracting specific information
+dsa	Linux find-style API: filter files by size and type, extensible to future conditions
+dsa	Refactor predicate list into an extensible Condition abstraction with concrete subclasses
+dsa	Interval/line-sweep problem: brute force first, then an optimized solution and coding
+dsa	Follow-ups on limitations, tradeoffs, and modifications to the first solution
+dsa	Second line-sweep problem: explain approach on board, then implement under time pressure
+dsa	Firmware-specific hard bit manipulation problem in onsite technical interview
+dsa	Rate limiter: decide if each request is allowed given max queries and cooldown window, using a sliding window
+system_design	Follow-up: how to handle the rate limiter with concurrent requests in a distributed setting
+dsa	Inventory fulfillment: for each request, check stock and report which product IDs fall short and by how much
+dsa	Top K frequent elements, with time and space complexity discussion
+own_project	Bar raiser: deep dive on past projects with repeated follow-ups for other scenarios
+dsa	Round 2 main coding problem: got a working solution late after a string indexing bug, missed edge cases
+dsa	Round 3 LeetCode-hard style problem with follow-ups; discussed a non-optimal approach after failing to follow hints toward the optimal one
+dsa	Fourth question: medium-hard implementation-heavy problem combining a min-heap and a queue; wrote pseudocode with incorrect complexity
+other	Do candidates genuinely clear OAs unaided, or is cheating widespread?
+other	How to prepare for OAs; what LeetCode/Codeforces level is needed?
+other	How to manage time across 30-40 OA questions?
+fundamentals	Do companies expect knowledge of Fenwick and segment trees for OAs?
+other	How can someone clear OAs when others appear to cheat with AI tools?
+dsa	BFS plus backtracking variation solved live with brute force then optimal explanation and coding.
+other	Does OA cheating meaningfully distort final outcomes for honest candidates?
+other	Do interviews reliably filter out surface-level candidates?
+other	Should they double down on competitive programming or diversify?
+other	OA included a normal coding problem plus an AI-assistant task inside a repo environment
+system_design	Discuss how to make a system fault tolerant
+other	Implement a set of method calls using dictionaries and POJO-style classes
+other	Write an HTTP response and JSON conversion in an editor without autocomplete
+system_design	Design a system where two incoming queues must be merged, covering functional and non-functional requirements
+system_design	Design a system with a SQL vs NoSQL database choice and a project deep dive
+dsa	Solve a multi-part coding problem
+dsa	Solve a second multi-part coding problem and discuss senior SWE scope
+dsa	Array problem using heap and hashing, with edge cases
+dsa	Segment tree problem (Codeforces 448C-style)
+dsa	Phone screen: a heap or priority-queue problem, solved and complexity discussed
+dsa	Onsite coding 1: grid path-counting DP with extra path constraints and a space optimization
+dsa	Onsite coding 2: grid DFS/backtracking for longest valid path under movement rules, plus carried state
+other	Ten-minute aptitude test with logic puzzles about who is related to whom
+other	Is taking 1.5 hours on a medium LeetCode problem normal? (self-practice, not an interview)
+other	Does practicing this way with a pasted, half-duplicated solution count as cheating?
+system_design	Design a hotel booking system after a DSA warm-up question.
+system_design	Follow-up: design a simpler flight booking system.
+dsa	Tree problem: return nodes in removal order by height from leaves.
+dsa	Space complexity discussion for the iterative postorder solution.
+dsa	Walk through the iterative solution line by line on an example.
+dsa	Implement an OOP queue with lookup, choosing data structures for O(1) access.
+debug_or_review	Interviewer questioned whether an OrderedDict-based approach truly supported FIFO semantics.
+other	Open-ended, ambiguous question meant to spark discussion (interviewer's own question, topic unspecified)
+dsa	Two DSA questions in first online round, reportedly FAANG-level
+dsa	Second coding question in Amazon intern OA, initially solved sub-optimally
+dsa	Second hard coding question in Amazon intern OA, solved after looking up logic
+fundamentals	Design a function that reports whether a given call to another function can loop forever
+fundamentals	Follow-up: a function that takes a function and checks whether it halts, given the interviewer's counter-construction
+dsa	A LeetCode medium-style variant question with a deviation from the standard problem
+dsa	Next DSA coding question pasted into chat after interviewer refused to explain the first one
+dsa	A DSA problem where the candidate reached the optimal solution while being nudged on bugs
+dsa	Implement a function that installs a package and all its transitive dependencies (npm-style)
+own_project	Discussion of candidate's startup, tech stack choices, and engineering decisions
+dsa	Find the unique characters in a string (mock interview); then optimize the space from O(n) to O(1)
+dsa	Solve an array problem; candidate proposed a binary search n log n approach
+dsa	Coding problem in second round; interviewer told candidate to skip explaining and just code
+own_project	Question about candidate's own project; candidate answered imperfectly
+own_project	Discuss own projects for about 30 minutes
+dsa	LeetCode hard framed as a simple problem; asked for a linear-time solution
+dsa	Coding problem; candidate explained approach while interviewer stayed silent and nodded, then coded
+dsa	Two easy/medium LeetCode problems; second had an optimal two-pointer solution
+debug_or_review	Review an existing codebase with unclear instructions
+domain	Implement an LLM-as-a-judge component in a live Coderpad session
+domain	Improve an existing LLM prompt by targeting hard subsets for accuracy
+system_design	Low-level design of a movie seat-booking system with locking
+dsa	Sort an array of 0s, 1s, and 2s in one pass
+dsa	Graph problem resembling Pacific Atlantic water flow, with missing explanation
+dsa	Find the largest square size A such that every AxA submatrix sums to less than threshold k
+dsa	Replacement coding problem given after the behavioral question was swapped out
+dsa	A LeetCode medium/hard-level coding problem with a twist
+dsa	Detect a cycle in a graph and return the nodes forming the cycle
+debug_or_review	Asked the poster repeatedly what data their priority queue holds
+debug_or_review	Asked follow-up questions about the poster's approach after the solution was done
+dsa	Parse a log file and return events grouped by severity and source
+domain	Which is worse: a source IP reaching one destination IP or several?
+fundamentals	Asked what 'size' means for a Python structure; answer was length
+dsa	Hinted which data structure to use for the final line
+dsa	Parse a log file and return events grouped by severity and source
+domain	Which is worse: a source IP reaching one destination IP or several?
+fundamentals	Asked what 'size' means for a Python structure; answer was length
+dsa	Hinted which data structure to use for the final line
+fundamentals	Interviewer said 'size' while poster wanted Counter.most_common; poster asked and was told length
+dsa	Interviewer hinted at the data structure for the last line of code
+dsa	First problem: poster solved with prefix and suffix sum arrays; interviewer expected two pointers
+dsa	Second problem: poster used a Fenwick tree; interviewer expected sort plus binary search
+dsa	Medium-level LeetCode problem with interviewer silent during coding
+debug_or_review	Asked to stop mid-solution and explain what the code was doing
+dsa	Hard problem using topological sort via Kahn's algorithm
+fundamentals	Asked to define Kahn's algorithm, a graph, and a cycle before coding
+dsa	Merge k sorted arrays; candidate's divide-and-conquer solution was called brute force
+dsa	Find K closest values in a binary search tree; candidate pushed toward an optimal solution
+dsa	Unfamiliar problem requiring recursion, solved under a short time limit while thinking aloud
+dsa	Three chained coding tasks; the third, a Leetcode Hard, needed a faster approach than brute force
+system_design	Queue keeps growing while database is connected at 1% utilization; what do you do?
+system_design	Serving one user's cached content to another user via a Redis cache; how would you address it?
+dsa	Solve a SQL coding problem in the sandbox editor
+dsa	Solve a Python coding problem after the interviewer fixed the display
+dsa	Solvable coding question in first round
+own_project	In-depth questions on the resume's tech stack and how it works
+fundamentals	Conceptual theory question the candidate had never heard of
+dsa	Hard coding question in second round
+fundamentals	Is string equality comparison constant time, and is character-by-character comparison optimal?
+dsa	Solve a medium coding problem on CodeSignal during the interview
+dsa	Solve a second medium coding problem with all tests passing
+dsa	Design a class tracking users with exactly one reserve, returning the oldest such user
+dsa	Solve a shared LeetCode problem link; candidate had already solved it
+dsa	Check whether a matrix passed as a flat array is Toeplitz, traversing diagonals
+dsa	Explain how to traverse the flattened array as a matrix; interviewer wanted it faster
+dsa	Dot product of two sparse vectors in one function, without hashmaps
+dsa	Class design for searching data; improve a naive O(n) approach to O(log n)
+dsa	Follow-up involving intervals, solved with two pointers
+dsa	Traverse parent-child objects so children precede parents (topological ordering)
+dsa	Specific follow-up on a related variant of the dependency problem; candidate felt they struggled
+dsa	Class design for searching data; improve a naive O(n) approach to O(log n)
+dsa	Follow-up involving intervals, solved with two pointers
+dsa	Traverse parent-child objects so children precede parents (topological ordering)
+dsa	Specific follow-up on a related variant of the dependency problem; candidate felt they struggled
+dsa	Easy leetcode-style coding problem that the candidate got stuck on
+other	Couple of quick initial questions, answered easily
+dsa	Linked list problem given as two sentences with no constraints, test cases, or list structure
+dsa	Coding problem: start with brute force, then optimize (interviewer 1)
+dsa	Coding problem with brute force and optimization nudge; state time complexity (interviewer 2)
+other	Asks what kinds of technical vs. statistics questions to expect for a remote data indexing role
+dsa	Asks whether Honeywell SWE 1 online assessment questions are typical, having not seen binary search or sliding window problems
+dsa	Asks about difficulty and format of TheGuarantors coding challenge for an entry-level SWE role
+system_design	Asks what the system design and behavioral rounds were like at TheGuarantors
+other	Asks for tips on interviewing during peak recruiting season while working a 5-day in-office fall internship
+fundamentals	Asks what types of questions come up in a 30-minute DevOps internship technical interview at S&P Global
+fundamentals	Asks whether the interview will be more theory-based than hands-on implementation
+other	Asks whether others are still in the AT&T TDP data analysis process given slow response times after the technical round
+other	Asks whether employers will schedule interviews outside work hours or require taking time off during a full-time co-op
+own_project	Why did you build the project's architecture the way you did?
+own_project	Which part of the codebase does what?
+other	Asks what the Plaid BI interview process looks like
+other	Asks which technical and business questions to prepare for
+other	Asks which SQL, analytics, or case study topics to focus on
+other	Asks how to showcase BI, analytics, and visualization experience
+other	Asks whether to disclose a FAANG summer internship to HP recruiter while interviewing for fall role
+other	Asks whether an Amazon SDE offer can be obtained directly from Canada for the Seattle office
+other	Asks whether anyone reapplied to same company role a year after final-round rejection
+other	Asks whether recruiter contact can bypass the screening stage
+other	Asks whether anyone reapplied to same company role a year after final-round rejection
+other	Asks whether recruiter contact can bypass the screening stage
+other	Asks what to focus on when preparing for a startup fellowship interview with no tech background
+other	Asks for technical tips for backend-focused interviews
+dsa	Write basic Python code live during the interview
+dsa	Solve a LeetCode Hard problem live during an Amazon SWE intern interview
+dsa	Coding assessment questions attempted without prior LeetCode practice; first solved, next two got zero
+system_design	Hypothetical debugging of performance issues in GPU clusters
+dsa	Two LeetCode questions in round one alongside a take-home project due same day
+fundamentals	Deep dive on take-home project plus rapid-fire technical theory
+other	Mix of complex SQL and Python AI workflows in round three
+debug_or_review	Identify vulnerabilities in a C code snippet
+debug_or_review	Fix an overflow check in C code after identifying the overflow
+dsa	Solve a LeetCode-style problem in a technical interview
+dsa	Adapted version of a previously seen problem, with complexity and constraint discussion
+dsa	Implement an n log n binary search solution to an array problem
+dsa	Technical interview follow-up question during final round
+dsa	Problem solvable with a trie; interviewer pushed nested-list approach with worse complexity
+dsa	Substring check in Python using 'in' operator during a coding problem; interviewer doubted it
+dsa	DS&A problem given as function signatures with vague goal; clarifying questions answered tersely
+dsa	Discrete-math style LeetCode problem; asked to prove correctness of solution
+dsa	Asked to find a different solution approach with no success
+dsa	Hybrid DSA/API problem; DFS timed out, switched to BFS with interviewer guidance
+dsa	Implement a design problem pasted into the editor while interviewer stayed silent
+other	Interviewer asked whether the candidate is local and what they could start on
+fundamentals	Explain loss functions and neural network architectures (ML fundamentals discussion)
+dsa	Vaguely worded problem about optimizing a data stream; candidate asked about data type
+dsa	LeetCode medium with additional features, with clarifying questions and assumptions
+dsa	Matrix BFS problem (walls and gates); candidate proposed multi-source BFS
+system_design	Design a Google Drive-like file storage system
+own_project	Walk through a past project and work experience in the technical round
+system_design	System design discussion covering scalability and infrastructure
+system_design	Scale a script to production readiness
+domain	Compare distributions as part of the hiring manager screen
+dsa	First-round coding problem; reached optimal solution with 1-2 hints
+other	Backend technical coding round; code ran correctly per the poster
+system_design	Final design round questions, answered over 45 minutes before an abrupt cutoff
+dsa	State simulation problem processing sequential commands that modify state
+dsa	Make a simple coding solution more efficient
+domain	Several questions about app development concepts
+fundamentals	OOP questions and terms the candidate was unfamiliar with
+fundamentals	Disagreement with interviewer over which data type to use
+fundamentals	How garbage collection works and when it activates
+fundamentals	Why StringBuilder beats String for optimizing a technical problem
+dsa	Solve a LeetCode problem using only map and stream
+system_design	Design a solution to the startup's AI product problem in 30 minutes
+domain	Implement a React problem and explain the approach while coding
+dsa	Two coding problems; restate each problem, propose an approach, code it, then test it
+dsa	Write a regex solution to a pattern-matching task; a candidate pasted code without understanding it
+domain	Write a cron expression that runs only on the first Monday of the month at a set time
+dsa	Hand-write Java/Spring Boot API/service code without AI, explaining approach, trade-offs, and design choices
+fundamentals	Explain a couple of randomly chosen design patterns
+fundamentals	In which Java version was a particular feature introduced
+fundamentals	Questions on a monitoring tool the candidate has little hands-on experience with
+fundamentals	Last interviewer asked technical questions the poster felt were unrelated to the role
+fundamentals	In a nested loop over an array of arrays, how to break out of both loops without using break?
+domain	Live task: manipulate spreadsheet data using Pandas
+fundamentals	Online assessment: 6 multiple choice, 1 SQL, 1 problem, 1 full-stack API question
+dsa	Solve a story-framed problem live, heard only once, while narrating reasoning
+system_design	Design APIs and database schemas
+system_design	Discussion of AI skills and a system design walkthrough of a past project, no coding
+dsa	Basic fizz-buzz level coding check (from past interviews, ~6 years ago)
+other	Build a microservice that sends emails as a take-home task
+system_design	System design interview (general, from past experience)
+other	Frontend coding challenge in an online JS compiler plus a backend task using GraphQL or REST, within 90 minutes
+own_project	Rapid-fire questions about resume experience and technical skills in a 30-minute VP final interview
+dsa	Two easy LeetCode questions in a technical phone screen, including string-literal newline slicing
+dsa	Time and space complexity for follow-up curveball questions
+dsa	Two easy LeetCode questions in a technical phone screen, including string-literal newline slicing
+dsa	Time and space complexity for follow-up curveball questions
+dsa	Whether backtracking and DFS are the norm for OAs and technical interviews
+other	Asked what salary the candidate desired
+dsa	Medium LeetCode-style coding question in the phone interview
+fundamentals	Simple technical questions in the final internship interview, which candidate mostly could not answer
+own_project	Technical deep dive on past work covering architecture, deployment, testing, and design patterns
+system_design	System design interview (a later stage of the two-part technical round)
+debug_or_review	Live coding and debugging session
+dsa	Coding problems that were new or modified, not matching common Blind 75 or NeetCode patterns
+fundamentals	What are the basic principles of OOP?
+domain	Build a working AI feature with speech and text models plus RAG within a 24-hour deadline
+dsa	Live-code in TypeScript a function that flattens an infinitely nested array, without shortcuts
+domain	Build a simple Node.js server with a few endpoints, using a framework the candidate may not know
+other	Asked for the candidate's LeetCode score during a freelance screening chat
+dsa	Solve a rephrased LeetCode Hard flight path reconstruction problem with a React wrapper in about 45 minutes
+fundamentals	Theoretical software engineering concepts questions, hard to hear due to poor audio
+fundamentals	Practical questions on the candidate's main programming language
+other	Written task: weigh a large set of information and recommend a course of action with considerations
+other	Case study interview questions where new information was revealed partway through
+dsa	Easy live algorithm question; candidate wrote a solution nearly identical to ChatGPT's while using another screen
+dsa	Design a meeting-room scheduler that rejects any booking creating a triple overlap; implement schedule(start, end) over half-open intervals
+dsa	Decode a string with nested k[encoded] repeat patterns, with output length up to 10^5
+dsa	Given byte values, determine whether they form a valid UTF-8 encoded sequence
+domain	Write microcontroller firmware that blinks an LED to send Morse code, demoed to interviewers as a take-home assignment
+dsa	Live coding problem with an add-on extension question, answered without AI assistance
+other	Logic riddle about family relationships between several named people
+other	Directional reasoning puzzle about compass positions of several points
+dsa	Basic coding questions in a technical interview, requiring recall of exact library syntax without tools
+domain	Implement K-Means from scratch in numpy for a given dataset and K
+dsa	Solve a DP-based DSA problem (exact question not remembered)
+domain	Two general SQL window function questions
+system_design	Design the cashback system for Swiggy and how to monitor the model after deployment
+fundamentals	Theory questions on clustering, regularisation, boosting vs bagging, and linear regression loss functions
+dsa	Live coding problem; candidate used AI for the basic code structure
+fundamentals	Explain TCP and UDP
+other	Explain quality of service in UDP and write a program for it
+fundamentals	Basic .NET and Angular questions
+other	Four SQL queries
+fundamentals	Basic SQL questions asked in the domain/technical round
+domain	Knowledge of Google products asked in domain round
+domain	Questions on abuse practices and safety issues for Trust and Safety role
+fundamentals	Explain how the JavaScript event loop works, asked repeatedly across interviews
+own_project	Why was a Gen AI project designed a certain way, and what broke in production
+fundamentals	Sentence transformers versus BERT, and embedding architectures
+domain	Prompt injection risks, mitigation, and preventing data leakage
+system_design	Scalability, cost, and failure scenarios for RAG or agent systems
+dsa	Repeated DP and greedy coding problems with escalating follow-up questions
+system_design	Low-level design question, reported as weaker area for the poster
+system_design	Build an e-commerce app; interviewer then rejected the architecture as not what he expected
+dsa	Write a program to count frequencies of each integer in an array
+dsa	Implement a thread-safe LRU cache with per-item TTL expiry
+fundamentals	Where are value types and reference types stored in .NET memory allocation?
+domain	Azure-specific question; candidate lacked Azure experience despite AWS certification
+other	Python data manipulation problems where only Pandas was permitted, per a coworker's account
+dsa	Solve leetcode problems instead of the JD topics they had said would be covered
+system_design	Design Google Drive
+own_project	Explain past four years of projects, architecture, contributions, and challenges faced
+dsa	A simple DSA problem in the CodeSignal assessment
+domain	Implement bagging (bootstrap aggregation) from scratch
+domain	Implement Naive Bayes from scratch using only NumPy
+domain	Implement gradient descent for linear regression
+fundamentals	Questions on loss functions, parameter initialization, and batch vs. stochastic gradient descent
+domain	SQL queries, which the candidate found the weakest area
+fundamentals	A technical question the lead asked twice; candidate gave examples but not the definition
+own_project	Drilled into resume projects, asking exact models, methods, and parameters the candidate used
+own_project	Follow-up questions interrupting the candidate's answers repeatedly during the resume discussion
+other	Straight into technical questions for an entry-level role; specific questions not described
+dsa	Earlier coding question the candidate could not fully answer to the interviewer's satisfaction
+system_design	Design a Text-to-SQL system; interviewer argued it could be built with if-else mappings alone
+system_design	How would the system handle paraphrased queries, ambiguity, and unseen phrasing beyond fixed mappings?
+fundamentals	Rapid-fire questions on LLMs, RAG, and agentic AI concepts, one every 40-50 seconds
+fundamentals	Basic tooling questions such as git pull and pandas DataFrames, which candidate could not answer
+dsa	Write Dijkstra's algorithm in Java
+dsa	Find the second highest number in an array, asked by poster to 4 experienced candidates
+system_design	Interviewer asked a high-level design question despite the HR email saying round 2 would be LLD
+other	After the candidate showed the email, interviewer switched to a low-level design question
+fundamentals	Rate own SQL and Python skill, then write code in another language in a plain text editor
+domain	How do you know the company's data product uses grounding in its RAG pipeline
+system_design	Design a car rental system with entities, classes, workflows and APIs
+system_design	Where to store data; candidate proposed Postgres as source of truth with Elasticsearch for search
+system_design	Handling reservation race conditions; candidate proposed a Redis distributed lock with Lua
+system_design	How multiple service instances acquire a lock on Redis, asked repeatedly
+fundamentals	What is a Lua script
+fundamentals	Does shared_ptr in C++ carry overhead? Explain reference counting and circular dependency risk.
+dsa	Write an internal implementation of shared_ptr after the candidate's answer was challenged.
+fundamentals	Compare SQL and NoSQL, with pros, cons, and tradeoffs.
+system_design	Design a CronJob scheduling system.
+system_design	Design high-availability infrastructure and an API endpoint handling millions of requests per second.
+debug_or_review	Review a short piece of code written by the interviewer that contains an error, then fix it.
+domain	One basic question the candidate couldn't answer well; topic not stated, for an SEO analyst role
+fundamentals	Asked about a specific tool; candidate gave a short answer without examples
+fundamentals	Explain what Node.js is, what Express.js is, and what MongoDB is
+fundamentals	Explain what a stream is and what process.nextTick() does
+domain	Write an error-handling function with req/res, without Express registration, using a third-party API (poster couldn't follow the scenario)
+fundamentals	Basic SQL joins question during technical round
+domain	Define metrics to determine user engagement, without jumping to solutions
+domain	Domain questions where the assumptions were off and the interviewer expected one approach as correct
+dsa	Solve a nested recursion problem in Python during live coding
+dsa	Explain the solution and reasoning while coding under time pressure
+fundamentals	Theoretical questions on JavaScript and React
+dsa	Coding challenges covering basic DSA
+fundamentals	Advanced JS, React, and Redux internals questions
+own_project	Walk through my CV
+own_project	One question about the candidate's project
+other	Interviewer reviewed resume and said it did not impress him
+domain	Interviewer asked what NLP means; candidate thought it was a joke
+other	Add a helper service in any language to a codebase, calling a provided Docker image's API
+other	Implement a ticket in an existing fullstack TypeScript codebase using agentic AI tools
+dsa	Short timed technical interview requiring pattern-matching to memorized LeetCode-style problems
+other	Build a simplified webshop as a practical task
+dsa	Whiteboard FizzBuzz
+fundamentals	Basic Linux and Windows service-restart and troubleshooting questions for an entry-level ops role
+fundamentals	Whether candidate can use Google to search for answers
+other	Clone the open-source project repo during the technical interview and check its setup, then make modifications
+fundamentals	Basic C pointer and compilation questions for a candidate who listed C on their CV
+fundamentals	Node.js EventEmitter and TypeScript union questions for candidates listing those skills
+dsa	Solve 100 Wordles programmatically, then optionally improve average score, add a UI, or try Hard Mode
+dsa	Solve 100 Wordles programmatically as the technical interview
+other	How are you using LLMs in your work?
+dsa	Implement a simple tic-tac-toe winner-check algorithm during a live technical interview
+domain	Explain the broad steps for setting up an SSO application in Entra
+other	Real-world problem with business analysis, coding, and testing, delivered to the hiring manager
+other	Bring-your-own-tools pair session: add README features and fix bugs in a provided repo
+fundamentals	Describe in technical detail what happens after you type a search phrase into Google and press enter
+dsa	Write a basic FizzBuzz solution
+other	Pre-screening technical questions asked by recruiters' interviewers
+dsa	Record passing cars by license plate with N slots; keep an unbiased sample of all cars seen
+other	Why did you choose X over Y?
+other	What would you do next with more time?
+other	How are you using AI tools?
+fundamentals	Explain the boot process of a Linux server, going into whatever details you consider important
+own_project	Go deep on one past project to verify the candidate personally did the work
+dsa	Invert a binary tree
+dsa	Find the optimal path in an n-dimensional real-valued space defined by a function
+system_design	Design a horizontally scalable build system
+dsa	Solve a couple problems slightly above FizzBuzz in pseudocode, alone, in 30 minutes
+fundamentals	Why did you use a hash table here? Can you think of another approach?
+fundamentals	Asked about the structure of an inode in UNIX v6, irrelevant to the role
+other	After finishing early, asked how an irrelevant extra detail affects the solution
+debug_or_review	Walkthrough of the submitted coding assignment: explain why the code works and what it does
+other	Take-home task using specified libraries with a 14-day window, then submitted via a GitHub repo
+domain	Discussion of job-related problems and a simple sanity-check exercise instead of algorithm questions
+dsa	Live fizz buzz exercise in a text editor, screen-shared early in the interview
+fundamentals	Asked a candidate what modulo means after they typed a solution
+dsa	Phone screen: find duplicate files, discussing chunk size, hashing, and I/O vs CPU bottlenecks
+dsa	Coding: multi-threaded web crawler with concurrency and distributed crawling across machines
+own_project	Deep dive into past technical projects and behavioral questions
+system_design	System design for an efficient GPU inference API
+dsa	Python LRU cache handling args and kwargs, then making it persistent
+domain	Candidate asked how testers interact with developers; interviewer could not answer
+dsa	Maximize profit in a theoretical market setting, framed as a problem-solving exercise in an SRE interview
+fundamentals	Hour-long conversation about shop topics, with a few deep drills into random subjects to gauge depth
+other	Pair-program a small feature in the real codebase with full access to search and AI, observed by the interviewer
+dsa	A couple of simple programming problems, with the candidate talking through their approach
+domain	Interviewer asked why none of the candidate's experience was with Node.js
+other	Open-ended example problems where the candidate's own detours and questions guide the exploration
+fundamentals	Describe what dependency injection is
+debug_or_review	Review an API with SQL commands and a schema; point out validation, error handling, and indexing gaps
+fundamentals	Keyword and concept questions across the .NET stack, including desktop-relevant areas for seniors
+fundamentals	Do you know Kafka?
+fundamentals	Have you used AWS S3, and how?
+fundamentals	How would you build and scale a Node.js project?
+own_project	Take-home technical challenge completed without LLM assistance
+system_design	Live whiteboard design task that can pivot toward particular algorithms or topics
+own_project	Discuss the solution submitted for the take-home test
+system_design	In-person system design prompts phrased to trip AI safety filters, e.g. smuggling, coups, fentanyl
+other	Candidate solves a downloaded coding challenge over screenshare, using any resources including AI tools
+dsa	Implement an in-memory group-by over arrays of related data, with full internet access allowed
+other	Base coding test completed unobserved, with AI allowed
+debug_or_review	Modify the code to handle one additional simple use-case
+debug_or_review	Find and fix all bugs in code provided with deliberate defects
+system_design	Talk through possible ways to solve a real problem the company had run into
+fundamentals	What would you use for infrastructure if you cannot use Terraform?
+fundamentals	Rapid-fire questions on bash, Linux, Terraform, and Kubernetes
+fundamentals	Discussed gray codes, which the interviewer doubted a candidate would have studied in college
+dsa	Implement a small S-expression parser and evaluator as a coding screen
+system_design	Technical capacity question at Stripe; interviewer could scale load numbers by orders of magnitude to probe deeper
+dsa	Write a loop to find the maximum number in an array (screen stage)
+dsa	Work-like interview questions adapted from the interviewer's own job tasks
+dsa	Solve a hard LeetCode-style puzzle, to be completed in Rust
+fundamentals	Explain step by step how you arrived at your solution
+system_design	Design a web-based system for public libraries, starting small-town then scaling to the whole country
+other	Technical step requiring the candidate to run code from an unknown repository
+system_design	Follow-up: how would you build the solution in-house, after a real-world answer was accepted
+domain	Case-study style technical questions in private equity interviews
+domain	Discussion-based async, networking, and timeout questions instead of inverting linked lists or traversing trees.
+fundamentals	Use technical questions only when checking whether a resume is exaggerated.
+other	Take-home project assigned at the end of an hour-long conversation with no technical questions.
+domain	Probe vague claims about responsiveness by requesting load metrics and asking how the team tests and profiles
+debug_or_review	Review code, Jira, roadmap, dev docs, and test and monitoring reports during tech-debt diligence
+fundamentals	Technical questions asked during a recorded and transcribed first HR screen
+fundamentals	Shallow technical screen question asking tabs versus spaces
+domain	Support troubleshooting scenario questions that an LLM could answer from training data, used to catch cheating
+other	Ph.D.-level candidates gave a brief talk to probe communication skills
+dsa	Coding test during on-site for certain automation software positions
+debug_or_review	Hypothetical: troubleshoot an unfamiliar technical system with no prior knowledge
+other	Give a technical talk on any topic of the candidate's choice, then answer live audience Q&A
+dsa	Given a problem with conditions and a goal, explain approach and testing, then code it in a shared environment
+system_design	Present a system requirement, answer clarifying questions, then explain how you would implement it
+domain	Past practice: reason through a networking issue the interviewer has not seen before, asking questions toward an answer
+dsa	Leetcode-style challenge where the candidate must immediately identify and use a stack or fail
+debug_or_review	Explain what a ~50-line unfamiliar code snippet does, including its business context
+debug_or_review	Identify red flags, edge cases, or gaps in the code
+debug_or_review	How would you rewrite this using modern libraries, tooling, and best practices?
+other	First-round screen: build a simple API, with any AI tool allowed
+other	Build a Next.js app matching the company's mock-ups, with little guidance
+other	Technical product screen coding challenge where the candidate was allowed to use AI tools
+fundamentals	Name your five favorite Linux CLI commands for a desert island
+other	Take-home code test asking for a simple, correct solution with no stated performance target
+other	Take-home project scoped to about one day, drawn from a slice of the company's domain
+own_project	Give an hour-long talk on a technical project you built, then answer interviewers' questions for an hour
+dsa	Solve a LeetCode hard problem with only 20 minutes to implement it
+dsa	Solve another LeetCode hard problem in a manager interview
+domain	Open-ended scenario-based questions rather than deep technical trivia
+other	Explain how you would approach a problem when put on the spot
+other	Explain reasoning out loud while solving a problem on the spot
+other	Pair-code with an interviewer watching over the shoulder
+system_design	Discuss concurrency and representing mutable money amounts in a distributed system
+own_project	Walk through past projects: what you built, technical decisions, scale, setbacks, and results
+own_project	Present a real past project using slides and architecture diagrams, as in a tech spec review
+system_design	Case study: pressure a client into a risky cloud migration before a major event, or run a PoC and migrate afterward
+system_design	Former whiteboard architectural design task, since dropped as stressful and unhelpful
+fundamentals	Technical questions pitched at the candidate's estimated level, in a conversational format
+dsa	Turn a plain-English description of required logic into correct working code
+fundamentals	Five very basic technical questions answered on pen and paper, in person
+dsa	Compute the median of a list in code
+dsa	Compute the median of a dataset in code
+dsa	Discuss tradeoffs for large, streaming, or memory-constrained inputs
+dsa	Would you accept a claimed constant-space error bound for the median estimate?
+system_design	How do you make an update span a database and a message queue atomically?
+debug_or_review	Review or modify a supplied codebase as a 'technical test' before any real interview
+other	How are you using Claude Code and what is your coding setup?
+other	How do you judge if an agent is heading the right direction without reading all generated code?
+domain	How are data scientists using LLMs to automate experiments?
+debug_or_review	Navigate an unfamiliar frontend and backend to find and fix an arbitrary issue in 30 minutes
+dsa	Implement a datetime solution within the remaining time-boxed window
+other	Explain how you would solve the datetime task by hand before considering other options
+other	Panel asked reasonable interview questions about the role
+other	Candidate was asked to give a presentation on any technical topic of their choice
+system_design	Generic design question used to find shared context quickly within a one-hour interview
+system_design	Design question about Postgres as a technical choice for a problem space
+system_design	Candidate proposes an existing solution; interviewer asks for a design that ignores it
+other	Technical questions framed as dark patterns with no room to clarify
+debug_or_review	Troubleshoot a difficult technical issue with manager and peers unavailable; walk through your approach
+system_design	Whiteboard architecture questions on message queues and databases, pressed for exact product names
+other	Post-offer CEO requests for detailed technical answers on RabbitMQ and Redis
+other	Build something that would be impossible without AI and show proper architecture
+other	Make modifications to an existing build without using any AI tools
+system_design	Open technical problems where insights like git/PR policy or microservices add value
+dsa	Build a basic vim-like editor with move-left, move-right, and replace-character commands
+fundamentals	Trivia check on a database default such as Postgres isolation level, via keyword list
+dsa	Live-code an OOP many-to-many relationship problem
+debug_or_review	Code review of framework or SDK-specific code the candidate may not know
+other	Take-home with minimum criteria, then add a feature of your own
+fundamentals	Verbal discussion of technical specifications and the practical details of achieving them
+own_project	Pick one area the candidate promotes and go deep on the technology and their project experience with it
+fundamentals	Philosophical warmup asking why bell curves appear everywhere; reworded to feel less technical
+domain	Fast-paced open-ended technical scenario questions with no single right answer
+other	Re-ask the same scenario about 20 minutes later to check answer consistency
+system_design	Two people email a spreadsheet back and forth to track something; what would you do?
+other	Make a minor change to a tool you built during the interview, then handle shifting requirements
+system_design	Revisit the original business case by removing a key assumption and adapting the design
+other	Build a visualization over a dump of time-series API data for non-technical consumers, with no further guidance
+system_design	Design a system from API requirements and a drawing-app style prompt with no real customer context
+fundamentals	Candidate asked interviewers why the team used PHP; answer was about momentum and existing codebase familiarity
+own_project	Explain in depth a system you worked on, then reason about the effect of changing a component
+system_design	Design a pipeline ingesting roughly 1GB of JSON per day at scale
+other	Take-home: build a service that sends emails
+own_project	Walk through your submitted code and justify design choices
+debug_or_review	Code review a flawed submission from a former applicant
+system_design	Plan how to extend and embed the service in a microservice landscape
+fundamentals	Convert two bytes written in base 2 into their base 10 value.
+dsa	Code up a sorting algorithm on a whiteboard; candidate offered several options and was skipped.
+dsa	Drop into unfamiliar repo and build a larger specified feature using only AI tools in the internal harness
+dsa	Coding task where online search allowed but AI-generated results disallowed
+other	Coding interview with screen share; interviewer checked IDE settings to confirm AI tools disabled
+dsa	Coding interview where candidate may use any AI tools; assessed on problem solving and reasoning
+fundamentals	Explain a technical topic to a layperson, as requested during the interview
+other	Implement a described toy system using an AI coding agent of the candidate's choice
+system_design	Follow-up questions on how to productionize the toy system
+other	Simple coding task using AI assistance; candidate was rejected for writing too much code
+dsa	Brain teaser with a harder follow-up; interviewer went silent when candidate said they were stuck
+fundamentals	Asked for time complexity of an algorithm that actually needed a sort
+other	Build a search UI over a static array of dictionary terms
+fundamentals	How do you make this search more performant?
+other	Build a RAG-based Q&A system for large codebases with an eval suite and API endpoint, within 24 hours
+other	Coding-assistant interview requiring a large volume of code written in a short period
+other	Spend a day on a niche optimization problem as the entire interview loop
+other	Modify a provided code base to add a feature (practical coding interview)
+other	Take-home assignment where any tool, including AI, was allowed
+other	Live coding session iterating on the take-home solution
+dsa	Basic Python exercise solvable with dicts, lists, and comprehensions, similar to the article's example
+other	Implement a complete feature, which the poster says is hard to finish without AI tools
+fundamentals	Answer general technical questions; the poster felt the answers were weak
+dsa	Solve two programming problems on a whiteboard, similar to Project Euler problems practiced beforehand
+dsa	Solve a coding problem while allowed to use GPT, showing how the AI was used
+dsa	Start with a simple algorithm problem, then add extensions until time runs out
+fundamentals	Why did you initialize that class member in this method rather than in the constructor?
+debug_or_review	Make a small additional feature change to the code you just wrote and explained
+debug_or_review	How do you review the code to ensure it is safe to commit?
+system_design	Asked to explain how to write a streaming service in Python, answered in a recorded 1-2 minute AI interview
+other	Simple interview coding test with clear requirements; candidates judged on following every requirement exactly
+dsa	Given a list of numbers, return the sum of the even ones
+other	Coding challenge with a written readme describing the problem, task, and goal, given at session start
+fundamentals	Brain teasers and high school math questions
+fundamentals	Questions on obscure C++ libraries despite candidate having little C++ experience
+dsa	Design an API for a book with chapters supporting next page and next chapter navigation
+fundamentals	Probe core JavaScript and CSS knowledge beyond framework names like jQuery and Bootstrap
+other	A test involving circles and squares
+dsa	Write a red-black tree search algorithm while talking to an AI, without using AI
+system_design	Open-ended systems design conversation with no clean solution, used to see how people think
+dsa	Easy traditional problems on a coding pad to gauge code fluency
+other	JavaScript coding challenge given during initial interviews, which the author failed on a third attempt
+dsa	Solve a stated problem on a whiteboard with no autocomplete or documentation
+system_design	Articulate a solution to a stated problem and outline a skeletal implementation
+dsa	Whiteboard merge sort during a 2016 interview
+other	Read through a long AI-generated document live in front of a panel
+other	Build a simple textarea, button, and dynamically generated list, using Cursor
+fundamentals	How are containers implemented, which kernel technologies are used, and what do they do?
+debug_or_review	How would you investigate why a service is consuming 100% CPU time?
+debug_or_review	Troubleshoot broken VMs given to the candidate.
+own_project	Coding challenge using several public APIs, offered as take-home or pair session
+fundamentals	Basic SQL question for senior candidates; many fumbled because they had only used ORMs
+fundamentals	Linux knowledge expected down to the system call level for production engineers
+system_design	Open-ended design problem with no canonical answer; how do changed constraints shift the design?
+dsa	Multiple rounds of FAANG-style DSA problems involving graphs and algorithm analysis
+debug_or_review	Review a piece of code as the first interview round
+own_project	Explain the approach taken in a small homework exercise
+fundamentals	When is the right place to use arr.reduce()?
+fundamentals	Why was event.preventDefault() needed in that form submit handler?
+fundamentals	Fundamental ML theory questions covering the take-home's topics
+dsa	Live coding in a remote IDE with integrated tests
+debug_or_review	Candidate picks a bug in the project and fixes it as the assessment
+debug_or_review	Candidate reviews a piece of code that contains deliberately planted problems, as a traditional code review exercise
+fundamentals	Explain what a set is in Python
+fundamentals	Explain the basic HTTP request/response pattern
+dsa	Coding problems kept at O(N) complexity or below
+other	Build an invoice report from a large public dataset, sliced and diced in specific ways
+dsa	Disjoint set problem similar to number of islands, required solving with DFS instead of union-find
+other	Optimize a piece of generated code as a take-home assignment
+dsa	Interviewer-chosen coding exercise the interviewer had memorized; candidate struggled and failed
+other	Write some very simple React code in a coding interview, with no leetcode questions
+dsa	Leetcode-style questions that each had one right answer
+dsa	Brain-teaser coding task based on LeetCode's Stone Game problem
+dsa	LeetCode medium and hard algorithm problems, talked through rather than fully coded
+dsa	Algorithmic problem under a 45-minute LeetCode-style constraint
+dsa	Unannounced leetcode-style coding problem for a security testing role
+own_project	Why-style questions about the submitted take-home solution's design choices
+own_project	Extend the take-home's scope and discuss how it could be improved
+dsa	FizzBuzz as a whiteboard question
+fundamentals	Can you write a program that detects if another program halts?
+dsa	Interview problems were real-world style rather than leetcode-style; poster felt they had forgotten a shorthand syntax
+debug_or_review	Take-home task: review a colleague's pull request
+debug_or_review	Take-home task: track down a bug from a customer support ticket
+dsa	Secondhand: Homebrew creator was asked a fizzbuzz-level coding question after discussing his project
+other	Discuss a topic the candidate says they love, such as compilers, to gauge real expertise
+dsa	Compute the mode of an array under time pressure
+own_project	Describe your specific part in a past project and go deeper when pressed
+fundamentals	Tradeoffs of directed versus random testing, and when to declare a product ready to ship
+fundamentals	Explain why parts passing unit tests can still yield a failing overall design
+dsa	Write code, even pseudocode, to keep the two largest numbers in a stream
+dsa	Back-to-back brainteasers and leetcode-style problems over about 3 hours; poster couldn't solve one, possibly unsolvable
+system_design	Brownfield system design: interviewer summarizes an existing system with a performance problem, and the candidate designs a fix
+system_design	Design the client-server communication for an instant messaging client targeting mobile devices
+other	An unspecified puzzle-style question from a different interviewer, done without much discussion
+dsa	Implement a linked list (junior candidates, with hints)
+system_design	System design question (senior candidates)
+dsa	Compute the median; poster asks which libraries the codebase already uses before choosing an approach
+dsa	Compute the median / percentiles, then extend to a data stream with bounded memory
+dsa	Open-ended business-logic implementation question, then follow-ups adding requirements
+fundamentals	Knowledge questions and explaining projects listed on resume
+fundamentals	Explain foundational distributed systems concepts
+dsa	Onsite coding problem
+own_project	Tell me about a project from your CV: what you did, tools used, why, and lessons learned
+other	Work alongside the team for a day or two as a trial of real work
+debug_or_review	Debug a real bug from the team's repo together, then commit the fix as a PR
+debug_or_review	Fix a bug where a function mutates an argument expected as a list but receives a tuple
+debug_or_review	Debug why a unit test fails in code the candidate wrote
+fundamentals	Explain whether an awaited async function runs in parallel with its caller
+other	Complete a home assignment in an unfamiliar framework within about three hours
+own_project	Walk through the last project you shipped alone, end to end, including deployment and bugs
+other	Paid trial of one or two days mirroring real work instead of puzzle questions
+debug_or_review	Fix a small real bug in the company codebase together, sitting side by side
+dsa	Group People objects by last name using a language of your choice
+other	Work through a current or recent team problem on a whiteboard with the candidate
+dsa	Reverse a binary tree (as described for a Google interview candidate who struggled with it)
+dsa	Filter an array of objects, dropping those with age under 20 or eye color red or blue, using own editor and web search allowed
+dsa	Add 10 days to a date, where the leap-year handling is the trap
+dsa	Date-arithmetic style question whose intent was unclear, so the candidate treated it as a leetcode problem
+dsa	Mid-level then hard-level leetcode questions, which the poster says they could solve in under 20 minutes
+fundamentals	Deep JavaScript and DOM questions asked at some frontend interviews
+system_design	Frontend and backend system design questions
+fundamentals	What is HTTP status 428 used for?
+other	Solve a TDD-based coding task without being told TDD is required
+other	Replicate a page from a video or PNG using provided JSON data, at home
+other	On-site, extend the replicated page with new functionality on your laptop
+system_design	Architectural design questions in AI-startup interview loops
+dsa	Easy LeetCode-level coding problems that the interviewer said they could solve themselves under the same conditions
+fundamentals	Bit-manipulation puzzles and struct-to-union casting with alignment quirks in C
+other	Interview problem adapted from a difficult task the company recently solved in production
+dsa	Progressively harder algorithmic problems until the candidate hits a wall
+dsa	Meta MLE screen: two leetcode medium problems in 40 minutes, solution must be optimal
+dsa	Find the majority element in an array of numbers
+dsa	Google: fiddly array manipulation problem framed as designing to scale to big data
+dsa	Smaller companies' LeetCode-style problem that hinges on knowing a specific trick
+system_design	Open-ended problem at mature companies requiring best practices plus creative design, discussed aloud
+other	Asked how to transfer a file to another computer; expected answers include sftp, scp, rsync, email, USB, S3
+dsa	Python whiteboard problem involving binary search trees
+dsa	LeetCode-style algorithm quiz during a Facebook recruiting process
+debug_or_review	In-person hour-long live debugging challenge on a mini git repo with printed requirements and bonus goals
+dsa	Full day of LeetCode-style coding questions during a principal engineer interview at Amazon
+dsa	Commenter has seen FAANG coding questions covering binary search, BFS/DFS, and hash tables
+other	Scenario: move 50GB from Windows to Linux machine within one hour; what is your strategy?
+other	Search company take-home: submit a proposal for approval, then deliver a solution
+fundamentals	Drill into resume bullet points to check the candidate really has the claimed expertise
+dsa	Work through a coding problem simpler to state than LeetCode but more involved
+own_project	Build a small product to a spec, delivered in a series of steps, using an AI coding tool
+fundamentals	Recruiter asks a candidate what 20% of 20,000 is
+fundamentals	Logic puzzles given in an interview for a software engineering role (about 15 years ago)
+fundamentals	Typical quant-style probability questions in the same interview
+dsa	Hard LeetCode-style questions, as reported by a friend's recent interview
+dsa	Seven LeetCode easy/medium problems in an automated screener, 10 minutes each, final tests only
+other	Live coding portion in a Jupyter-based environment, cut to about 10 minutes after repeated crashes
+dsa	Medium and hard LeetCode problem solved on a shared screen during a round
+fundamentals	What is cross-site scripting, and how would you protect against it?
+dsa	Parse a log file and return IPs appearing at least 10 times; how would you approach it?
+debug_or_review	Given a broken piece of code, find the bug and get it working.
+other	Implement a basic password generator with optional characters and symbols.
+fundamentals	A C trick question asked for a C# role; the poster answered it and got the job.
+dsa	Lay out a minesweeper board of arbitrary size with arbitrary mines (initialization only, no gameplay)
+dsa	Several leetcode-style coding tasks, one of which the candidate found unsolvable
+domain	Open-ended role-play case study the candidate has not seen, brainstormed together with the interviewer
+other	Build a minimal frontend and API server that communicate, for a senior fullstack role
+dsa	Construct a Set class with union and difference operations
+dsa	Implement an RPN calculator with operators of increasing arity
+dsa	Create a range function that behaves like Python's range
+debug_or_review	Debugging assessment (specifics not described)
+debug_or_review	Code review assessment (specifics not described)
+fundamentals	Short round of well-tested technical questions on concepts used in their area
+domain	A FizzBuzz-style problem that the original author says needed type-system knowledge and clever maths
+dsa	Basic algorithm questions, kept simple to confirm the candidate can still code
+system_design	API design and system architecture questions relevant to middleware work
+domain	Build a form with validation using plain HTML, with a little JS for final validation
+domain	Show conditional element visibility using CSS only
+domain	Create and mount a DOM element with JavaScript
+dsa	Medium-difficulty LeetCode questions with a single interviewer
+system_design	System design questions, which can be prepared for
+other	Self-contained problem drawn from a real challenge the team hit, presented with realistic context
+fundamentals	Three interviewers fired technical questions at the candidate on a final Zoom call
+other	Build a backend for a chatbot within a five-day take-home window
+other	Informal conversation about technology, then coding the simplest problems
+other	Suggested: have candidates build an agent harness or a Claude Code-style take-home
+domain	Suggested: ask candidates to explain what skills are in an agentic context
+other	Build something basic, with AI tools and any framework allowed
+debug_or_review	Explain a three-line code snippet and generalize it
+fundamentals	Theory questions about network protocols, plus a disclosed trick question
+other	Take-home assignment meant to take about 20 minutes, administered via HR
+own_project	Take-home: build a crypto exchange data aggregator (poster asked for about 10% of what was built)
+other	Take-home: decode binary data across easy, medium, and hard challenges
+system_design	Second interview: how would you design the UI for the solution
+domain	Live test: build telemetry for a simplified crane demo
+other	Take-home: build data science, CLI, and web app projects each in a different language within 5-7 hours
+domain	Senior infra take-home: manipulate firewall rules on a standard Linux box
+other	Agentic take-home: pick one of three problems, use AI tools, ship running app on Vercel
+other	45-minute walkthrough of code plus an unannounced added requirement
+domain	Take-home on BigQuery despite candidate's prior ClickHouse migration experience
+other	Build an RSS scraper, taking as long as needed to reach an MVP
+other	Describes their ETL take-home: candidate pulls zip data, transforms it, loads a database, with planted data quality issues
+system_design	Follow-up call asks how to improve code, e.g. what if the dataset doesn't fit in memory
+debug_or_review	Pair-program on a Java banking app with 2-3 bugs and missing features: find, fix, and extend it
+system_design	Take-home: build a front end and back end around a static JSON product file
+system_design	In the interview, expand scope: what would you add to make it production-ready?
+fundamentals	Explain the structure of an inode in UNIX v6
+fundamentals	Had the interviewer's favorite paper (Google's BigTable) been read and re-read?
+own_project	Take-home: create a Battleship game and model its classes
+other	Design an alarm clock (open-ended on-campus Microsoft interview question)
+other	Take-home assignment that the poster estimated at about four hours
+other	Take-home assignment completed within a 24-hour window
+other	Small self-contained API take-home based on an internal tool, now replaced by a code review
+other	Two to three pairing sessions of up to two hours each on real team tickets
+other	Take-home with tests and an onsite extra feature, or a two-hour take-home, followed by discussion of the solution
+other	Build a product matching a terminal-inspired brief, with a written proposal
+dsa	Sort people's names serialized in Unicode, versus a memorized quicksort
+own_project	Drilling into what the candidate actually did on resume items and why they made those choices
+other	Surprise live coding test from the CTO after the take-home, based on vibe-coding concerns
+other	Build a terminal-inspired email client as a take-home assignment
+other	Build a web app using an internal library to simulate behaviors, capped at 10 hours
+own_project	Architect asked why specific design choices were made in the submitted solution
+other	Build a terminal-inspired email client as a take-home assignment
+other	Build a small, easy component similar to ones used on the job
+fundamentals	Probe deep language or framework implications within the component
+fundamentals	Extensive questions on skills that appear on the candidate's CV
+system_design	After a candidate cites introducing caching, ask about alternative solutions, cache invalidation, limits, and 10x load scaling
+system_design	Design exercise where candidate checked whether interviewer preferred a monolith or microservices
+system_design	Drill-down on an event ticket ordering system: double-sell prevention, traffic bursts, seat fragmentation
+system_design	Solve a simplified architecture of the interviewer's real internal system
+system_design	Given a simplified diagram of the company's real system, how would you solve it for them
+own_project	Ask candidate to describe past projects and judge whether the conversation is meaningful without delays
+dsa	Serialize and deserialize a binary tree
+dsa	Create an in-memory cache from scratch
+system_design	Design an elevator system for a building
+dsa	Sequence DNA strands using dynamic programming
+system_design	Build a flight control system for an airport
+dsa	Recreate the atoi function
+system_design	Whether back-pressure is worth handling at the stated scale
+system_design	How to choose between SQL and NoSQL for a design
+system_design	Why use a queue instead of a cron job here?
+system_design	How would you choose between SQL and NoSQL databases?
+system_design	After caching the data, how do you fill the cache without the same performance problem?
+system_design	Design for scale when stated volume and latency needs are modest
+system_design	Design for scale when stated volume and latency needs are modest
+system_design	Clarify expected peak load now and in 2 to 5 years, plus data size and read/write mix
+dsa	Write and test code for a screening problem, then discuss how to parallelize the algorithm
+dsa	Algorithmic problem needing only basic data structures and recursion, worked through collaboratively
+dsa	Rearrange simplified Netflix-style data into a required format while running the code
+fundamentals	Explain the CAP theorem
+fundamentals	Questions on concurrency issues
+system_design	Questions on microservice patterns and domain-driven design
+dsa	Live coding exercise
+system_design	System design interview
+system_design	Design a chat application, with event-driven architecture versus RPC-based peer lookup
+system_design	Design Google Docs
+system_design	Botnet crawl: design a distributed crawler to fetch all of Wikipedia using 1000 compromised machines
+system_design	Wikipedia hires you to block the crawler: how do you respond?
+system_design	System design question where candidate proposed microservices but preferred a single server for personal projects
+system_design	How would you design firmware updating for a complex, expensive company product?
+system_design	Live system design interview despite holding AWS certifications
+system_design	Systems design question; interviewer expected a specific approach and gave hints piecemeal
+system_design	Design a pagination approach for a basic system
+system_design	Explain how a database transaction would work in a design
+fundamentals	In-person logical reasoning exercise as a fast filter
+system_design	System design around graph structures or a dynamically generated complex query
+other	Collaborative problem-solving where candidates may use their preferred AI tools
+system_design	System design prompt that a single machine or flat file could plausibly handle
+system_design	System design prompt where a spreadsheet might be the sensible real-world answer
+system_design	Systems design prompt with throughput questions, answered by putting everything in Postgres
+system_design	Big data system design prompts where the data actually fits in a single desktop's memory
+system_design	Brownfield system design question about an existing system, summarized by the interviewer first
+system_design	Design a system handling large volumes of messages
+fundamentals	Explain failure modes of Raft consensus
+fundamentals	Tune JVM garbage collection on day one
+system_design	Distributed tracing and Kubernetes internals questions for junior roles
+system_design	Design a clearinghouse for a banking system from a two-sentence request, within one hour
+dsa	Solve a random problem on a whiteboard
+system_design	A couple of system design questions, which the poster felt went well
+system_design	Design YouTube video upload
+system_design	Replace a high-volume logging component under strict correctness and no parallel old/new deployment
+system_design	Open-ended system design question where candidates often reach for caching, pub/sub, and event-driven layers
+system_design	Design Twitter, a system design prompt the poster says they've been asked many times
+system_design	Design an async queue that calls an external API; compare Redis with etcd or Zookeeper
+system_design	Open-ended system design problem with a generous solution space and increasingly strict added requirements
+dsa	Remove nodes from a linked list
+dsa	Reverse a binary tree (repeated across many interviews)
+debug_or_review	Coding task where the interviewer insisted there was a bug that did not exist
+dsa	Progressively implement a banking system, with the final step adding threading
+system_design	Design a banking system with emphasis on systems and database design
+domain	Explain how credit card numbers work, then review a piece of code
+system_design	Press on the candidate's design respectfully and see if they get defensive
+system_design	Suggest a deliberately flawed technology choice and see if they spot the downsides
+other	Discuss positive vs negative test cases, table-driven tests, and which tests matter
+system_design	Work through timeline tradeoffs, then update requirements and see how the candidate adapts
+system_design	Design your own memcached clone as a system design task
+fundamentals	Recruiter asks a candidate what 20% of 20,000 is
+system_design	Design a history system for a small database, storing a year of updates
+system_design	Is a complex Rube Goldberg design worth it when AWS costs are about $2?
+system_design	How would you download the entire Wikipedia?
+system_design	Design a playlist system
+system_design	Design a given system; answers using many AWS services suggest a cloud-cost misunderstanding
+system_design	Design a new system where the candidate noted Postgres would already meet the requirements
+system_design	Design an elevator system, scoring efficiency by weighted travel time rather than wait time, assuming LOOK
+system_design	Design Twitter on a whiteboard, including the database layer
+fundamentals	Do we care more about consistency or availability for this database?
+own_project	Walk through the architecture of a past or inherited project, with tradeoffs and alternatives you discarded
+system_design	How would you design a web crawler?
+fundamentals	One-hour conversation on experience, systems/product thinking, and Rails topics like API design, SQL, caching, security
+debug_or_review	Review a test pull request with a few PRs and give feedback on design issues and potential bugs
+system_design	Design a URL shortener
+dsa	Easy problem followed by optimizing an O(n) solution toward O(1) space/time
+dsa	Enumerate test cases for the problem
+system_design	Walk through scaling a backend service live
+system_design	Discussion of retry safety and idempotency when a payment succeeds but the response times out
+system_design	Design a message queue on a whiteboard during a mid-level technical screen
+dsa	Reverse a string in a language of choice on a whiteboard
+fundamentals	Why might an iterator-based loop be preferable to index-based one
+system_design	Design a ledger system that handles retries and duplicate events
+debug_or_review	Review a short C# code snippet and point out any issues, unprompted by scope
+debug_or_review	Second code snippet review of similar open-ended issue-spotting
+dsa	A simple coding problem where the right data structure was not obvious
+dsa	A LeetCode-style coding problem with a twist in the final round
+dsa	Onsite: two coding questions, second had a harder variation the candidate didn't finish
+dsa	Extra virtual final round: medium coding questions with a heap-based variation
+dsa	Second round is a CoderPad Python session on data manipulation with dictionaries and sets
+dsa	Phone screen with a medium dynamic programming problem, talked through approach
+other	Venting about a multi-round process with a take-home at a company that was OpenTable (Australia)
+other	Rejected after in-person interview at a large company; seeking perspective on slower solve times
+other	Have interviews adapted to AI tools (Copilot use, AI-cheating detection, AI system design, AI tool questions in behavioral rounds)?
+other	What AI knowledge is expected of junior developers in interviews?
+other	Asked what specific topics or practice questions to brush up on before a technical round for a junior SQL/C# data role
+other	Asked whether DSA must be practiced in Java or whether Python is acceptable for product-company coding interviews
+other	Asked what to expect in a PayPal/Braintree interview loop with a screen, coding, system design, and behavioral rounds
+other	Asked whether the programming language choice matters in technical interviews and whether take-homes require learning new syntax quickly
+debug_or_review	Debugging scenario: a React component not re-rendering after a state update, traced to mixing up copied and original array references
+fundamentals	Concurrency question about DB resource contention, where the candidate omitted discussing table locks
+own_project	Preparing to present and walk through code from a previous iOS project in a presentation-style technical interview
+dsa	A simple coding problem the candidate had previously seen on LeetCode
+other	What would a QA interview with team leads ask, given a fullstack-focused interviewer
+domain	Prep for first Mercury SWE interview focused on SQL and data modeling
+other	Palantir Deployment Strategist onsite: Technical Comprehension and Decomposition interview prep
+other	Puzzle: how to place 1000 $1 bills into 10 envelopes so any combination yields every amount from 1 to 1000
+dsa	Write a function returning true if a float array has 5 consecutive values above 500 (pseudocode or any language)
+other	In a shared web editor, make a failing test suite pass by implementing the needed functionality while talking through reasoning
+dsa	Non-LeetCode-style coding problem for an intern role, followed by interviewer questions about the solution
+debug_or_review	Fix code so that a failing test passes, debugging an existing codebase
+dsa	Live coding assessment held on a Sunday, after a fast-tracked process
+dsa	Technical interview solving problems quickly, with an extra-credit question
+dsa	Time-Based Key-Value Store (LeetCode 981) in a CoderPad live coding round
+system_design	System design question answered out loud after practicing with ChatGPT
+system_design	Follow-ups like 'why did you choose that', 'what happens at scale', 'go deeper'
+dsa	Medium LeetCode problem in a phone screen with screen sharing
+own_project	Walk through two past projects in depth, including your individual coding and delegation
+other	Asked for preferred salary at the end of a phone screen
+dsa	Obscure, ambiguous algorithm problems unlike real day-to-day engineering work
+dsa	Second HackerRank question: manipulate nested arrays to build a 2D result
+other	React-based coding task in the final-stage interview, with an IDE bug encountered
+other	Asked whether others took Delta's Software Engineer assessment and if post-assessment silence is normal
+dsa	Asked how to prepare for coding interviews without covering excessive edge cases, and whether to use Blind 75
+fundamentals	Asked what to study in Java, Spring Boot, and React to prepare for an upcoming mid-level full-stack technical interview
+dsa	Design an earthquake detection algorithm over real-time sensor readings (sensor ID, timestamp, value)
+fundamentals	Asked what kinds of questions appear in data science interviews and resources to rebuild core concepts
+fundamentals	Asked how to prepare for a 30-minute JavaScript coding round and a SQL database design round
+other	Whiteboard interview after six years; reflects on practice and discipline (no specific question described)
+dsa	Coding problem where candidate found an unusual approach but could not finish implementing it in time
+fundamentals	How does indexing work in SQL versus NoSQL databases?
+fundamentals	What data structures do databases use internally?
+fundamentals	Questions on HTTP and web security basics
+dsa	Water distribution problem: redistribute water across connected containers so none drops below a threshold
+dsa	Technical LeetCode-style coding question in a phone screen; interviewer was distracted
+domain	Diagram the infrastructure implied by a set of provided Terraform configuration files
+debug_or_review	Debug a VPC Terraform module
+domain	Write Terraform to deploy a database with added security configurations, using docs allowed

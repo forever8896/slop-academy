@@ -1,0 +1,291 @@
+{
+ "total": 349,
+ "cost": 0.0773717,
+ "themes": [
+  {
+   "id": "ai_empowered_new_capability",
+   "name": "AI enabled things they couldn't or wouldn't do before",
+   "definition": "Positive: building in unfamiliar languages/platforms/domains, finishing abandoned projects, non-programmers building MVPs, confidence to start, huge speedups, custom tools made cheap, regained enthusiasm.",
+   "n": 33,
+   "pct": 9.5,
+   "examples": [
+    "Enjoyed side projects built without knowing the underlying APIs or code",
+    "Built an AI browser despite having no web or Chromium background",
+    "Admits having zero frontend skills and relying on AI for interfaces",
+    "Built audio amplifier circuits after decades of intimidation, using ChatGPT questions",
+    "Realized prompting improves with practice and that they can now build things",
+    "Abandoned projects felt too overwhelming; AI now lets them finish goals"
+   ]
+  },
+  {
+   "id": "not_understanding_own_code",
+   "name": "Shipping or owning code they don't understand",
+   "definition": "Accepting, shipping or maintaining AI-generated code without reading or comprehending it; lost mental model of the codebase; black-box feeling; code not feeling like theirs; hard to debug or review code they didn't write.",
+   "n": 31,
+   "pct": 8.9,
+   "examples": [
+    "Debugging feels harder when they did not write the code themselves",
+    "Shipping AI-written code without holding its context in mind",
+    "Vibed crypto wallet bug; didn't read code, unsure if funds are lost",
+    "AI pushes prompts into code regions the author cannot understand or test",
+    "Admits not understanding line-by-line code but knowing where things live",
+    "Admits not understanding line-by-line code but knowing where things live"
+   ]
+  },
+  {
+   "id": "anticipatory_skill_worry",
+   "name": "General worry that AI reliance will erode skills",
+   "definition": "Forward-looking, non-specific concern or expectation that heavy AI use will erode programming, architectural or cognitive abilities, without a concrete incident.",
+   "n": 30,
+   "pct": 8.6,
+   "examples": [
+    "Worried that overreliance on AI tools will erode their own cognitive fitness",
+    "Vibecoding without actively trying to understand the output erodes their technical skills",
+    "Fears AI use means learning little, like following GPS directions blindly",
+    "Fear that full vibe coding would rust their programming skills",
+    "Using LLMs leaves me with no learned skills to show for it",
+    "Letting Claude do the coding could erase the one skill that sets them apart"
+   ]
+  },
+  {
+   "id": "hand_coding_atrophy_noticed",
+   "name": "Noticed hand-coding ability fading (general)",
+   "definition": "First-person observation that their own ability to write code, recall syntax, or code unaided has declined from heavy AI/LLM use, stated as an experienced loss rather than a worry. Includes forgotten idioms/API details and slowness without AI.",
+   "n": 28,
+   "pct": 8,
+   "examples": [
+    "Stopped writing CSS by hand once vibe coding became a layer",
+    "Disengaging from AI-written code while debugging skills feel like they're fading",
+    "AI weakens my syntax recall, but I could easily sharpen it again",
+    "Only gives UX feedback to the AI, so their engineering skills go unused",
+    "Struggling with basic tasks after four months of AI-driven workflow",
+    "Losing some coding ability because of LLM use"
+   ]
+  },
+  {
+   "id": "reflexive_offloading_thinking",
+   "name": "Reflexive offloading of thinking and problem-solving",
+   "definition": "Noticing the habit of reaching for the LLM first, handing over trivial or thinking-heavy tasks, using it to verify instead of reasoning, and a loss of deep/critical thinking, reading, or estimation ability.",
+   "n": 27,
+   "pct": 7.7,
+   "examples": [
+    "Trying vibe coding made them want AI in their whole workflow",
+    "Asking the LLM to redo things they once knew how to do",
+    "Couldn't solve a logic problem alone, so kept re-prompting ChatGPT until it worked.",
+    "Lost ability to estimate task effort; feels they are getting dumber",
+    "LLMs doing the thinking and problem solving instead of them practicing",
+    "Notices personal pull to hand off thinking to AI at times"
+   ]
+  },
+  {
+   "id": "skill_value_obsolescence",
+   "name": "Fear that hard-won skills or the profession are becoming obsolete",
+   "definition": "Anxiety that experience is devalued, jobs shrink, programmers are replaceable, reskilling is pointless, or unclear which skills to build as AI products and non-developer vibe coders advance.",
+   "n": 23,
+   "pct": 6.6,
+   "examples": [
+    "News that AI will take software jobs prompts uncertainty about which skills to build",
+    "Colleague's comment about vibe coding made them question future value of knowledge",
+    "Feels behind for not knowing how to vibe-code the right way",
+    "Wondering if learning webdev and fundamentals still matters if vibecoding becomes the norm",
+    "Vibecoders skipping regexps makes his hard-won Unix skills feel less valuable",
+    "Improving vibe coding tools make their decades of hard-won skills feel obsolete"
+   ]
+  },
+  {
+   "id": "atrophy_doubted_or_accepted",
+   "name": "Doubting or accepting the atrophy narrative",
+   "definition": "Arguments that atrophy is overstated, skills are ingrained or easily regained, or that the trade-off is worth it; defending their approach against critics; shifting skills to high-level direction and management.",
+   "n": 23,
+   "pct": 6.6,
+   "examples": [
+    "Critic says vibecoded codebases inevitably become unmaintainable; author disputes it from experience",
+    "Title claims AI is making them dumb; body pushes back on getting-left-behind fear",
+    "Supervised AI generation makes a four-decade engineer feel like managing a team",
+    "Worries of engineers are laughable given past automation they did to others",
+    "Generating hundreds of lines with AI felt effortless, with skill atrophy as a cost",
+    "Stopped hand-writing for loops after using LLMs, though says skill is intact"
+   ]
+  },
+  {
+   "id": "vibe_coding_quality_limits",
+   "name": "Vibe coding failures and limits of agents",
+   "definition": "Poor or unmaintainable results, agents deleting code or getting stuck, messy codebases, bugs from unread code, struggling to reproduce others' success, and doubts about whether the approach is right.",
+   "n": 21,
+   "pct": 6,
+   "examples": [
+    "Own all-nighter vibecoding sessions producing little value; self-described low software skill",
+    "Vibe-coded result was poor despite a vague spec",
+    "Agents struggle on messy codebases, so author stays hands-on in core architecture",
+    "Vibe-coded Swift app stalled; AI couldn't fix polish issues it didn't anticipate",
+    "Unsure whether vibe coding production code is the right approach or just careless",
+    "Vibe-coded projects might randomly break, and they lack architecture knowledge"
+   ]
+  },
+  {
+   "id": "freeze_cant_code_without",
+   "name": "Concrete moment of being unable to work without the tool",
+   "definition": "A specific incident exposing dependence: outage, rate limit, token exhaustion, failed tech screen/interview, freezing mid-task, or being stuck when the agent fails and they cannot continue alone.",
+   "n": 18,
+   "pct": 5.2,
+   "examples": [
+    "Noticing more friction on tasks the agent used to handle for them",
+    "Realizes they are rusty at coding but could not build the system without agents.",
+    "Less understanding of my code means I can't troubleshoot or fix bugs without the tool.",
+    "Claude can't fix a message-queue bug; they never designed it themselves",
+    "Admits they likely can never code alone again, and fears looking like a fraud",
+    "Spent an entire evening stuck on CI runners; wants to dive in personally"
+   ]
+  },
+  {
+   "id": "imposter_and_fraud_feelings",
+   "name": "Imposter syndrome and feeling like a fraud from AI use",
+   "definition": "Feeling fraudulent, inferior or insecure because AI makes them look better than their ability, because of others' productivity claims, or doubt about whether their results are due to their own prompting.",
+   "n": 17,
+   "pct": 4.9,
+   "examples": [
+    "Wonders whether their own prompting skill explains good LLM-assisted results",
+    "LLMs and vibe coding make me feel insecure about my work",
+    "Others' huge LOC claims make me wonder if I'm bad at prompting.",
+    "Seniors seem more successful at vibe-coding than me, while I'm falling behind",
+    "Commenter blamed their tooling; author admits no production dev experience",
+    "Calls themselves a lame coder who now builds things only with AI"
+   ]
+  },
+  {
+   "id": "deliberate_countermeasures",
+   "name": "Deliberate habits to preserve skills",
+   "definition": "Concrete actions taken to prevent atrophy: coding by hand, avoiding or quitting AI, daily typing practice, typing out suggestions, slowing down, building comprehension tools, cold-turkey periods.",
+   "n": 17,
+   "pct": 4.9,
+   "examples": [
+    "Noticing own coding muscle weakening from AI use, so forces daily typing practice",
+    "Cold-turkey manual coding for weeks exposed bad habits in their AI use",
+    "Typing the implementation myself after AI suggestions keeps them learning",
+    "Vibing is tempting, and resisting it is a hard, ongoing discipline",
+    "Vibe coding trend pushed them to build a tool forcing code comprehension.",
+    "Stopped using LLMs for programming last month to protect critical thinking"
+   ]
+  },
+  {
+   "id": "ai_improved_learning_skills",
+   "name": "AI sharpened learning, understanding or skills",
+   "definition": "Counter-experience: AI taught concepts, sped learning, improved questioning or design/architecture thinking, helped navigate docs and codebases, made them a better engineer.",
+   "n": 14,
+   "pct": 4,
+   "examples": [
+    "Interactive questioning with LLMs made their thinking feel sharper, not weaker",
+    "AI explained and fixed a prod-only config bug I didn't understand.",
+    "Watching the agent's produced code helped their understanding of Rust grow",
+    "Querying an LLM made navigating docs they always struggled with much easier.",
+    "AI feedback on complex models sharpened their understanding before they code",
+    "Says working with the agent taught them low-level systems programming rapidly, not skill loss"
+   ]
+  },
+  {
+   "id": "review_burden_and_trust",
+   "name": "Reviewing AI output: fatigue, trust and verification",
+   "definition": "Difficulty or tedium of reviewing LLM-generated code, oversized AI PRs from colleagues, blind approvals, low trust compared with compiler output, and review skills eroding when only reviewing.",
+   "n": 12,
+   "pct": 3.4,
+   "examples": [
+    "Fear AI output would be unverifiable by them, so they avoid it",
+    "Reviewing AI-generated code feels like a grind, not a flow state",
+    "Blindly approved AI-written PRs, then spent hours failing to understand them",
+    "Reviewing Cursor's Go code closely one morning, realizing they had never checked it",
+    "Cannot be as confident in prompt output as in reviewing compiled code",
+    "Colleague's AI-generated 1-2k LOC PRs are too large to review meaningfully"
+   ]
+  },
+  {
+   "id": "lost_joy_craft_ownership",
+   "name": "Lost joy, pride, craft and ownership",
+   "definition": "Emotional loss: puzzle-solving enjoyment gone, no pride in AI-built work, flow broken, creativity drained, craft and identity of hand-written code diminished, vibe-coded work feeling empty.",
+   "n": 11,
+   "pct": 3.2,
+   "examples": [
+    "Vibe-coded demos feel empty; AI could let well-funded rivals take their projects",
+    "Finished a vibe-coded app and felt nothing, no pride, just shame and cheating",
+    "Vibe codes daily despite once being an artistic functional programmer; identity cost",
+    "AI replaces the problem-solving that made programming enjoyable, leaving only dull waiting",
+    "Being forced to use Claude at work removed the enjoyment of solving puzzles",
+    "AI coding tools break my flow and drain my creativity"
+   ]
+  },
+  {
+   "id": "workplace_mandates_pressure",
+   "name": "Employer mandates and pressure to maximize AI output",
+   "definition": "Being required by leadership or the job to use AI heavily, pressure to ship AI-accelerated output, management praise despite atrophy, and team/culture effects.",
+   "n": 11,
+   "pct": 3.2,
+   "examples": [
+    "Realized Claude was slowing onboarding and cutting off useful conversations with coworkers.",
+    "AI coding became a day-job requirement, risking forgetting how to code",
+    "LLM usage eroded team values and made them doubt shared culture",
+    "Told to plan everything upfront with AI tools, which they feel unable to do",
+    "Doing DE work mostly through Claude with no manager check-ins",
+    "Leadership requires all coding and design be done through Cursor, no manual writing"
+   ]
+  },
+  {
+   "id": "fear_future_generations",
+   "name": "Concerns about juniors, interns, peers and future developers",
+   "definition": "Observing or predicting skill loss in others: colleagues, interns who can't explain solutions, younger people, future generations, or peers who stopped writing code.",
+   "n": 10,
+   "pct": 2.9,
+   "examples": [
+    "Engineers who stop coding drift into buzzword-heavy architect roles",
+    "Company rolled out Claude; author mastered it in two days while a junior struggled",
+    "Dinner-party peers say they haven't written code in months and would struggle live",
+    "Interns with coding agents can't explain their own solutions, and author misses hands-on debugging",
+    "Feels some of their own skills are atrophying and worries about younger people",
+    "Peers' heavy LLM use erodes their skills, so author feels their own relative skill is rising."
+   ]
+  },
+  {
+   "id": "non_coding_domain_atrophy",
+   "name": "Skill erosion outside programming",
+   "definition": "Atrophy or dependence concerns in non-code areas: writing, math, bookkeeping, studying, memory, typing/voice interfaces, audio, or analogies to other crafts.",
+   "n": 10,
+   "pct": 2.9,
+   "examples": [
+    "Can't keep up with long AI-generated text and feels their reading and thinking eroding",
+    "Now hands longform reading to an LLM after skimming only to check the type",
+    "Delegating AWS interfacing to AI; old cloud know-how fading and they don't mind",
+    "After a year of AI-assisted writing, they could no longer write well.",
+    "Taking a multi-year break from a ceramics project, expecting skills to fade",
+    "Siri recap feature could make own natural recall skill atrophy"
+   ]
+  },
+  {
+   "id": "vendor_dependence_cost",
+   "name": "Dependence on a vendor, pricing and access",
+   "definition": "Worry about relying on a specific AI company/product, price hikes, plan removal, usage limits, and switching tools to reduce dependence.",
+   "n": 7,
+   "pct": 2,
+   "examples": [
+    "Hitting Claude Pro rate limits after a few prompts; wonders if using it wrong",
+    "Started worrying about becoming too dependent on Claude, so switched to Codex",
+    "Hitting usage limits after downgrading; wants to stop depending on Claude",
+    "Admits being personally dependent on Anthropic; fears price hikes after subsidies end",
+    "Possible Pro plan removal prompts reminder to keep coding manually",
+    "Worry that a tool like Claude could be pulled away and skills would fade"
+   ]
+  },
+  {
+   "id": "other",
+   "name": "Other",
+   "definition": "Posts that fit none of the above themes.",
+   "n": 6,
+   "pct": 1.7,
+   "examples": [
+    "Hand-written projects called slop for using AI; told to leave the community",
+    "Others struggle to learn the AI workflow they feel they've mastered",
+    "ChatGPT's flattery and vast knowledge feel like they stifle their own ideas",
+    "AI tool claims to measure skill erosion; wishes developers could track their own skill changes",
+    "Realized after five months their unusual stack was rare among developers",
+    "Programmers who stop coding for long stretches lose their skills"
+   ]
+  }
+ ]
+}
