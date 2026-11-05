@@ -202,7 +202,6 @@ export function pathHtml(areas, nextFile, { base, dir }) {
           const state = current ? "current" : m >= 5 ? "mastered" : a.talks ? "started" : "new";
           const label = m >= 5 ? "Mastered" : a.talks ? `${m}/5 lenses` : "Not yet";
           return `<li class="node ${state}" style="--x:${x}px">
-            ${current ? `<div class="bubble"><small>Next up</small><b>Start</b></div>` : ""}
             <button type="button" data-file="${esc(a.file)}" aria-label="${esc(base(a.file))}, ${label}">
               ${ring(m / 5, current ? 96 : 84, 6, state === "mastered" ? `<span class="crown">${tickMark}</span>` : current ? micIcon : `<span class="glyph">${i + 1}</span>`)}
             </button>
@@ -261,29 +260,45 @@ export async function celebrate(view, g, { minutes, title, onShown }) {
     <h1>Conversation complete</h1>
     <div class="tiles">
       <div class="tile xp-tile"><small>XP earned</small><b><span id="c-xp">0</span></b></div>
-      <div class="tile"><small>Answered well</small><b>${g.accuracy == null ? "–" : `${g.accuracy}%`}</b></div>
-      <div class="tile"><small>Best combo</small><b>${g.bestCombo}</b></div>
+      <div class="tile"><small>Score</small><b>${g.accuracy == null ? "–" : `${g.accuracy}%`}</b></div>
+      ${g.bestCombo >= COMBO_AT
+        ? `<div class="tile"><small>Best combo</small><b>${g.bestCombo}</b></div>`
+        : `<div class="tile"><small>Answers</small><b>${g.answers}</b></div>`}
     </div>
     <ul class="breakdown">${g.breakdown.map((b, i) => `<li style="--i:${i}"><span>${esc(b.label)}</span><b>+${b.xp}</b></li>`).join("")}</ul>
     <div class="cel-row">
       <div class="cel-goal">${ring(g.before.todayXp / g.goal, 104, 10, `<b id="c-today">${g.before.todayXp}</b><small>/${g.goal}</small>`)}<p id="c-goal-note">${goalCrossed ? "" : g.after.todayXp >= g.goal ? "Daily goal met" : `${g.goal - g.after.todayXp} XP to today's goal`}</p></div>
-      <div class="cel-streak ${g.streakExtended ? "grow" : ""}">${flame(true)}<div><b id="c-streak">${g.before.streak}</b><span>day streak</span></div></div>
+      <div class="cel-streak ${g.streakExtended ? "grow" : g.after.streak ? "lit still" : ""}">${flame(true)}<div><b id="c-streak">${g.before.streak}</b><span>day streak</span></div></div>
       <div class="cel-level"><div class="level-top"><span class="lv" id="c-lv">${g.before.level.n}</span><div><b id="c-lv-title">${esc(g.before.level.title)}</b><small id="c-lv-next"></small></div></div><div class="bar"><i id="c-bar" style="width:${Math.round(g.before.level.progress * 100)}%"></i></div></div>
     </div>
     <div class="unlocks" id="unlocks"></div>
     <div class="actions"><button class="btn btn-primary btn-big" id="continue">See what you defended</button></div>
   </div></section>`;
-  const $ = (s) => view.querySelector(s);
+  const root = view.firstElementChild;
+  const $ = (s) => root.querySelector(s);
+  const clicked = new Promise((resolve) => { $("#continue").onclick = resolve; });
+  $("#continue").focus();
+  const SKIPPED = Symbol("skipped");
+  const step = async (ms) => { await wait(ms); if (!root.isConnected) throw SKIPPED; };
+  const show = animate($, step, g, leveled, goalCrossed).catch((e) => { if (e !== SKIPPED) throw e; });
+  await Promise.race([clicked, show]);
+  onShown?.();
+  return clicked;
+}
+
+async function animate($, step, g, leveled, goalCrossed) {
   sound.play("complete");
-  await wait(500);
-  await countUp($("#c-xp"), 0, g.earned, 1100, () => sound.play("tick"));
+  await step(500);
+  const xpNode = $("#c-xp");
+  await countUp(xpNode, 0, g.earned, 1100, () => xpNode.isConnected && sound.play("tick"));
 
   // The goal ring fills.
-  await wait(250);
-  const fill = view.querySelector(".cel-goal .fill");
+  await step(250);
+  const fill = $(".cel-goal .fill");
   const c = Number(fill.style.getPropertyValue("--c"));
   fill.style.strokeDashoffset = c * (1 - Math.min(1, g.after.todayXp / g.goal));
   await countUp($("#c-today"), g.before.todayXp, g.after.todayXp, 900);
+  await step(0);
   if (goalCrossed) {
     fill.classList.add("full");
     $("#c-goal-note").textContent = "Daily goal met!";
@@ -294,7 +309,7 @@ export async function celebrate(view, g, { minutes, title, onShown }) {
 
   // The streak grows.
   if (g.streakExtended) {
-    await wait(400);
+    await step(400);
     $(".cel-streak").classList.add("lit");
     $("#c-streak").textContent = g.after.streak;
     sound.play("streak");
@@ -303,10 +318,10 @@ export async function celebrate(view, g, { minutes, title, onShown }) {
   if (g.freezeUsed) unlockCard($("#unlocks"), "Streak saved", `A streak freeze covered ${g.freezeUsed} missed day${g.freezeUsed > 1 ? "s" : ""}`);
 
   // The level bar moves; a new level gets its own moment.
-  await wait(400);
+  await step(400);
   if (leveled) {
     $("#c-bar").style.width = "100%";
-    await wait(650);
+    await step(650);
     $("#c-lv").textContent = g.after.level.n;
     $("#c-lv-title").textContent = g.after.level.title;
     $(".cel-level").classList.add("up");
@@ -317,19 +332,16 @@ export async function celebrate(view, g, { minutes, title, onShown }) {
     sound.play("levelup");
     confetti(180);
     unlockCard($("#unlocks"), `Level ${g.after.level.n}: ${g.after.level.title}`, "New level");
-    await wait(200);
+    await step(200);
   }
   $("#c-bar").style.width = `${Math.round(g.after.level.progress * 100)}%`;
   $("#c-lv-next").textContent = g.after.level.next ? `${g.after.level.next - g.after.xp} XP to ${g.after.level.nextTitle}` : "Top level";
 
   for (const a of g.unlocked) {
-    await wait(350);
+    await step(350);
     unlockCard($("#unlocks"), a.name, a.about);
     sound.play("great");
   }
-
-  onShown?.();
-  return new Promise((resolve) => { $("#continue").onclick = resolve; $("#continue").focus(); });
 }
 
 function unlockCard(container, name, about) {

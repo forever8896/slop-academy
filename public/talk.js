@@ -245,7 +245,8 @@ const speechChip = document.getElementById("speech-chip");
     const parts = [s.tts, s.stt];
     if (parts.every((p) => p.state === "ready")) { speechChip.hidden = true; return; }
     const failed = parts.find((p) => p.state === "error");
-    const downloading = parts.some((p) => p.state === "downloading");
+    // Small config files are re-fetched every start; only the big model files make it a download.
+    const downloading = parts.some((p) => p.state === "downloading") && parts.reduce((a, p) => a + (p.total ?? 0), 0) > 50e6;
     const pct = Math.round((parts.reduce((a, p) => a + p.progress, 0) / parts.length) * 100);
     speechChip.hidden = false;
     speechChip.textContent = failed ? "Voice models failed to load · you can type" : downloading ? `Downloading voice models · ${pct}%` : "Loading voice models";
@@ -530,6 +531,7 @@ async function renderTalk(file) {
       <div class="code" id="code"><div class="scanline"></div></div>
     </section>
     <section class="caption" id="caption" aria-live="polite">
+      <button class="fold" id="fold" type="button" aria-expanded="true" aria-label="Show more code" title="Show more code"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
       <div class="q" id="q"><span class="tag" id="q-tag"></span><p id="q-text" class="status-line">Your agent is reading ${esc(base(file))} and the code around it. The first time takes about a minute</p></div>
       <div class="a" id="a" hidden><p id="a-text"></p><div class="assess" id="a-assess"></div></div>
       <div class="dock" id="dock">
@@ -576,18 +578,29 @@ async function renderTalk(file) {
     if (open) messages.scrollTop = messages.scrollHeight;
   };
   $("#transcript-toggle").onclick = () => toggleDrawer();
+
+  // On a phone the caption covers most of the code: fold it down to the question's first lines.
+  const fold = (folded) => {
+    caption.classList.toggle("folded", folded);
+    $("#fold").setAttribute("aria-expanded", String(!folded));
+    $("#fold").setAttribute("aria-label", folded ? "Show the whole question" : "Show more code");
+  };
+  $("#fold").onclick = () => fold(!caption.classList.contains("folded"));
+  $("#q").onclick = () => { if (caption.classList.contains("folded")) fold(false); };
   $("#drawer-close").onclick = () => toggleDrawer(false);
 
   const setLabel = (text) => { micLabel.textContent = text; };
   const ready = () => {
+    if (!document.body.contains(micBtn)) return; // you left the conversation while it was talking
     convo.busy = false;
     micBtn.disabled = convo.done;
     $("#stuck").disabled = convo.done;
     if (convo.done) { mic.close(); return setLabel(""); }
+    if (convo.noMic) return setLabel("No microphone found · type your answers");
     if (convo.paused) return setLabel("Mic paused · tap to answer");
     listen();
   };
-  const busy = (text) => { convo.busy = true; micBtn.disabled = true; $("#stuck").disabled = true; setLabel(text); };
+  const busy = (text) => { if (!document.body.contains(micBtn)) return; convo.busy = true; micBtn.disabled = true; $("#stuck").disabled = true; setLabel(text); };
   const scroll = () => messages.scrollTo({ top: messages.scrollHeight, behavior: "smooth" });
   const setProgress = () => {
     const f = convo.done ? 1 : Math.min(0.92, convo.answers / convo.planned);
@@ -607,6 +620,7 @@ async function renderTalk(file) {
     $("#q").classList.add("swap");
     $("#a").hidden = true;
     $("#a-assess").innerHTML = "";
+    fold(false); // a new question is worth reading in full
   }
   function showAnswer(text, { live = false } = {}) {
     $("#a").hidden = false;
@@ -633,7 +647,9 @@ async function renderTalk(file) {
     }
     busy(voice.on && !convo.paused && mic.stream ? "Interviewer speaking · just talk to cut in" : "Interviewer speaking");
     if (voice.on && !convo.paused && mic.stream && !turn.done) mic.watch(() => voice.stop());
-    await voice.speak(turn.say);
+    convo.speaking = voice.speak(turn.say);
+    await convo.speaking;
+    convo.speaking = null;
     mic.unwatch();
     convo.askedAt = performance.now();
     ready();
@@ -701,9 +717,12 @@ async function renderTalk(file) {
     try {
       await mic.open();
     } catch {
-      convo.paused = true;
-      setLabel("No microphone · type instead");
+      convo.paused = convo.noMic = true;
+      micBtn.hidden = true;
+      $("#type-toggle").hidden = true;
+      setLabel("No microphone found · type your answers");
       $("#typebox").hidden = false;
+      $("#typed").focus();
       return;
     }
     if (convo.busy || convo.done || !document.body.contains(micBtn)) return;
@@ -787,10 +806,13 @@ async function renderTalk(file) {
 
   // typing
   $("#type-toggle").onclick = () => { $("#typebox").hidden = !$("#typebox").hidden; if (!$("#typebox").hidden) $("#typed").focus(); };
-  $("#typebox").onsubmit = (e) => {
+  $("#typebox").onsubmit = async (e) => {
     e.preventDefault();
-    if (convo.busy || convo.done) return;
     const text = $("#typed").value;
+    if (convo.done || !text.trim()) return;
+    // Sending while the interviewer talks cuts them off, like talking over them does.
+    if (convo.speaking) { voice.stop(); await convo.speaking; }
+    if (convo.busy) return toast("One moment: the interviewer is still thinking");
     $("#typed").value = "";
     answer(text, null);
   };
@@ -816,6 +838,22 @@ async function renderTalk(file) {
 
 // ---------------------------------------------------------------- what you defended
 
+/** While the recap is written: each question, what you said, and how it scored, one after another. */
+function replayHtml(transcript) {
+  const pairs = [];
+  transcript.forEach((t, i) => {
+    const q = transcript[i - 1];
+    if (t.role === "you" && q?.role === "them") pairs.push({ q: q.text, a: t.text, s: t.assessment });
+  });
+  if (!pairs.length) return "";
+  const cut = (text, n) => (text.length > n ? `${text.slice(0, n).replace(/\s+\S*$/, "")}…` : text);
+  return `<ol class="replay">${pairs.map((p, i) => `<li style="animation-delay:${200 + i * 260}ms">
+    <p class="rq">${esc(cut(p.q, 180))}</p>
+    <p class="ra">${esc(cut(p.a, 220))}</p>
+    ${p.s ? `<div class="assess"><span class="dots" aria-label="${p.s.score} of 3">${[1, 2, 3].map((n) => `<i class="${p.s.score >= n ? "on" : ""}"></i>`).join("")}</span><span>${esc(p.s.note)}</span></div>` : ""}
+  </li>`).join("")}</ol>`;
+}
+
 async function finish(convo) {
   voice.stop();
   mic.close();
@@ -823,7 +861,7 @@ async function finish(convo) {
   const headerTools = document.querySelector(".top .top-right");
   if (!headerTools.contains(voiceBtn)) headerTools.append(soundBtn, voiceBtn);
   const minutes = Math.max(1, Math.round((Date.now() - convo.startedAt) / 60000));
-  view.innerHTML = `<section class="recap"><div class="recap-inner"><p class="eyebrow">Conversation done · ${minutes} min</p><h1>Scoring your conversation…</h1><div class="thinking" style="margin-top:20px"><i></i><i></i><i></i></div></div></section>`;
+  view.innerHTML = `<section class="recap"><div class="recap-inner"><p class="eyebrow">Conversation done · ${minutes} min</p><h1>Scoring your conversation…</h1><div class="thinking" style="margin-top:20px"><i></i><i></i><i></i></div>${replayHtml(convo.transcript)}</div></section>`;
   const spoken = convo.metrics.filter(Boolean);
   const avg = (key) => {
     const v = spoken.map((m) => m[key]).filter((x) => x != null);

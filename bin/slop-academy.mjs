@@ -33,7 +33,7 @@ if (major < 20) {
 
 const ui = await import("../lib/ui.mjs");
 const { command, DATA } = await import("../lib/paths.mjs");
-const { run } = await import("../lib/tests.mjs");
+const { run } = await import("../lib/run.mjs");
 const runtime = await import("../lib/runtime.mjs");
 const { version } = JSON.parse(await readFile(new URL("../package.json", import.meta.url), "utf8"));
 
