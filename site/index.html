@@ -236,6 +236,19 @@
     .needs { list-style: none; padding: 0; margin: 18px 0 28px; display: flex; flex-wrap: wrap; gap: 8px; }
     .needs li { padding: 4px 12px; border: 1px solid var(--hair-strong); border-radius: 999px; font-size: 13px; color: var(--ink-2); }
 
+    /* teams */
+    .teams-head { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 64px; align-items: end; }
+    .uses { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 56px; }
+    .uses div { padding-top: 20px; border-top: 1px solid var(--hair-strong); }
+    .uses span { font: 400 12px/16px var(--mono); color: var(--pen); }
+    .uses h3 { font: 500 17px/24px var(--sans); margin: 8px 0 8px; }
+    .uses p { margin: 0; color: var(--ink-2); font-size: 15px; line-height: 23px; }
+    .talk { margin-top: 56px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: center; padding: 32px 36px; border-radius: 16px; background: var(--sheet); border: 1px solid var(--hair-strong); box-shadow: 0 24px 64px rgba(31, 27, 22, .08); }
+    .talk h3 { font: 400 30px/1.15 var(--serif); letter-spacing: -0.01em; margin: 0 0 12px; }
+    .talk ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+    .talk li { position: relative; padding-left: 22px; color: var(--ink-2); font-size: 15px; line-height: 23px; }
+    .talk li::before { content: ""; position: absolute; left: 2px; top: 8px; width: 9px; height: 5px; border-left: 2px solid var(--pen); border-bottom: 2px solid var(--pen); transform: rotate(-45deg); }
+    .talk .btn { height: 52px; padding: 0 28px; font-size: 16px; }
     /* closing */
     .closing { max-width: 640px; }
 
@@ -250,6 +263,7 @@
       .hero { grid-template-columns: minmax(0, 1fr); min-height: 0; padding-block: 56px 80px; gap: 56px; }
       .problem, .local { grid-template-columns: minmax(0, 1fr); gap: 48px; }
       .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .teams-head { grid-template-columns: minmax(0, 1fr); gap: 0; }
     }
     @media (max-width: 760px) {
       .wrap { padding: 0 16px; }
@@ -267,6 +281,9 @@
       .steps { display: none; }
       .flow { grid-template-columns: 1fr; }
       .install { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+      .uses { grid-template-columns: 1fr; gap: 24px; }
+      .talk { grid-template-columns: 1fr; padding: 24px; }
+      .talk .btn { width: 100%; }
       footer .wrap { flex-direction: column; align-items: flex-start; gap: 16px; }
       footer nav { margin-left: 0; flex-wrap: wrap; }
     }
@@ -289,6 +306,7 @@
       <a href="#how">How it works</a>
       <a href="#local">Your machine</a>
       <a href="#install">Install</a>
+      <a href="#teams">Teams</a>
       <a href="https://github.com/forever8896/slop-academy">GitHub</a>
     </nav>
     <a class="btn btn-primary btn-small" href="#install">Get it free</a>
@@ -544,6 +562,34 @@
       </div>
     </section>
 
+    <section class="rule" id="teams">
+      <div class="wrap">
+        <div class="teams-head">
+          <div>
+            <p class="eyebrow">For engineering teams</p>
+            <h2>Know who can explain the code your team ships with AI</h2>
+          </div>
+          <p class="sub">More of every codebase is written with an agent now. The risk isn't the code, it's the day it breaks and nobody can say why it works the way it does. Slop Academy can run the same conversations across a team, on your own machines</p>
+        </div>
+        <div class="uses">
+          <div><span>Onboarding</span><h3>New hires defend the code that matters</h3><p>In their first weeks, a new engineer talks through the files your team changes most, and comes out able to explain them instead of only having read them</p></div>
+          <div><span>Risky changes</span><h3>Defend the change before it ships</h3><p>For the pull requests that touch payments, auth or data, the author talks it through first: how it fails, what happens at ten times the load</p></div>
+          <div><span>Knowledge risk</span><h3>See what nobody can explain</h3><p>A map of the files only one person, or nobody, can defend, so you know where the next incident will hurt before it happens</p></div>
+        </div>
+        <div class="talk">
+          <div>
+            <h3>We're setting this up with a few early teams</h3>
+            <ul>
+              <li>Runs on your machines with your own Claude key. Your code never reaches us</li>
+              <li>Practice, not surveillance: leads see the team's map, never anyone's transcripts</li>
+              <li>Shaped around how your team works, from onboarding to review</li>
+            </ul>
+          </div>
+          <a class="btn btn-primary" href="mailto:kilianvaldman@gmail.com?subject=Slop%20Academy%20for%20our%20team&amp;body=Hi%2C%0A%0AWe%27d%20like%20to%20talk%20about%20Slop%20Academy%20for%20our%20team.%0A%0ATeam%20size%3A%0AWhat%20we%20build%2C%20and%20the%20stack%3A%0AWhere%20it%20would%20help%20most%20%28onboarding%2C%20risky%20changes%2C%20knowing%20who%20can%20explain%20what%29%3A%0A">Talk to us</a>
+        </div>
+      </div>
+    </section>
+
     <section class="rule" id="start">
       <div class="wrap closing">
         <div>
@@ -567,6 +613,7 @@
         <a href="#how">How it works</a>
         <a href="#local">Your machine</a>
         <a href="#install">Install</a>
+        <a href="#teams">Teams</a>
         <a href="https://github.com/forever8896/slop-academy">GitHub</a>
       </nav>
     </div>
