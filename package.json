@@ -1,6 +1,6 @@
 {
   "name": "slop-academy",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Talk through code you shipped with an interviewer who has read it. Runs entirely on your machine with your own Claude Code.",
   "keywords": [
     "interview",
