@@ -6,6 +6,7 @@
   <title>Slop Academy: defend the code you shipped</title>
   <meta name="description" content="A free, open-source practice interviewer for code you shipped. It reads your repo with your own Claude Code and asks you, out loud, how it fails, how it scales and why it's built this way. Runs on your machine.">
   <link rel="canonical" href="https://www.slopacademy.app/">
+  <meta name="theme-color" content="#121110">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.slopacademy.app/">
   <meta property="og:site_name" content="Slop Academy">
@@ -17,625 +18,622 @@
   <meta property="og:image:alt" content="You shipped it. Can you defend it? A printed webhook retry file graded in red pen: 2 of 3, with margin questions like why retry a 429. Install with npx slop-academy">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://www.slopacademy.app/og.png">
-  <!-- Direction set with unslop by Damir Sokolovsky (@heydamir), github.com/heydamir/unslop -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23121110'/%3E%3Cpath d='M48 17C39 10 17 11 11 24c-6 14 5 26 22 26 16 0 26-9 23-20-2-6-8-11-17-12' fill='none' stroke='%23ee4b2f' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preload" href="/fonts/Geist-variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/fonts/fonts.css">
   <style>
-    /* Paper and red pen. Warm ramp from unslop's tokens, one accent: the pen. */
+    /* A desk at night. The code is the room, paper sheets are the lit objects, and the red pen is
+       the only accent. Four voices, four faces: the page speaks in Geist, the interviewer in
+       Newsreader, the code in Geist Mono and the grader in handwriting.
+       Shapes: paper 6px, controls 10px, chips are pills. */
     :root {
-      --page: #f7f4ee;
-      --card: #fdfbf7;
-      --sheet: #fffdf8;
-      --raised: #efe9df;
-      --ink: #1f1b16;
-      --ink-2: #5e554a;
-      --ink-3: #6f665a;
-      --hair: rgba(31, 27, 22, .09);
-      --hair-strong: rgba(31, 27, 22, .16);
-      --pen: #b8321c;
-      --pass: #16a34a;
-      --night: #1c1a18;
-      --night-2: #262421;
-      --night-ink: #efe9de;
-      --night-ink-2: #aaa398;
-      --night-ink-3: #8a847a;
+      color-scheme: dark;
+      --bg: #121110;
+      --bg-2: #191816;
+      --bg-3: #22201d;
+      --fg: #ece7dd;
+      --fg-2: #a9a296;
+      --fg-3: #8b8579;
+      --line: rgba(236, 231, 221, .08);
+      --line-2: rgba(236, 231, 221, .16);
+      --paper: #f4efe4;
+      --paper-2: #e9e2d3;
+      --paper-ink: #1d1a16;
+      --paper-ink-2: #5f584d;
+      --paper-line: rgba(29, 26, 22, .14);
+      --pen: #ee4b2f;
+      --pen-paper: #c5311a;
+      --gold: #e8b04a;
+      --flame: #f07a3a;
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
-      --sans: "Instrument Sans", system-ui, sans-serif;
-      --serif: "Instrument Serif", Georgia, serif;
-      --mono: "JetBrains Mono", ui-monospace, monospace;
+      --sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --serif: "Newsreader", Georgia, "Times New Roman", serif;
+      --mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
       --hand: "Caveat", "Segoe Print", cursive;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      margin: 0;
-      background: var(--page);
-      color: var(--ink);
-      font: 400 16px/1.5 var(--sans);
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
+      margin: 0; background: var(--bg); color: var(--fg);
+      font: 400 16px/1.55 var(--sans); -webkit-font-smoothing: antialiased; overflow-x: hidden;
     }
+    /* film grain, so the dark has a surface */
+    body::after {
+      content: ""; position: fixed; inset: 0; z-index: 100; pointer-events: none; opacity: .05;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    main { overflow-x: clip; }
     a { color: inherit; }
-    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .wrap { max-width: 1280px; margin: 0 auto; padding-inline: 40px; }
+    .ic { width: 1em; height: 1em; fill: currentColor; flex: none; }
+    :focus-visible { outline: 2px solid var(--pen); outline-offset: 3px; border-radius: 4px; }
+    h1, h2, h3, p { margin: 0; }
+    h1, h2 { font-weight: 600; letter-spacing: -0.04em; text-wrap: balance; }
+    h2 { font-size: clamp(34px, 4.2vw, 60px); line-height: 1.02; max-width: 16ch; }
+    .sub { color: var(--fg-2); font-size: 18px; line-height: 1.55; max-width: 34rem; margin-top: 20px; }
+    .eyebrow { font: 500 13px/1 var(--mono); color: var(--fg-3); letter-spacing: .02em; }
+    .ink { fill: none; stroke: var(--pen); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
 
-    /* ------------------------------------------------ buttons */
+    /* ------------------------------------------------ controls */
     .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px; white-space: nowrap;
       height: 48px; padding: 0 20px; border-radius: 10px; border: 1px solid transparent;
       font: 500 15px/1 var(--sans); text-decoration: none; cursor: pointer;
-      transition: background-color 150ms var(--ease), border-color 150ms var(--ease), transform 120ms var(--ease);
+      transition: background-color 160ms var(--ease), border-color 160ms var(--ease), transform 120ms var(--ease);
     }
-    .btn:active { transform: scale(0.98); }
-    .btn:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid var(--pen); outline-offset: 2px; }
-    .btn-primary { background: var(--ink); color: var(--card); }
-    .btn-primary:hover { background: #38322a; }
-    .btn-secondary { background: var(--card); color: var(--ink); border-color: var(--hair-strong); }
-    .btn-secondary:hover { background: var(--raised); }
-    .btn-small { height: 36px; padding: 0 16px; font-size: 14px; border-radius: 8px; }
+    .btn:active { transform: translateY(1px) scale(.985); }
+    .btn-paper { background: var(--paper); color: var(--paper-ink); }
+    .btn-paper:hover { background: #fffaf0; }
+    .btn-ghost { background: transparent; color: var(--fg); border-color: var(--line-2); }
+    .btn-ghost:hover { background: var(--bg-3); border-color: rgba(236, 231, 221, .28); }
+    .btn-small { height: 36px; padding: 0 14px; font-size: 14px; border-radius: 8px; }
+    .cmd {
+      display: inline-flex; align-items: center; gap: 18px; height: 56px; padding: 0 8px 0 20px; border-radius: 10px;
+      background: var(--bg-2); border: 1px solid var(--line-2); font: 500 16px/1 var(--mono); color: var(--fg);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, .04) inset;
+    }
+    .cmd code { font: inherit; white-space: nowrap; }
+    .cmd code::before { content: "$ "; color: var(--fg-3); }
+    .cmd .btn { height: 40px; padding: 0 14px; border-radius: 8px; font-size: 14px; min-width: 92px; }
 
     /* ------------------------------------------------ nav */
-    .nav { height: 72px; display: flex; align-items: center; gap: 40px; }
-    .logo { display: inline-flex; align-items: center; gap: 6px; font: 500 18px/1 var(--sans); text-decoration: none; }
+    .nav { height: 68px; display: flex; align-items: center; gap: 36px; }
+    .logo { display: inline-flex; align-items: center; gap: 7px; font: 500 18px/1 var(--sans); letter-spacing: -0.02em; text-decoration: none; }
     .logo .graded { position: relative; padding: 0 4px; }
     .logo .graded svg { position: absolute; left: -6px; top: -9px; width: calc(100% + 12px); height: calc(100% + 18px); overflow: visible; }
-    .nav-links { display: flex; gap: 28px; font-size: 15px; color: var(--ink-2); }
-    .nav-links a { text-decoration: none; transition: color 150ms var(--ease); }
-    .nav-links a:hover { color: var(--ink); }
-    .nav .btn { margin-left: auto; }
+    .nav-links { display: flex; gap: 28px; margin-left: auto; font-size: 15px; color: var(--fg-2); }
+    .nav-links a { text-decoration: none; display: inline-flex; align-items: center; gap: 7px; transition: color 150ms var(--ease); }
+    .nav-links a:hover { color: var(--fg); }
 
     /* ------------------------------------------------ hero */
     .hero {
-      min-height: calc(100vh - 72px); min-height: calc(100svh - 72px);
-      display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: 48px; align-items: center;
-      padding-block: 32px 80px;
+      position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); gap: 72px; align-items: center;
+      min-height: calc(100dvh - 68px); padding-block: 40px 88px;
     }
-    h1, h2 { text-wrap: balance; }
-    h1 {
-      font: 400 76px/1.02 var(--serif); letter-spacing: -0.02em; margin: 0 0 24px;
+    /* the lamp: warm light falling where the paper sits */
+    .hero::before {
+      content: ""; position: absolute; right: -10%; bottom: -8%; width: 70%; height: 80%; pointer-events: none;
+      background: radial-gradient(closest-side, rgba(244, 222, 180, .10), rgba(244, 222, 180, 0) 70%);
     }
-    h1 span { display: block; }
-    .lede { font-size: 19px; line-height: 30px; color: var(--ink-2); max-width: 31rem; margin: 0 0 40px; }
-    .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-copy { position: relative; }
+    h1 { font-size: clamp(42px, 5.1vw, 74px); line-height: .98; margin: 22px 0 26px; }
+    h1 span { display: block; white-space: nowrap; }
+    h1 .dim { color: var(--fg-3); }
+    .under { position: relative; display: inline-block; white-space: nowrap; }
+    .under svg { position: absolute; left: -2%; bottom: -.16em; width: 104%; height: .22em; overflow: visible; }
+    .lede { font-size: 19px; line-height: 1.5; color: var(--fg-2); max-width: 29rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+    .actions .btn { height: 56px; }
 
-    /* The graded printout: real code on paper, marked in red pen. */
-    .print-fit { position: relative; width: 100%; }
-    .print-stage { position: relative; width: 640px; height: 600px; transform-origin: top left; }
+    /* the stage: a real conversation, replayed */
+    .stage { position: relative; min-width: 0; }
+    .stage-head { display: flex; align-items: center; gap: 12px; height: 36px; font: 400 13px/1 var(--mono); color: var(--fg-3); }
+    .stage-head b { color: var(--fg-2); font-weight: 500; }
+    .lens { margin-left: auto; font: 500 12px/22px var(--sans); padding: 0 10px; border-radius: 999px; color: var(--pen); background: rgba(238, 75, 47, .12); }
+    .stage-bar { height: 3px; border-radius: 2px; background: var(--line); overflow: hidden; }
+    .stage-bar i { display: block; height: 100%; width: 50%; border-radius: 2px; background: var(--pen); transition: width 900ms var(--ease); }
+    .code {
+      position: relative; padding: 16px 0 44px; font: 400 13px/24px var(--mono); color: #cfc8ba;
+      font-variant-ligatures: none; overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, #000 78%, transparent); mask-image: linear-gradient(90deg, #000 78%, transparent);
+    }
+    .ln { display: flex; white-space: pre; height: 24px; border-radius: 3px; transition: opacity 400ms var(--ease), background-color 400ms var(--ease); }
+    .ln i { font-style: normal; width: 44px; padding-right: 18px; text-align: right; color: #5b564e; flex: none; }
+    .k { color: #e9b384; } .s { color: #a9c58d; } .n { color: #e58f7a; } .c { color: #736d63; font-style: italic; }
+    .code.focus .ln { opacity: .3; }
+    .code.focus .ln.hl { opacity: 1; background: rgba(238, 75, 47, .13); }
+    .code.focus .ln.hl i { color: var(--pen); }
+
     .sheet {
-      position: absolute; background: var(--sheet); border-radius: 4px;
-      box-shadow: 0 1px 2px rgba(31, 27, 22, .06), 0 12px 32px rgba(31, 27, 22, .08);
+      background: var(--paper); color: var(--paper-ink); border-radius: 6px;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset, 0 2px 4px rgba(0, 0, 0, .3), 0 36px 90px rgba(0, 0, 0, .55);
     }
-    .sheet.under { left: 44px; top: 30px; width: 540px; height: 540px; transform: rotate(3.2deg); }
-    .sheet.under::before {
-      content: ""; position: absolute; inset: 64px 48px auto 64px; height: 300px;
-      background: repeating-linear-gradient(to bottom, transparent 0 21px, rgba(31,27,22,.05) 21px 22px);
-    }
-    .sheet.main { left: 8px; top: 8px; width: 584px; height: 556px; transform: rotate(-1.6deg); padding: 28px 0 0; }
-    .sheet-head {
-      display: flex; justify-content: space-between; padding: 0 28px 16px 64px;
-      font: 400 11px/16px var(--mono); color: var(--ink-3);
-    }
-    .code { font: 400 12px/24px var(--mono); color: #3a342c; }
-    .ln { position: relative; display: flex; white-space: pre; height: 24px; }
-    .ln i { font-style: normal; width: 48px; padding-right: 16px; text-align: right; color: #a39a8c; flex-shrink: 0; }
-    .ln .k { color: #8a3a14; }
-    .ln .s { color: #4f6a2c; }
-    .ln .c { color: #8f8677; }
-    .ln .n { color: #8a5a00; }
-    .mark { position: relative; display: inline-block; }
-    .mark > svg { position: absolute; overflow: visible; pointer-events: none; }
-    .ink { fill: none; stroke: var(--pen); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-    .note {
-      position: absolute; font: 600 21px/1.05 var(--hand); color: var(--pen); white-space: nowrap;
-    }
-    .bracket { position: absolute; left: 30px; top: 0; width: 14px; height: 72px; overflow: visible; }
-    .pen { position: absolute; right: -8px; bottom: -14px; width: 300px; transform: rotate(-24deg); filter: drop-shadow(0 10px 10px rgba(31,27,22,.18)); }
-
-    /* draw-in: the grading happens in front of you, once */
+    .caption { position: relative; margin: -36px 0 0 -44px; padding: 22px 26px 18px; max-width: 600px; }
+    .caption .tag { display: block; font: 500 12px/1 var(--sans); color: var(--pen-paper); margin-bottom: 10px; }
+    .caption .q { font: 400 24px/1.27 var(--serif); letter-spacing: -0.012em; min-height: 2.54em; text-wrap: pretty; font-optical-sizing: auto; }
+    .w { opacity: 0; transition: opacity 220ms linear; }
+    .w.on { opacity: 1; }
+    .ans { margin-top: 14px; padding: 12px 14px; border-radius: 10px; background: rgba(29, 26, 22, .05); border: 1px solid var(--paper-line); transition: opacity 300ms var(--ease); min-height: 104px; }
+    .ans.off { opacity: 0; }
+    .ans p { font-size: 15px; line-height: 1.5; color: var(--paper-ink); }
+    .assess { display: flex; align-items: center; gap: 10px; margin-top: 10px; font-size: 13px; color: var(--paper-ink-2); min-height: 20px; }
+    .dots { display: inline-flex; gap: 4px; flex: none; }
+    .dots i { width: 9px; height: 9px; border-radius: 50%; background: var(--paper-line); transition: background-color 250ms var(--ease), transform 250ms var(--ease); }
+    .dots i.on { background: var(--pen-paper); transform: scale(1.1); }
+    .note-line { transition: opacity 300ms var(--ease); }
+    .dock { display: flex; align-items: center; gap: 12px; margin-top: 16px; font-size: 13px; color: var(--paper-ink-2); }
+    .micdot { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--paper-ink); color: var(--paper); font-size: 17px; transition: background-color 250ms var(--ease); }
+    .dock.listening .micdot { background: var(--pen-paper); }
+    .bars { display: inline-flex; align-items: center; gap: 3px; height: 22px; }
+    .bars { transition: opacity 300ms var(--ease); }
+    .dock:not(.live) .bars { opacity: 0; }
+    .bars i { width: 3px; height: 4px; border-radius: 2px; background: var(--paper-ink-2); opacity: .45; }
+    .dock.listening .bars i { background: var(--pen-paper); }
+    .xp { margin-left: auto; font: 700 30px/1 var(--hand); color: var(--pen-paper); transform: rotate(-5deg); transition: opacity 300ms var(--ease), transform 500ms var(--ease); }
+    .xp.off { opacity: 0; transform: rotate(-5deg) translateY(10px) scale(.7); }
     @media (prefers-reduced-motion: no-preference) {
-      .ink { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 520ms var(--ease) forwards; }
-      .note { opacity: 0; animation: appear 300ms var(--ease) forwards; }
-      .d1 { animation-delay: 700ms; } .d2 { animation-delay: 1100ms; } .d3 { animation-delay: 1500ms; }
-      .d4 { animation-delay: 1900ms; } .d5 { animation-delay: 2300ms; } .d6 { animation-delay: 2700ms; }
-      .rise { opacity: 0; transform: translateY(10px); animation: rise 480ms var(--ease) forwards; }
-      .rise.r2 { animation-delay: 60ms; } .rise.r3 { animation-delay: 120ms; } .rise.r4 { animation-delay: 180ms; }
+      .dock.live .bars i { animation: bar 900ms ease-in-out infinite; opacity: .9; }
+      .bars i:nth-child(2n) { animation-delay: -300ms; } .bars i:nth-child(3n) { animation-delay: -520ms; } .bars i:nth-child(5n) { animation-delay: -760ms; }
+      @keyframes bar { 0%, 100% { height: 4px; } 50% { height: 20px; } }
+      .draw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 700ms var(--ease) 500ms forwards; }
+      @keyframes draw { to { stroke-dashoffset: 0; } }
+      .rise { opacity: 0; transform: translateY(14px); animation: rise 700ms var(--ease) forwards; }
+      .rise.r2 { animation-delay: 80ms; } .rise.r3 { animation-delay: 160ms; } .rise.r4 { animation-delay: 240ms; } .rise.r5 { animation-delay: 380ms; }
+      @keyframes rise { to { opacity: 1; transform: none; } }
+      /* sections arrive as you reach them; without scroll timelines they are simply there */
+      @supports (animation-timeline: view()) {
+        .reveal { animation: arrive linear both; animation-timeline: view(); animation-range: entry 5% entry 45%; }
+        @keyframes arrive { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+        .mark .ink { stroke-dasharray: 1; animation: draw-in linear both; animation-timeline: view(); animation-range: entry 60% cover 38%; }
+        @keyframes draw-in { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+      }
     }
-    @keyframes draw { to { stroke-dashoffset: 0; } }
-    @keyframes appear { to { opacity: 1; } }
-    @keyframes rise { to { opacity: 1; transform: none; } }
 
     /* ------------------------------------------------ sections */
-    section { padding: 112px 0; }
-    .rule { border-top: 1px solid var(--hair); }
-    .eyebrow { font: 400 13px/20px var(--mono); color: var(--ink-3); margin: 0 0 16px; }
-    h2 { font: 400 52px/1.06 var(--serif); letter-spacing: -0.02em; margin: 0; max-width: 18ch; }
-    .sub { font-size: 18px; line-height: 28px; color: var(--ink-2); max-width: 36rem; margin: 20px 0 0; }
+    section { padding-block: 136px; }
+    .rule { border-top: 1px solid var(--line); }
 
-    /* problem */
-    .problem { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 64px; align-items: end; }
-    .facts { display: grid; gap: 32px; }
-    .fact { display: grid; grid-template-columns: 168px 1fr; gap: 24px; padding-top: 24px; border-top: 1px solid var(--hair); }
-    .fact .src { color: var(--ink-3); font-size: 13px; }
-    .fact b { font: 400 56px/1 var(--serif); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
-    .fact p { margin: 0; color: var(--ink-2); font-size: 15px; line-height: 23px; }
-    .fact a { color: var(--ink-3); font-size: 13px; text-underline-offset: 3px; }
+    /* the numbers, marked up by the grader */
+    .claim { font-size: clamp(26px, 3.3vw, 46px); line-height: 1.22; letter-spacing: -0.03em; font-weight: 500; color: var(--fg-3); max-width: 24ch; max-width: min(100%, 1080px); margin-top: 56px; text-wrap: pretty; }
+    .claim b { color: var(--fg); font-weight: 600; }
+    .mark { position: relative; display: inline-block; white-space: nowrap; color: var(--fg); font-weight: 600; }
+    .mark svg { position: absolute; left: -9%; top: -8%; width: 118%; height: 116%; overflow: visible; pointer-events: none; }
+    .mark.line svg { top: auto; bottom: -.1em; height: .2em; left: -2%; width: 104%; }
+    .source { margin-top: 44px; font-size: 14px; color: var(--fg-3); max-width: 46rem; }
+    .source a { color: var(--fg-2); text-underline-offset: 3px; }
+    .source a:hover { color: var(--fg); }
 
-    /* product view: the player */
-    .window {
-      margin-top: 56px; border-radius: 16px; overflow: hidden; background: var(--card);
-      border: 1px solid var(--hair-strong); box-shadow: 0 24px 64px rgba(31, 27, 22, .10);
-    }
-    .win-bar { height: 44px; display: flex; align-items: center; gap: 16px; padding: 0 16px; border-bottom: 1px solid var(--hair); }
-    .dots { display: flex; gap: 6px; }
-    .dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--raised); border: 1px solid var(--hair); }
-    .crumb { font-size: 13px; color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
-    .crumb b { color: var(--ink); font-weight: 500; }
-    .steps { display: flex; gap: 4px; margin-left: auto; list-style: none; padding: 0; font-size: 12px; }
-    .steps li { padding: 3px 10px; border-radius: 6px; color: var(--ink-3); }
-    .steps li.done { color: var(--ink-2); }
-    .steps li.now { background: var(--raised); color: var(--ink); box-shadow: inset 0 0 0 1px var(--hair); }
-    .win-body { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); min-height: 440px; }
-    .editor { background: var(--night); color: #d9d2c5; padding: 20px 0; font: 400 13px/24px var(--mono); }
-    .editor .file { padding: 0 20px 14px; color: var(--night-ink-3); font-size: 12px; }
-    .editor .ln i { color: #5d574e; width: 52px; }
-    .editor .ln .k { color: #e3a07b; }
-    .editor .ln .s { color: #b9cc8f; }
-    .editor .ln .c { color: #7d766b; }
-    .editor .ln .n { color: #e0b467; }
-    .editor .ln.hl { background: rgba(239, 233, 222, .07); }
-    .editor .ln.hl i { color: var(--night-ink-2); }
-    .editor .ln.dim { opacity: .4; }
-    .panel { padding: 24px; display: flex; flex-direction: column; gap: 16px; border-left: 1px solid var(--hair); }
-    .panel .q { font-size: 16px; line-height: 24px; font-weight: 500; padding-left: 14px; border-left: 2px solid var(--ink); }
-    .said { font-size: 14px; line-height: 22px; color: var(--ink-2); background: var(--page); border: 1px solid var(--hair); border-radius: 10px; padding: 12px 14px; }
-    .said small { display: block; font: 400 11px/16px var(--mono); color: var(--ink-3); margin-bottom: 4px; }
-    .verdict { border: 1px solid var(--hair); border-radius: 12px; padding: 16px; background: var(--sheet); display: grid; gap: 10px; }
-    .score { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; }
-    .score i { width: 24px; height: 6px; border-radius: 3px; background: var(--raised); }
-    .score i.on { background: var(--pen); }
-    .verdict p { margin: 0; font-size: 14px; line-height: 21px; }
-    .verdict .nudge { color: var(--ink-2); }
-    .tests { margin-top: auto; display: flex; justify-content: space-between; align-items: center; font: 400 12px/16px var(--mono); color: var(--ink-3); padding-top: 16px; border-top: 1px solid var(--hair); }
-    .tests b { color: var(--pass); font-weight: 500; }
+    /* how it works: three real moments from the app */
+    .bento { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px; margin-top: 64px; }
+    .cell { position: relative; border-radius: 14px; background: var(--bg-2); border: 1px solid var(--line); padding: 32px; overflow: hidden; display: flex; flex-direction: column; }
+    .cell h3 { font: 600 22px/1.2 var(--sans); letter-spacing: -0.025em; }
+    .cell > p { color: var(--fg-2); font-size: 15px; line-height: 1.55; margin-top: 8px; max-width: 30rem; }
+    .cell-path { grid-column: span 5; grid-row: span 2; }
+    .cell-story { grid-column: span 7; background: radial-gradient(120% 140% at 80% 0%, #2b2620, var(--bg-2) 60%); }
+    .cell-adapt { grid-column: span 7; }
 
-    .flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; margin-top: 48px; }
-    .flow div { padding-top: 20px; border-top: 1px solid var(--hair-strong); }
-    .flow span { font: 400 12px/16px var(--mono); color: var(--ink-3); }
-    .flow h3 { font: 500 17px/24px var(--sans); margin: 8px 0 8px; }
-    .flow p { margin: 0; color: var(--ink-2); font-size: 15px; line-height: 23px; }
-    .panel .lens { font-size: 12px; line-height: 16px; font-weight: 500; color: var(--pen); margin-bottom: -10px; }
-    .lenses { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--hair); display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 32px; }
-    .lenses p { margin: 0; font-size: 15px; line-height: 23px; color: var(--ink-2); max-width: 28rem; }
-    .lenses p b { color: var(--ink); font-weight: 500; }
-    .lenses ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-    .lenses li { font-size: 13px; line-height: 20px; padding: 4px 10px; border-radius: 999px; background: var(--card); border: 1px solid var(--hair-strong); color: var(--ink); }
-    .method { padding-block: 32px; }
-    .method p { margin: 0; max-width: 46rem; font-size: 13px; line-height: 20px; color: var(--ink-3); }
+    .next { margin-top: 32px; padding: 18px 20px; border-radius: 10px; background: var(--bg-3); border: 1px solid var(--line); }
+    .next small { font: 400 12px/1 var(--mono); color: var(--fg-3); }
+    .next b { display: block; margin: 8px 0 4px; font: 500 20px/1.2 var(--mono); letter-spacing: -0.02em; }
+    .next span { font-size: 14px; color: var(--fg-2); }
+    .path { list-style: none; margin: 36px 0 0; padding: 0; display: grid; justify-items: center; gap: 26px; }
+    .node { display: grid; justify-items: center; gap: 8px; transform: translateX(var(--x)); font: 400 12px/1 var(--mono); color: var(--fg-3); }
+    .node b { font: 500 14px/1 var(--sans); color: var(--fg); }
+    .ring { position: relative; width: 76px; height: 76px; display: grid; place-items: center; }
+    .ring svg.r { position: absolute; inset: 0; transform: rotate(-90deg); }
+    .ring circle { fill: none; stroke-width: 6; }
+    .ring .track { stroke: var(--line-2); }
+    .ring .fill { stroke: var(--pen); stroke-linecap: round; }
+    .ring .in { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--bg-3); box-shadow: 0 4px 0 rgba(0, 0, 0, .5); font: 500 20px/1 var(--sans); color: var(--fg-2); }
+    .node.gold .fill { stroke: var(--gold); }
+    .node.gold .in { color: var(--gold); font-size: 24px; }
+    .node.now .in { background: var(--pen); color: #fff; font-size: 24px; box-shadow: 0 5px 0 #8f2413; }
+    @media (prefers-reduced-motion: no-preference) { .node.now .ring { animation: bob 2.6s var(--ease) infinite; } @keyframes bob { 50% { transform: translateY(-5px); } } }
+    .streak { margin-top: auto; padding-top: 36px; display: flex; align-items: center; gap: 14px; }
+    .streak > .ic { font-size: 34px; color: var(--flame); }
+    .streak b { font: 600 30px/1 var(--sans); letter-spacing: -0.03em; }
+    .streak span { font-size: 14px; color: var(--fg-2); }
+    .week { display: flex; gap: 6px; margin-left: auto; }
+    .week i { width: 22px; height: 22px; border-radius: 50%; background: var(--flame); display: grid; place-items: center; font-size: 12px; color: #1d1a16; font-style: normal; }
+    .week i.no { background: var(--bg-3); }
 
-    /* local */
-    .local { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 64px; align-items: center; }
-    .points { list-style: none; padding: 0; margin: 40px 0 0; display: grid; gap: 24px; }
-    .points li { display: grid; grid-template-columns: 24px 1fr; gap: 12px; }
-    .points svg { width: 18px; height: 18px; margin-top: 3px; stroke: var(--ink-3); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-    .points b { display: block; font-weight: 500; margin-bottom: 2px; }
-    .points p { margin: 0; color: var(--ink-2); font-size: 15px; line-height: 23px; }
-    .terminal {
-      background: var(--night); border-radius: 16px; padding: 24px 28px; color: var(--night-ink-2);
-      font: 400 13px/24px var(--mono); box-shadow: 0 24px 64px rgba(31, 27, 22, .14); overflow-x: auto;
-    }
-    .terminal .cmd { color: var(--night-ink); }
-    .terminal .cmd::before { content: "$ "; color: var(--night-ink-3); }
-    .terminal .ok { color: #7fc79a; }
-    .terminal .warn { color: #e3a07b; }
-    .terminal .dim { color: var(--night-ink-3); }
+    .story { margin: 36px 0 -70px auto; width: min(100%, 520px); padding: 26px 30px 96px; transform: rotate(1.6deg); position: relative; }
+    .story small { display: block; padding-right: 100px; font: 400 11px/1 var(--mono); color: var(--paper-ink-2); margin-bottom: 14px; }
+    .story p { font: 400 19px/1.45 var(--serif); letter-spacing: -0.005em; }
+    .grade { position: absolute; right: 26px; top: -22px; width: 92px; height: 64px; display: grid; place-items: center; font: 700 34px/1 var(--hand); color: var(--pen-paper); transform: rotate(-7deg); }
+    .grade svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    .grade .ink, .story .ink { stroke: var(--pen-paper); }
+    .scrawl { position: absolute; right: 34px; bottom: 40px; font: 600 23px/1.05 var(--hand); color: var(--pen-paper); transform: rotate(-3deg); text-align: right; }
+    .story .mark { color: inherit; font-weight: inherit; }
+
+    .turns { margin-top: 28px; display: grid; gap: 12px; }
+    .turn { padding: 16px 20px; max-width: 520px; }
+    .turn:nth-child(2) { margin-left: auto; transform: rotate(-.6deg); }
+    .turn:nth-child(1) { transform: rotate(.5deg); }
+    .turn small { display: block; font: 600 12px/1 var(--sans); color: var(--pen-paper); margin-bottom: 8px; }
+    .turn.hint small { color: var(--paper-ink-2); }
+    .turn p { font: 400 19px/1.3 var(--serif); letter-spacing: -0.008em; }
 
     /* install */
-    .install { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 64px; align-items: start; }
-    .cmd-box { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 28px; max-width: 30rem; padding: 12px 12px 12px 22px; border-radius: 14px; background: var(--night); color: var(--night-ink); font: 400 17px/1 var(--mono); box-shadow: 0 16px 40px rgba(31, 27, 22, .14); }
-    .cmd-box code::before { content: "$ "; color: var(--night-ink-3); }
-    .copy { flex: none; padding: 9px 14px; border: 0; border-radius: 8px; background: rgba(255, 255, 255, .1); color: var(--night-ink); font: 500 13px/1 var(--sans); cursor: pointer; }
-    .copy:hover { background: rgba(255, 255, 255, .18); }
-    .needs { list-style: none; padding: 0; margin: 18px 0 28px; display: flex; flex-wrap: wrap; gap: 8px; }
-    .needs li { padding: 4px 12px; border: 1px solid var(--hair-strong); border-radius: 999px; font-size: 13px; color: var(--ink-2); }
+    .install { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 72px; align-items: center; }
+    .term { border-radius: 14px; background: #0c0b0a; border: 1px solid var(--line); padding: 22px 24px 26px; }
+    .term .prompt { font: 400 14px/1 var(--mono); color: var(--fg-2); }
+    .term .prompt::before { content: "$ "; color: var(--fg-3); }
+    .term canvas { display: block; width: 100%; margin-top: 18px; }
+    .term .out { margin-top: 14px; font: 400 13px/1.7 var(--mono); color: var(--fg-3); }
+    .term .out b { color: #9fcf9a; font-weight: 400; }
+    .facts { list-style: none; margin: 40px 0 0; padding: 0; display: grid; gap: 14px; max-width: 30rem; }
+    .facts li { color: var(--fg-2); font-size: 16px; line-height: 1.5; }
+    .facts b { color: var(--fg); font-weight: 500; }
+    .install .cmd { margin-top: 36px; }
+    .needs { margin-top: 16px; font-size: 14px; color: var(--fg-3); }
+    .needs a { color: var(--fg-2); text-underline-offset: 3px; }
 
     /* teams */
-    .teams-head { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 64px; align-items: end; }
-    .uses { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 56px; }
-    .uses div { padding-top: 20px; border-top: 1px solid var(--hair-strong); }
-    .uses span { font: 400 12px/16px var(--mono); color: var(--pen); }
-    .uses h3 { font: 500 17px/24px var(--sans); margin: 8px 0 8px; }
-    .uses p { margin: 0; color: var(--ink-2); font-size: 15px; line-height: 23px; }
-    .talk { margin-top: 56px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: center; padding: 32px 36px; border-radius: 16px; background: var(--sheet); border: 1px solid var(--hair-strong); box-shadow: 0 24px 64px rgba(31, 27, 22, .08); }
-    .talk h3 { font: 400 30px/1.15 var(--serif); letter-spacing: -0.01em; margin: 0 0 12px; }
-    .talk ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
-    .talk li { position: relative; padding-left: 22px; color: var(--ink-2); font-size: 15px; line-height: 23px; }
-    .talk li::before { content: ""; position: absolute; left: 2px; top: 8px; width: 9px; height: 5px; border-left: 2px solid var(--pen); border-bottom: 2px solid var(--pen); transform: rotate(-45deg); }
-    .talk .btn { height: 52px; padding: 0 28px; font-size: 16px; }
-    /* closing */
-    .closing { max-width: 640px; }
+    .teams { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 72px; align-items: start; }
+    .teams h2 { margin-top: 18px; font-size: clamp(30px, 3.5vw, 50px); max-width: 15ch; line-height: 1.04; }
+    .teams .btn { margin-top: 36px; }
+    .uses { list-style: none; margin: 0; padding: 0; }
+    .uses li { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 24px; align-items: baseline; padding: 28px 0; }
+    .uses li + li { border-top: 1px solid var(--line); }
+    .uses b { font: 600 22px/1.2 var(--sans); letter-spacing: -0.025em; }
+    .uses span { color: var(--fg-2); font-size: 17px; line-height: 1.5; }
 
-    footer { padding: 40px 0 56px; border-top: 1px solid var(--hair); }
-    footer .wrap { display: flex; align-items: center; gap: 32px; font-size: 14px; color: var(--ink-3); }
+    /* closing */
+    .closing h2 { font-size: clamp(40px, 6.4vw, 96px); max-width: 13ch; line-height: .98; }
+    .closing .cmd { margin-top: 44px; }
+
+    footer { padding: 36px 0 48px; border-top: 1px solid var(--line); }
+    footer .wrap { display: flex; align-items: center; gap: 28px; font-size: 14px; color: var(--fg-3); }
     footer nav { display: flex; gap: 24px; margin-left: auto; }
     footer a { text-decoration: none; }
-    footer a:hover { color: var(--ink); }
+    footer a:hover { color: var(--fg); }
 
     /* ------------------------------------------------ small screens */
-    @media (max-width: 1080px) {
-      .hero { grid-template-columns: minmax(0, 1fr); min-height: 0; padding-block: 56px 80px; gap: 56px; }
-      .problem, .local { grid-template-columns: minmax(0, 1fr); gap: 48px; }
-      .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .teams-head { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    @media (max-width: 1100px) {
+      .hero { grid-template-columns: minmax(0, 1fr); gap: 56px; min-height: 0; padding-block: 48px 80px; }
+      .caption { margin-left: 0; }
+      .cell-path, .cell-story, .cell-adapt { grid-column: 1 / -1; grid-row: auto; }
+      .install, .teams { grid-template-columns: minmax(0, 1fr); gap: 48px; }
     }
-    @media (max-width: 760px) {
-      .wrap { padding: 0 16px; }
-      .nav-links { display: none; }
-      h1 { font-size: 44px; }
-      h2 { font-size: 36px; }
-      .lede { font-size: 17px; line-height: 27px; }
-      section { padding: 80px 0; }
-      .fact { grid-template-columns: 1fr; gap: 8px; }
-      .win-body { grid-template-columns: 1fr; }
-      .editor { font-size: 11px; line-height: 20px; overflow-x: auto; }
-      .editor .ln { height: 20px; }
-      .editor .ln i { width: 36px; padding-right: 12px; }
-      .panel { border-left: 0; border-top: 1px solid var(--hair); }
-      .steps { display: none; }
-      .flow { grid-template-columns: 1fr; }
-      .install { grid-template-columns: minmax(0, 1fr); gap: 40px; }
-      .uses { grid-template-columns: 1fr; gap: 24px; }
-      .talk { grid-template-columns: 1fr; padding: 24px; }
-      .talk .btn { width: 100%; }
-      footer .wrap { flex-direction: column; align-items: flex-start; gap: 16px; }
+    @media (max-width: 720px) {
+      .wrap { padding-inline: 20px; }
+      .nav { gap: 16px; }
+      .nav-links a.hide-s { display: none; }
+      section { padding-block: 88px; }
+      h1 { margin-top: 18px; }
+      h1 span { white-space: normal; }
+      .lede { font-size: 17px; }
+      .actions > .btn, .cmd { width: 100%; }
+      .cmd { justify-content: space-between; }
+      .code { font-size: 11px; line-height: 20px; }
+      .ln { height: 20px; }
+      .ln i { width: 30px; padding-right: 12px; }
+      .caption { padding: 18px 18px 14px; margin-top: -30px; }
+      .caption .q { font-size: 20px; }
+      .cell { padding: 24px; }
+      .story { padding: 22px 22px 92px; }
+      .turn:nth-child(2) { margin-left: 0; }
+      .uses li { grid-template-columns: 1fr; gap: 6px; padding: 22px 0; }
+      .week i { width: 18px; height: 18px; }
+      footer .wrap { flex-direction: column; align-items: flex-start; gap: 14px; }
       footer nav { margin-left: 0; flex-wrap: wrap; }
     }
-
-    /* The hero's vertical padding must survive .wrap's padding shorthand on small screens */
-    .wrap.hero { padding-block: 32px 80px; }
-    @media (max-width: 1080px) { .wrap.hero { padding-block: 48px 80px; } }
-
-    /* Last on purpose: the `font` shorthands above reset ligature settings */
-    .code, .editor, .terminal { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
   </style>
 </head>
 <body>
   <header class="wrap nav">
     <a class="logo" href="#" aria-label="Slop Academy home">
-      <span class="graded">Slop<svg viewBox="0 0 60 36" preserveAspectRatio="none" aria-hidden="true"><path class="ink d1" pathLength="1" d="M48 6C38 0 12 1 5 10c-7 10 4 21 24 21 18 0 29-7 27-15-1-5-7-9-16-10"/></svg></span>
+      <span class="graded">Slop<svg viewBox="0 0 60 36" preserveAspectRatio="none" aria-hidden="true"><path class="ink draw" pathLength="1" d="M48 6C38 0 12 1 5 10c-7 10 4 21 24 21 18 0 29-7 27-15-1-5-7-9-16-10"/></svg></span>
       Academy
     </a>
     <nav class="nav-links" aria-label="Main">
-      <a href="#how">How it works</a>
-      <a href="#local">Your machine</a>
-      <a href="#install">Install</a>
-      <a href="#teams">Teams</a>
-      <a href="https://github.com/forever8896/slop-academy">GitHub</a>
+      <a class="hide-s" href="#how">How it works</a>
+      <a class="hide-s" href="#teams">Teams</a>
+      <a href="https://github.com/forever8896/slop-academy"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true"><path d="M216,104v8a56.06,56.06,0,0,1-48.44,55.47A39.8,39.8,0,0,1,176,192v40a8,8,0,0,1-8,8H104a8,8,0,0,1-8-8V216H72a40,40,0,0,1-40-40A24,24,0,0,0,8,152a8,8,0,0,1,0-16,40,40,0,0,1,40,40,24,24,0,0,0,24,24H96v-8a39.8,39.8,0,0,1,8.44-24.53A56.06,56.06,0,0,1,56,112v-8a58.14,58.14,0,0,1,7.69-28.32A59.78,59.78,0,0,1,69.07,28,8,8,0,0,1,76,24a59.75,59.75,0,0,1,48,24h24a59.75,59.75,0,0,1,48-24,8,8,0,0,1,6.93,4,59.74,59.74,0,0,1,5.37,47.68A58,58,0,0,1,216,104Z"/></svg>GitHub</a>
     </nav>
-    <a class="btn btn-primary btn-small" href="#install">Get it free</a>
+    <a class="btn btn-ghost btn-small" href="#install">Install</a>
   </header>
 
   <main>
     <div class="wrap hero">
-      <div>
-        <h1 class="rise"><span>You shipped it.</span><span>Can you defend it?</span></h1>
-        <p class="lede rise r2">For engineers who ship with AI and feel the skills going rusty. Slop Academy turns your repo into a conversation. An interviewer who has read your code asks how it fails, how it scales and why it is built this way, and you answer out loud</p>
-        <div class="actions rise r3">
-          <a class="btn btn-primary" href="#install">Get it free</a>
-          <a class="btn btn-secondary" href="#how">See how it works</a>
+      <div class="hero-copy">
+        <p class="eyebrow rise">Free and open source. Runs on your machine.</p>
+        <h1 class="rise r2"><span class="dim">You shipped it.</span><span>Can you <span class="under">defend<svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path class="ink draw" pathLength="1" d="M1 6c14-5 22 3 36-1s22 3 34-1 18 2 28-1"/></svg></span> it?</span></h1>
+        <p class="lede rise r3">An interviewer that has read your repo asks how it fails and why it's built this way. Answer out loud.</p>
+        <div class="actions rise r4">
+          <div class="cmd"><code>npx slop-academy</code><button class="btn btn-paper" type="button" data-copy="npx slop-academy">Copy</button></div>
+          <button class="btn btn-ghost" type="button" id="hear" aria-pressed="false"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true"><path d="M240,128a15.74,15.74,0,0,1-7.6,13.51L88.32,229.65a16,16,0,0,1-16.2.3A15.86,15.86,0,0,1,64,216.13V39.87a15.86,15.86,0,0,1,8.12-13.82,16,16,0,0,1,16.2.3L232.4,114.49A15.74,15.74,0,0,1,240,128Z"/></svg><span>Hear it ask</span></button>
         </div>
       </div>
 
-      <div class="print-fit rise r4" aria-label="A printed source file graded in red pen: a score of two out of three, a block marked for rebuilding, and margin questions">
-        <div class="print-stage">
-          <div class="sheet under"></div>
-          <div class="sheet main">
-            <div class="sheet-head"><span>webhooks/retry.ts</span><span>shipped Mar 3 · page 1 of 3</span></div>
-            <div class="code">
-              <div class="ln"><i>1</i><span class="c">// Retries a webhook delivery with exponential backoff.</span></div>
-              <div class="ln"><i>2</i><span><span class="k">const</span> MAX_ATTEMPTS = <span class="n">6</span>;</span></div>
-              <div class="ln"><i>3</i><span><span class="k">const</span> BASE_DELAY_MS = <span class="n">500</span>;</span></div>
-              <div class="ln"><i>4</i><span><span class="k">const</span> MAX_DELAY_MS = <span class="n">30_000</span>;</span></div>
-              <div class="ln"><i>5</i><span></span></div>
-              <div class="ln"><i>6</i><span><span class="k">export async function</span> deliver(event, send) {</span></div>
-              <div class="ln"><i>7</i><span>  <span class="k">for</span> (<span class="k">let</span> attempt = <span class="n">0</span>; attempt &lt; MAX_ATTEMPTS; attempt++) {</span></div>
-              <div class="ln"><i>8</i><span>    <span class="k">const</span> res = <span class="k">await</span> send(event).catch(() =&gt; <span class="k">null</span>);</span></div>
-              <div class="ln"><i>9</i><span>    <span class="k">if</span> (res?.ok) <span class="k">return</span> { delivered: <span class="k">true</span>, attempt };</span>
-                <svg style="position:absolute;left:452px;top:2px;width:22px;height:20px" viewBox="0 0 22 20" aria-hidden="true"><path class="ink d2" pathLength="1" d="M2 11l6 6L20 2"/></svg>
-              </div>
-              <div class="ln"><i>10</i><span></span>
-                <svg class="bracket" viewBox="0 0 14 72" preserveAspectRatio="none" aria-hidden="true" style="top:24px"><path class="ink d3" pathLength="1" d="M12 2C4 3 4 8 4 20s1 22 0 32 0 17 8 18"/></svg>
-                <span class="note d3" style="left:-4px;top:96px;transform:rotate(-90deg);transform-origin:left top;font-size:17px">rebuild</span>
-              </div>
-              <div class="ln"><i>11</i><span>    <span class="k">if</span> (res &amp;&amp; res.status &lt; <span class="n">500</span> &amp;&amp; res.status !== <span class="mark"><span class="n">429</span><svg style="left:-9px;top:-5px;width:44px;height:32px" viewBox="0 0 44 32" preserveAspectRatio="none" aria-hidden="true"><path class="ink d4" pathLength="1" d="M33 4C24-1 6 1 3 11c-3 10 7 17 20 17 13 0 20-6 18-13-1-5-6-8-13-9"/></svg></span>) {</span>
-                <span class="note d4" style="left:478px;top:-22px;transform:rotate(-4deg)">why retry<br>a 429?</span>
-              </div>
-              <div class="ln"><i>12</i><span>      <span class="k">return</span> { delivered: <span class="k">false</span>, attempt, reason: <span class="s">"rejected"</span> };</span></div>
-              <div class="ln"><i>13</i><span>    }</span></div>
-              <div class="ln"><i>14</i><span></span></div>
-              <div class="ln"><i>15</i><span>    <span class="k">const</span> delay = Math.min(BASE_DELAY_MS * <span class="mark">2 ** attempt<svg style="left:-2px;top:19px;width:calc(100% + 6px);height:8px" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><path class="ink d5" pathLength="1" d="M1 5c12-4 20 3 32-1s20 3 33-1 22 2 33-1"/></svg></span>, MAX_DELAY_MS);</span>
-                <span class="note d5" style="left:372px;top:22px;transform:rotate(-3deg)">why not a fixed delay?</span>
-              </div>
-              <div class="ln"><i>16</i><span>    <span class="k">await</span> sleep(delay + jitter(delay));</span></div>
-              <div class="ln"><i>17</i><span>  }</span></div>
-              <div class="ln"><i>18</i><span>  <span class="k">return</span> { delivered: <span class="k">false</span>, attempt: MAX_ATTEMPTS, reason: <span class="s">"gave up"</span> };</span></div>
-              <div class="ln"><i>19</i><span>}</span></div>
-            </div>
-            <div class="note d6" style="right:30px;top:68px;text-align:center;font-size:30px;transform:rotate(-6deg)">2/3</div>
-            <svg style="position:absolute;right:14px;top:56px;width:84px;height:56px;overflow:visible" viewBox="0 0 84 56" aria-hidden="true"><path class="ink d6" pathLength="1" d="M66 7C52-1 14 2 6 18c-8 17 14 33 42 32 28-1 38-14 32-27-4-8-15-13-28-14"/></svg>
-            <div class="note d6" style="right:26px;top:122px;font-size:19px;transform:rotate(-4deg);text-align:right">solid. now explain<br>the jitter</div>
+      <div class="stage rise r5" id="demo" role="img" aria-label="A Slop Academy conversation, replayed. The interviewer asks what the retry code does when 2,000 deliveries fail at once. The answer is transcribed and scored two out of three, then a follow-up question arrives">
+        <div class="stage-head"><b>webhooks/retry.ts</b><span>changed 41 times</span><span class="lens">Failure</span></div>
+        <div class="stage-bar"><i id="d-bar"></i></div>
+        <div class="code focus" id="d-code">
+          <div class="ln" data-n="6"><i>6</i><span><span class="k">export async function</span> deliver(event, send) {</span></div>
+          <div class="ln" data-n="7"><i>7</i><span>  <span class="k">for</span> (<span class="k">let</span> attempt = <span class="n">0</span>; attempt &lt; MAX_ATTEMPTS; attempt++) {</span></div>
+          <div class="ln" data-n="8"><i>8</i><span>    <span class="k">const</span> res = <span class="k">await</span> send(event).catch(() =&gt; <span class="k">null</span>);</span></div>
+          <div class="ln" data-n="9"><i>9</i><span>    <span class="k">if</span> (res?.ok) <span class="k">return</span> { delivered: <span class="k">true</span>, attempt };</span></div>
+          <div class="ln" data-n="10"><i>10</i><span></span></div>
+          <div class="ln hl" data-n="11"><i>11</i><span>    <span class="k">if</span> (res &amp;&amp; res.status &lt; <span class="n">500</span> &amp;&amp; res.status !== <span class="n">429</span>) {</span></div>
+          <div class="ln hl" data-n="12"><i>12</i><span>      <span class="k">return</span> { delivered: <span class="k">false</span>, attempt, reason: <span class="s">"rejected"</span> };</span></div>
+          <div class="ln hl" data-n="13"><i>13</i><span>    }</span></div>
+          <div class="ln" data-n="14"><i>14</i><span></span></div>
+          <div class="ln hl" data-n="15"><i>15</i><span>    <span class="k">const</span> delay = Math.min(BASE_DELAY_MS * <span class="n">2</span> ** attempt, MAX_DELAY_MS);</span></div>
+          <div class="ln hl" data-n="16"><i>16</i><span>    <span class="k">await</span> sleep(delay + jitter(delay));</span></div>
+          <div class="ln" data-n="17"><i>17</i><span>  }</span></div>
+          <div class="ln" data-n="18"><i>18</i><span>  <span class="k">return</span> { delivered: <span class="k">false</span>, attempt: MAX_ATTEMPTS, reason: <span class="s">"gave up"</span> };</span></div>
+          <div class="ln" data-n="19"><i>19</i><span>}</span></div>
+        </div>
+        <div class="sheet caption">
+          <span class="tag" id="d-tag">Interviewer</span>
+          <p class="q" id="d-q">A partner's endpoint goes down, and 2,000 deliveries fail in the same second. What does this code do next?</p>
+          <div class="ans" id="d-ans">
+            <p id="d-a">They back off. Half a second, then one, then two, up to thirty. And the jitter spreads them out, so they don't all hit at once.</p>
+            <div class="assess"><span class="dots" id="d-dots"><i class="on"></i><i class="on"></i><i></i></span><span class="note-line" id="d-note">Right mechanism. You skipped what happens after attempt six.</span></div>
           </div>
-          <svg class="pen" viewBox="0 0 300 30" aria-hidden="true">
-            <defs>
-              <linearGradient id="barrel" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#d45a40"/><stop offset=".45" stop-color="#b8321c"/><stop offset="1" stop-color="#7f2210"/>
-              </linearGradient>
-              <linearGradient id="cap" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#3a342c"/><stop offset=".5" stop-color="#1f1b16"/><stop offset="1" stop-color="#110f0c"/>
-              </linearGradient>
-              <linearGradient id="grip" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#f3ede2"/><stop offset=".5" stop-color="#d9d0c1"/><stop offset="1" stop-color="#b8ae9e"/>
-              </linearGradient>
-            </defs>
-            <path d="M6 15 L30 9 L30 21 Z" fill="url(#grip)"/>
-            <path d="M0 15 L7 13.4 L7 16.6 Z" fill="#3a342c"/>
-            <rect x="30" y="8" width="44" height="14" rx="2" fill="url(#grip)"/>
-            <rect x="74" y="6" width="170" height="18" rx="3" fill="url(#barrel)"/>
-            <rect x="244" y="5" width="52" height="20" rx="6" fill="url(#cap)"/>
-            <rect x="252" y="2" width="40" height="4" rx="2" fill="#8a847a"/>
-            <rect x="80" y="9" width="160" height="2" rx="1" fill="#fff" opacity=".18"/>
-          </svg>
+          <div class="dock" id="d-dock">
+            <span class="micdot"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true"><path d="M80,128V64a48,48,0,0,1,96,0v64a48,48,0,0,1-96,0Zm128,0a8,8,0,0,0-16,0,64,64,0,0,1-128,0,8,8,0,0,0-16,0,80.11,80.11,0,0,0,72,79.6V240a8,8,0,0,0,16,0V207.6A80.11,80.11,0,0,0,208,128Z"/></svg></span>
+            <span id="d-state">Scored</span>
+            <span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+            <span class="xp" id="d-xp">+10</span>
+          </div>
         </div>
       </div>
     </div>
 
     <section class="rule">
-      <div class="wrap problem">
-        <div>
-          <p class="eyebrow">The feeling</p>
-          <h2>It's not just you</h2>
-          <p class="sub">You shipped the feature, fixed the outage, won the hackathon. Then someone asks why the retry backs off, and the answer is in a chat you closed in March. We read 3,058 posts by developers writing about their own skills. The words keep coming back: rusty, fading, can't do it without the tool</p>
-        </div>
-        <div class="facts">
-          <div class="fact">
-            <b>58%</b>
-            <p>of developers writing about their own skills now name AI as the cause, up from 31% in early 2025. Most describe dependence or fading skills, and they are mostly senior<br><span class="src">Our analysis of 736 posts, Jan 2025 to Oct 2026 °</span></p>
-          </div>
-          <div class="fact">
-            <b>20%</b>
-            <p>of 31,000 developers say AI has made them less confident in their own problem-solving<br><a href="https://survey.stackoverflow.co/2025/ai">Stack Overflow Developer Survey 2025</a></p>
-          </div>
-          <div class="fact">
-            <b>17 pts</b>
-            <p>lower quiz scores for developers who learned a library with an AI assistant. Those who handed the work off scored 24 to 39%. Those who used the AI to understand the code scored 65 to 86%. Same tool, different habit<br><a href="https://www.anthropic.com/research/AI-assistance-coding-skills">Anthropic randomized study, January 2026</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="rule">
-      <div class="wrap problem">
-        <div>
-          <p class="eyebrow">The interview</p>
-          <h2>Take-homes are gone. Follow-ups decide</h2>
-          <p class="sub">We read 1,078 first-hand interview reports and 776 posts by interviewers. Algorithm rounds haven't moved. What changed is everything after the first answer: why this design, what happens when it fails, what if the load is ten times bigger</p>
-        </div>
-        <div class="facts">
-          <div class="fact">
-            <b>17→2%</b>
-            <p>of candidate reports mention a take-home, early 2025 against late 2026. Interviewers say the reason plainly: a model can finish one<br><span class="src">Our analysis of 1,078 interview reports °</span></p>
-          </div>
-          <div class="fact">
-            <b>41%</b>
-            <p>of what interviewers say separates candidates is explaining: reasoning out loud, trade-offs, depth on your own projects, and code you didn't type yourself. LeetCode prep accounts for 6%<br><span class="src">Our analysis of 706 interviewer statements °</span></p>
-          </div>
-          <div class="fact">
-            <b>46%</b>
-            <p>of the failures candidates could have prevented came from freezing, unclear communication or being unable to explain their reasoning. Not from what they didn't know<br><span class="src">Our analysis of 360 reports that give a reason °</span></p>
-          </div>
-        </div>
+      <div class="wrap">
+        <h2 class="reveal">It's not just you</h2>
+        <p class="claim reveal">
+          <span class="mark">58%<svg viewBox="0 0 60 36" preserveAspectRatio="none" aria-hidden="true"><path class="ink" pathLength="1" d="M48 6C38 0 12 1 5 10c-7 10 4 21 24 21 18 0 29-7 27-15-1-5-7-9-16-10"/></svg></span>
+          of developers writing about their own skills now name AI as the cause. Take-homes fell from
+          <b>17%</b> to <span class="mark">2%<svg viewBox="0 0 60 36" preserveAspectRatio="none" aria-hidden="true"><path class="ink" pathLength="1" d="M48 6C38 0 12 1 5 10c-7 10 4 21 24 21 18 0 29-7 27-15-1-5-7-9-16-10"/></svg></span>
+          of interview reports. What separates candidates now is
+          <span class="mark line">explaining the code<svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path class="ink" pathLength="1" d="M1 6c14-5 22 3 36-1s22 3 34-1 18 2 28-1"/></svg></span>.
+        </p>
+        <p class="source reveal">From our reading of 7,070 public developer posts, January 2025 to October 2026. People post more after a bad week, so read these as the people who talk about it. <a href="https://github.com/forever8896/slop-academy/blob/main/research/REPORT.md">Read the report</a></p>
       </div>
     </section>
 
     <section class="rule" id="how">
       <div class="wrap">
-        <p class="eyebrow">How it works</p>
-        <h2>One conversation a day about code you actually shipped</h2>
-        <p class="sub">Your interviewer picks a file you've changed a lot, reads it with your own coding agent, and talks it through with you for about eight minutes</p>
+        <h2 class="reveal">Eight minutes a day on code you shipped</h2>
+        <p class="sub reveal">It picks a file, reads it with your own Claude Code and asks about failure, scale and trade-offs. Never syntax.</p>
 
-        <div class="window" role="img" aria-label="A Slop Academy conversation: the code on the left with the lines under discussion highlighted, the interviewer's question, your transcribed answer and its follow-up on the right">
-          <div class="win-bar">
-            <div class="dots"><i></i><i></i><i></i></div>
-            <span class="crumb">Payments API › <b>The retry that never gave up</b></span>
-            <ol class="steps">
-              <li class="done">Purpose</li><li class="now">Failure</li><li>Scale</li><li>Trade-off</li><li>Operations</li>
+        <div class="bento">
+          <article class="cell cell-path reveal">
+            <h3>It picks what matters</h3>
+            <p>Files you change most come first. The spots you were weakest on come back.</p>
+            <div class="next">
+              <small>Next up, about 8 minutes</small>
+              <b>webhooks/retry.ts</b>
+              <span>You've changed it 41 times and never talked it through</span>
+            </div>
+            <ol class="path" aria-label="Your path through the repo">
+              <li class="node gold" style="--x:-56px"><span class="ring"><svg class="r" viewBox="0 0 76 76"><circle class="track" cx="38" cy="38" r="34"/><circle class="fill" cx="38" cy="38" r="34" pathLength="1" stroke-dasharray="1 1"/></svg><span class="in"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true"><path d="M239.75,90.81c0,.11,0,.21-.07.32L217,195a16,16,0,0,1-15.72,13H54.71A16,16,0,0,1,39,195L16.32,91.13c0-.11-.05-.21-.07-.32A16,16,0,0,1,44,77.39l33.67,36.29,35.8-80.29a1,1,0,0,0,0-.1,16,16,0,0,1,29.06,0,1,1,0,0,0,0,.1l35.8,80.29L212,77.39a16,16,0,0,1,27.71,13.42Z"/></svg></span></span><b>queue.ts</b>5/5 lenses</li>
+              <li class="node" style="--x:28px"><span class="ring"><svg class="r" viewBox="0 0 76 76"><circle class="track" cx="38" cy="38" r="34"/><circle class="fill" cx="38" cy="38" r="34" pathLength="1" stroke-dasharray=".6 1"/></svg><span class="in">2</span></span><b>auth/session.ts</b>3/5 lenses</li>
+              <li class="node now" style="--x:-18px"><span class="ring"><svg class="r" viewBox="0 0 76 76"><circle class="track" cx="38" cy="38" r="34"/></svg><span class="in"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true"><path d="M80,128V64a48,48,0,0,1,96,0v64a48,48,0,0,1-96,0Zm128,0a8,8,0,0,0-16,0,64,64,0,0,1-128,0,8,8,0,0,0-16,0,80.11,80.11,0,0,0,72,79.6V240a8,8,0,0,0,16,0V207.6A80.11,80.11,0,0,0,208,128Z"/></svg></span></span><b>webhooks/retry.ts</b>Not yet</li>
             </ol>
-          </div>
-          <div class="win-body">
-            <div class="editor">
-              <div class="file">webhooks/retry.ts</div>
-              <div class="ln dim"><i>6</i><span><span class="k">export async function</span> deliver(event, send) {</span></div>
-              <div class="ln dim"><i>7</i><span>  <span class="k">for</span> (<span class="k">let</span> attempt = <span class="n">0</span>; attempt &lt; MAX_ATTEMPTS; attempt++) {</span></div>
-              <div class="ln dim"><i>8</i><span>    <span class="k">const</span> res = <span class="k">await</span> send(event).catch(() =&gt; <span class="k">null</span>);</span></div>
-              <div class="ln dim"><i>9</i><span>    <span class="k">if</span> (res?.ok) <span class="k">return</span> { delivered: <span class="k">true</span>, attempt };</span></div>
-              <div class="ln dim"><i>10</i><span></span></div>
-              <div class="ln hl"><i>11</i><span>    <span class="k">if</span> (res &amp;&amp; res.status &lt; <span class="n">500</span> &amp;&amp; res.status !== <span class="n">429</span>) {</span></div>
-              <div class="ln hl"><i>12</i><span>      <span class="k">return</span> { delivered: <span class="k">false</span>, attempt, reason: <span class="s">"rejected"</span> };</span></div>
-              <div class="ln hl"><i>13</i><span>    }</span></div>
-              <div class="ln dim"><i>14</i><span></span></div>
-              <div class="ln hl"><i>15</i><span>    <span class="k">const</span> delay = Math.min(BASE_DELAY_MS * <span class="n">2</span> ** attempt, MAX_DELAY_MS);</span></div>
-              <div class="ln hl"><i>16</i><span>    <span class="k">await</span> sleep(delay + jitter(delay));</span></div>
-              <div class="ln dim"><i>17</i><span>  }</span></div>
-              <div class="ln dim"><i>18</i><span>  <span class="k">return</span> { delivered: <span class="k">false</span>, attempt: MAX_ATTEMPTS, reason: <span class="s">"gave up"</span> };</span></div>
-              <div class="ln dim"><i>19</i><span>}</span></div>
+            <div class="streak">
+              <svg class="ic" viewBox="0 0 256 256" aria-hidden="true"><path d="M143.38,17.85a8,8,0,0,0-12.63,3.41l-22,60.41L84.59,58.26a8,8,0,0,0-11.93.89C51,87.53,40,116.08,40,144a88,88,0,0,0,176,0C216,84.55,165.21,36,143.38,17.85Zm40.51,135.49a57.6,57.6,0,0,1-46.56,46.55A7.65,7.65,0,0,1,136,200a8,8,0,0,1-1.32-15.89c16.57-2.79,30.63-16.85,33.44-33.45a8,8,0,0,1,15.78,2.68Z"/></svg>
+              <div><b>6</b> <span>day streak</span></div>
+              <span class="week" aria-hidden="true"><i class="no"></i><i><svg class="ic" viewBox="0 0 256 256" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg></i><i><svg class="ic" viewBox="0 0 256 256" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg></i><i><svg class="ic" viewBox="0 0 256 256" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg></i><i><svg class="ic" viewBox="0 0 256 256" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg></i><i><svg class="ic" viewBox="0 0 256 256" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg></i><i><svg class="ic" viewBox="0 0 256 256" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"/></svg></i></span>
             </div>
-            <div class="panel">
-              <span class="lens">Failure</span>
-              <div class="q">A partner's endpoint goes down and 2,000 deliveries fail in the same second. What does this code do next?</div>
-              <div class="said"><small>Your answer, transcribed</small>They back off, half a second, then a second, then two, up to thirty, and the jitter spreads them out a bit so they don't all hit at once</div>
-              <div class="verdict">
-                <div class="score"><i class="on"></i><i class="on"></i><i></i><span style="margin-left:6px">Solid</span></div>
-                <p>Right mechanism. You skipped what happens after attempt six</p>
-                <p class="nudge">→ Where do those 2,000 events go when the loop ends?</p>
-              </div>
-              <div class="tests"><span>Transcribed on your machine</span><b>1.8s to your first word</b></div>
+          </article>
+
+          <article class="cell cell-story reveal">
+            <h3>You keep the story</h3>
+            <p>What you defended, the one gap to work on, and a one-minute story built from what you said.</p>
+            <div class="sheet story">
+              <small>webhooks/retry.ts, your one-minute story</small>
+              <p>Deliveries retry up to six times with exponential backoff, capped at thirty seconds. Jitter spreads the retries so a recovering partner isn't hit by all of them at once. <span class="mark line">A 429 is retried<svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path class="ink" pathLength="1" d="M1 6c14-5 22 3 36-1s22 3 34-1 18 2 28-1"/></svg></span> because it means slow down, not no.</p>
+              <div class="grade" aria-label="Scored two out of three">2/3<svg viewBox="0 0 84 56" aria-hidden="true"><path class="ink" pathLength="1" d="M66 7C52-1 14 2 6 18c-8 17 14 33 42 32 28-1 38-14 32-27-4-8-15-13-28-14"/></svg></div>
+              <div class="scrawl">solid. now explain<br>attempt six</div>
             </div>
-          </div>
-        </div>
+          </article>
 
-        <div class="flow">
-          <div><span>01</span><h3>Tell it about you</h3><p>Pick a repo, say what it's for, and rate how well you could explain it with the AI closed. A minute, once</p></div>
-          <div><span>02</span><h3>Talk it through</h3><p>One question at a time, out loud. The lines being discussed light up in your code as you go</p></div>
-          <div><span>03</span><h3>It adapts</h3><p>Answer well and it throws a curveball. Stuck, and you get a hint, then a short explanation to put in your own words</p></div>
-          <div><span>04</span><h3>Keep your story</h3><p>What you defended, the one gap to work on, and a one-minute story about the code, built from what you said</p></div>
-        </div>
-
-        <div class="lenses">
-          <p><b>Systems, not syntax.</b> No question asks what a keyword does. Each one looks at your code through one lens</p>
-          <ul>
-            <li>Failure</li><li>Scale</li><li>Trade-off</li><li>Data flow</li><li>Changing requirements</li><li>Operations</li><li>Honesty about gaps</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="rule" id="local">
-      <div class="wrap local">
-        <div>
-          <p class="eyebrow">Runs on your machine</p>
-          <h2>Your code stays where it is</h2>
-          <ul class="points">
-            <li>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              <div><b>Your agent reads the code</b><p>The coding agent you already use reads the file and the code around it, read-only. Your code never reaches us</p></div>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v4l3 2"/><circle cx="12" cy="12" r="9"/></svg>
-              <div><b>It picks what matters</b><p>Your commit history shows which files you change most. Those come first, then the spots you were weakest on come back</p></div>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg>
-              <div><b>Your voice stays here</b><p>Answers are transcribed by Whisper on this machine, and the audio is never stored</p></div>
-            </li>
-          </ul>
-        </div>
-        <div class="terminal" role="img" aria-label="A log of one conversation: the repo read, today's file chosen, the agent's brief, a seven-answer conversation, what was defended and the gap to work on">
-          <div><span class="dim">·</span> payments-api: 214 commits, 38% co-written with AI</div>
-          <div><span class="dim">·</span> today: webhooks/retry.ts, changed 41 times</div>
-          <div><span class="dim">·</span> your agent read it in 24s: 6 questions, 5 lenses</div>
-          <div><span class="dim">·</span> whisper ready on this machine</div>
-          <div><span class="ok">✓</span> 8 min, 7 answers, 1 curveball</div>
-          <div><span class="ok">✓</span> defended: backoff, jitter, why 429 retries</div>
-          <div><span class="warn">!</span> work on: where events go after attempt six</div>
-          <div><span class="ok">✓</span> saved your one-minute story</div>
-          <div class="dim">&nbsp;&nbsp;explain it with the AI closed: 2/5 → 4/5</div>
+          <article class="cell cell-adapt reveal">
+            <h3>It adapts to your answers</h3>
+            <p>Answer well and it throws a curveball. Get stuck and you get a hint, then a short explanation.</p>
+            <div class="turns">
+              <div class="sheet turn"><small>Curveball</small><p>The partner returns 200 but drops the event. Who notices?</p></div>
+              <div class="sheet turn hint"><small>Hint</small><p>Look at what the loop returns after the last attempt.</p></div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="rule" id="install">
       <div class="wrap install">
-        <div>
-          <p class="eyebrow">Free and open source</p>
-          <h2>One command, on your own machine</h2>
-          <p class="sub">No account, no subscription, no server of ours. Slop Academy runs on your computer and talks through the Claude Code you already use</p>
-          <div class="cmd-box"><code>npx slop-academy</code><button class="copy" type="button" data-copy="npx slop-academy">Copy</button></div>
-          <ul class="needs" aria-label="What you need">
-            <li>Node 20 or newer</li>
-            <li>Claude Code, logged in</li>
-            <li>git</li>
-            <li>A microphone, or type your answers</li>
-          </ul>
-          <a class="btn btn-secondary" href="https://github.com/forever8896/slop-academy">Read the code on GitHub</a>
+        <div class="term reveal" role="img" aria-label="The Slop Academy installer in a terminal: the word SLOP spinning in 3D inside a red pen ring, drawn with text characters">
+          <div class="prompt">npx slop-academy</div>
+          <canvas id="spin" height="300"></canvas>
+          <div class="out"><b>ready</b> on this machine. Opening your browser</div>
         </div>
-        <ul class="points">
-          <li>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            <div><b>Nothing to sign up for</b><p>Your profile, streak and recaps are files in ~/.slop-academy on your computer. Delete the folder and it forgets you</p></div>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg>
-            <div><b>Runs on your Claude plan</b><p>The interviewer is your own Claude Code, so your code only goes where your Claude Code sessions already go. Your voice never leaves the machine</p></div>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>
-            <div><b>MIT licensed</b><p>Read it, fork it, run it at work. The scripts and report behind the numbers on this page are in the repo too</p></div>
-          </li>
-        </ul>
+        <div class="reveal">
+          <h2>One command. Nothing leaves your machine</h2>
+          <ul class="facts">
+            <li><b>Your own Claude Code is the interviewer.</b> It reads the repo, read-only.</li>
+            <li><b>Your voice stays here.</b> Speech runs locally and audio is never stored.</li>
+            <li><b>No account.</b> Your progress is a folder you can delete.</li>
+          </ul>
+          <div class="cmd"><code>npx slop-academy</code><button class="btn btn-paper" type="button" data-copy="npx slop-academy">Copy</button></div>
+          <p class="needs">Needs Node 20 or newer, Claude Code and git. MIT licensed, <a href="https://github.com/forever8896/slop-academy">read the code</a></p>
+        </div>
       </div>
     </section>
 
     <section class="rule" id="teams">
-      <div class="wrap">
-        <div class="teams-head">
-          <div>
-            <p class="eyebrow">For engineering teams</p>
-            <h2>Know who can explain the code your team ships with AI</h2>
-          </div>
-          <p class="sub">More of every codebase is written with an agent now. The risk isn't the code, it's the day it breaks and nobody can say why it works the way it does. Slop Academy can run the same conversations across a team, on your own machines</p>
+      <div class="wrap teams">
+        <div class="reveal">
+          <p class="eyebrow">For engineering teams</p>
+          <h2>Know who can explain the code your team ships with AI</h2>
+          <p class="sub">We're setting this up with a few early teams. It runs on your machines, and leads see the team's map, never anyone's transcripts.</p>
+          <a class="btn btn-paper" href="mailto:kilianvaldman@gmail.com?subject=Slop%20Academy%20for%20our%20team&amp;body=Hi%2C%0A%0AWe%27d%20like%20to%20talk%20about%20Slop%20Academy%20for%20our%20team.%0A%0ATeam%20size%3A%0AWhat%20we%20build%2C%20and%20the%20stack%3A%0AWhere%20it%20would%20help%20most%20%28onboarding%2C%20risky%20changes%2C%20knowing%20who%20can%20explain%20what%29%3A%0A">Talk to us<svg class="ic" viewBox="0 0 256 256" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
         </div>
-        <div class="uses">
-          <div><span>Onboarding</span><h3>New hires defend the code that matters</h3><p>In their first weeks, a new engineer talks through the files your team changes most, and comes out able to explain them instead of only having read them</p></div>
-          <div><span>Risky changes</span><h3>Defend the change before it ships</h3><p>For the pull requests that touch payments, auth or data, the author talks it through first: how it fails, what happens at ten times the load</p></div>
-          <div><span>Knowledge risk</span><h3>See what nobody can explain</h3><p>A map of the files only one person, or nobody, can defend, so you know where the next incident will hurt before it happens</p></div>
-        </div>
-        <div class="talk">
-          <div>
-            <h3>We're setting this up with a few early teams</h3>
-            <ul>
-              <li>Runs on your machines with your own Claude key. Your code never reaches us</li>
-              <li>Practice, not surveillance: leads see the team's map, never anyone's transcripts</li>
-              <li>Shaped around how your team works, from onboarding to review</li>
-            </ul>
-          </div>
-          <a class="btn btn-primary" href="mailto:kilianvaldman@gmail.com?subject=Slop%20Academy%20for%20our%20team&amp;body=Hi%2C%0A%0AWe%27d%20like%20to%20talk%20about%20Slop%20Academy%20for%20our%20team.%0A%0ATeam%20size%3A%0AWhat%20we%20build%2C%20and%20the%20stack%3A%0AWhere%20it%20would%20help%20most%20%28onboarding%2C%20risky%20changes%2C%20knowing%20who%20can%20explain%20what%29%3A%0A">Talk to us</a>
-        </div>
+        <ul class="uses reveal">
+          <li><b>Onboarding</b><span>New hires talk through the files your team changes most, in their first weeks.</span></li>
+          <li><b>Risky changes</b><span>The author defends a pull request on payments, auth or data before it ships.</span></li>
+          <li><b>Knowledge risk</b><span>A map of the files only one person, or nobody, can explain.</span></li>
+        </ul>
       </div>
     </section>
 
-    <section class="rule" id="start">
-      <div class="wrap closing">
-        <div>
-          <h2>Pick a file you shipped last month</h2>
-          <p class="sub">If being grilled on it makes you flinch, that's the conversation to have first</p>
-          <div class="cmd-box"><code>npx slop-academy</code><button class="copy" type="button" data-copy="npx slop-academy">Copy</button></div>
-        </div>
-      </div>
-    </section>
-    <section class="rule">
-      <div class="wrap method">
-        <p>° Our own analysis of 7,070 public Reddit and Hacker News posts and comments from January 2025 to October 2026, each labelled by a language model. People post more after a bad interview or a bad week, so read the shares as describing those who talk about it, not every developer. The trends compare the same searches over time</p>
+    <section class="rule closing" id="start">
+      <div class="wrap">
+        <h2 class="reveal">Pick a file you shipped last month</h2>
+        <p class="sub reveal">If being asked about it makes you flinch, start there.</p>
+        <div class="cmd reveal"><code>npx slop-academy</code><button class="btn btn-paper" type="button" data-copy="npx slop-academy">Copy</button></div>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="wrap">
-      <span>© 2026 Slop Academy · MIT licensed</span>
+      <span>© 2026 Slop Academy. MIT licensed.</span>
       <nav aria-label="Footer">
         <a href="#how">How it works</a>
-        <a href="#local">Your machine</a>
-        <a href="#install">Install</a>
         <a href="#teams">Teams</a>
+        <a href="https://github.com/forever8896/slop-academy/blob/main/research/REPORT.md">Research</a>
+        <a href="https://www.npmjs.com/package/slop-academy">npm</a>
         <a href="https://github.com/forever8896/slop-academy">GitHub</a>
       </nav>
     </div>
   </footer>
 
-  <script>
-    // Scale the printout to its column instead of reflowing it: it is an object, not text.
-    const fit = document.querySelector(".print-fit");
-    const stage = document.querySelector(".print-stage");
-    const resize = () => {
-      const scale = Math.min(1, fit.clientWidth / 640);
-      stage.style.transform = `scale(${scale})`;
-      fit.style.height = `${600 * scale}px`;
-    };
-    new ResizeObserver(resize).observe(fit);
+  <audio id="au-q1" src="/audio/q1.mp3" preload="none"></audio>
+  <audio id="au-a1" src="/audio/a1.mp3" preload="none"></audio>
+  <audio id="au-q2" src="/audio/q2.mp3" preload="none"></audio>
+
+  <script type="module">
+    const $ = (id) => document.getElementById(id);
+    const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     // Copy the install command.
     for (const button of document.querySelectorAll("[data-copy]")) {
       button.addEventListener("click", async () => {
-        try { await navigator.clipboard.writeText(button.dataset.copy); button.textContent = "Copied"; } catch { button.textContent = "Select and copy"; }
+        try { await navigator.clipboard.writeText(button.dataset.copy); button.textContent = "Copied"; } catch { button.textContent = "Select it"; }
         setTimeout(() => { button.textContent = "Copy"; }, 1800);
       });
+    }
+
+    // ---------------------------------------------------------------- the conversation, replayed
+    // The page ships with the scored state in its HTML. With motion allowed, the same conversation
+    // plays out in a loop; "Hear it ask" plays it with the app's own local voices.
+    const SCRIPT = {
+      q1: "A partner's endpoint goes down, and 2,000 deliveries fail in the same second. What does this code do next?",
+      a1: "They back off. Half a second, then one, then two, up to thirty. And the jitter spreads them out, so they don't all hit at once.",
+      note: "Right mechanism. You skipped what happens after attempt six.",
+      q2: "Right mechanism. So where do those 2,000 events go when the loop gives up?",
+    };
+    const demo = { run: 0, sound: false };
+    const code = $("d-code"), dock = $("d-dock"), ans = $("d-ans"), dots = [...$("d-dots").children];
+    const hear = $("hear");
+    const audio = { q1: $("au-q1"), a1: $("au-a1"), q2: $("au-q2") };
+
+    const focus = (lines) => { for (const ln of code.children) ln.classList.toggle("hl", lines.includes(+ln.dataset.n)); };
+    const state = (label, mode) => { $("d-state").textContent = label; dock.className = `dock ${mode ?? ""}`; };
+    const stopAudio = () => { for (const a of Object.values(audio)) { a.pause(); a.currentTime = 0; } };
+
+    async function play() {
+      const id = ++demo.run;
+      const live = () => id === demo.run;
+      const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+
+      // Say a line into an element, word by word, in time with the voice when sound is on.
+      async function say(el, text, key, silentMs) {
+        el.innerHTML = text.split(" ").map((w) => `<span class="w">${w}</span>`).join(" ");
+        const words = [...el.children];
+        let ms = silentMs;
+        const a = audio[key];
+        if (demo.sound) {
+          try { a.currentTime = 0; await a.play(); ms = (a.duration || silentMs / 1000) * 1000 * 0.94; } catch { /* no sound: carry on silently */ }
+        }
+        for (const w of words) { if (!live()) return; w.classList.add("on"); await wait(ms / words.length); }
+        if (demo.sound && !a.paused && !a.ended) await new Promise((r) => a.addEventListener("ended", r, { once: true }));
+      }
+
+      while (live()) {
+        // the interviewer asks
+        $("d-tag").textContent = "Interviewer"; $("d-bar").style.width = "34%";
+        ans.classList.add("off"); $("d-xp").classList.add("off"); $("d-note").style.opacity = 0; $("d-a").textContent = "";
+        dots.forEach((d) => d.classList.remove("on"));
+        focus([11, 12, 13, 15, 16]);
+        state("Interviewer speaking", "live");
+        await say($("d-q"), SCRIPT.q1, "q1", 3400); if (!live()) return;
+        await wait(350);
+
+        // you answer out loud
+        ans.classList.remove("off"); state("Listening", "live listening");
+        await say($("d-a"), SCRIPT.a1, "a1", 3600); if (!live()) return;
+
+        // scored
+        state("Scoring", ""); await wait(650); if (!live()) return;
+        dots[0].classList.add("on"); await wait(220); dots[1].classList.add("on"); await wait(260);
+        $("d-note").style.opacity = 1; $("d-xp").classList.remove("off"); $("d-bar").style.width = "50%";
+        state("Scored", ""); await wait(2400); if (!live()) return;
+
+        // the follow-up
+        $("d-tag").textContent = "Follow-up"; ans.classList.add("off"); $("d-xp").classList.add("off");
+        focus([17, 18]); state("Interviewer speaking", "live");
+        await say($("d-q"), SCRIPT.q2, "q2", 2600); if (!live()) return;
+        state("Listening", "live listening"); await wait(3200);
+      }
+    }
+
+    function setSound(on) {
+      demo.sound = on;
+      hear.setAttribute("aria-pressed", String(on));
+      hear.querySelector("span").textContent = on ? "Mute" : "Hear it ask";
+      stopAudio();
+      play();
+    }
+    hear.addEventListener("click", () => setSound(!demo.sound));
+    // Scroll away with the sound on and the voice stops, rather than talking from off screen.
+    new IntersectionObserver(([e]) => { if (!e.isIntersecting && demo.sound) setSound(false); }, { threshold: 0.15 }).observe($("demo"));
+    if (!calm) setTimeout(play, 1400);
+
+    // ---------------------------------------------------------------- the installer's 3D logo
+    // The same renderer the terminal uses (lib/spin3d.mjs), drawn onto a canvas.
+    const cv = $("spin");
+    const { frame, fit } = await import("/spin3d.mjs");
+    const ctx = cv.getContext("2d");
+    const { cols, rows } = fit(84, 40);
+    let cell = 0;
+    const layout = () => {
+      const dpr = Math.min(devicePixelRatio || 1, 2);
+      const w = cv.clientWidth;
+      cell = w / cols;
+      cv.style.height = `${rows * cell * 2}px`;
+      cv.width = Math.round(w * dpr); cv.height = Math.round(rows * cell * 2 * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.font = `${cell / 0.6}px "Geist Mono", ui-monospace, monospace`;
+      ctx.textBaseline = "top";
+    };
+    const draw = (t) => {
+      ctx.clearRect(0, 0, cv.width, cv.height);
+      const lines = frame(t, cols, rows);
+      for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+        const px = lines[r][c];
+        if (!px) continue;
+        ctx.fillStyle = `rgb(${px[1][0]},${px[1][1]},${px[1][2]})`;
+        ctx.fillText(px[0], c * cell, r * cell * 2);
+      }
+    };
+    let seen = false, last = 0;
+    const tick = (now) => {
+      if (seen && now - last > 33) { last = now; draw(now / 1000); }
+      requestAnimationFrame(tick);
+    };
+    await document.fonts.ready;
+    layout(); draw(1.2);
+    new ResizeObserver(() => { layout(); draw(performance.now() / 1000); }).observe(cv);
+    if (!calm) {
+      new IntersectionObserver(([e]) => { seen = e.isIntersecting; }).observe(cv);
+      requestAnimationFrame(tick);
     }
   </script>
 </body>
